@@ -1,0 +1,9 @@
+form.login select {
+	text-align-last: center;
+}
+form.login .language-switcher select{
+	border: none;
+	width: auto;
+	display: inline-block;
+	background: none;
+}

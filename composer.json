@@ -1,0 +1,20 @@
+{
+    "name": "racztiborzoltan/daizy",
+    "description": "Lightweight Minimal Material Admin Dashboard",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Rácz Tibor Zoltán",
+            "email": "racztiborzoltan@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Daizy\\": "source/classes/"
+        }
+    },
+    "require": {
+        "php": "^7.1"
+    }
+}

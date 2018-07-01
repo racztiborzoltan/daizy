@@ -1,0 +1,50 @@
+.admin-navbar .language-switcher {
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+}
+
+.admin-navbar .language-switcher select {
+/* 	padding: 0; */
+/* 	height: auto !important; */
+	width: 1.5em;
+	height: auto !important;
+	text-align-last: center;
+	text-align: center;
+	background: none;
+	color: inherit;
+}
+
+.admin-navbar .language-switcher select:focus, 
+.admin-navbar .language-switcher select:active {
+	background-image: linear-gradient(to top, rgba(0, 0, 0, 0.26) 1px, transparent 1px), linear-gradient(to top, rgba(0, 0, 0, 0.26) 1px, transparent 1px); 
+}
+
+.admin-navbar .module-search-menu-item {
+	flex-grow: 2;
+}
+
+.admin-navbar label {
+	cursor: pointer;
+}
+
+@media (max-width: 575px) {
+	.admin-navbar .language-switcher select {
+		text-align-last: left;
+		text-align: left;
+		width: 100%;
+	}
+}
+
+.dashboard footer {
+	line-height: 1;
+}
+.dashboard footer code.copyright {
+	font-size: 50%;
+	vertical-align: text-bottom;
+	color: transparent;
+}
+
+.admin-modules .module-name {
+	white-space: normal;
+}
