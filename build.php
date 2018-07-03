@@ -1,7 +1,6 @@
 <?php
 
 use Daizy\SiteBuild;
-use Daizy\Template;
 
 require_once 'vendor/autoload.php';
 
@@ -9,6 +8,11 @@ $page_type = $_GET['page_type'] ?? '';
 
 $sitebuild = new SiteBuild();
 $sitebuild->setPageType($page_type);
+$sitebuild->setTemplateDir(__DIR__.'/source/templates/plates');
+
+$sitebuild->setVariable('baseHref', '../dist');
+$sitebuild->setVariable('feather_icons_dir', realpath(__DIR__.'/source/assets/daizy/feather-4.7.3/icons'));
+
 
 //
 // page type validation:
@@ -17,28 +21,17 @@ try {
     $sitebuild->getPageType();
 } catch (\LogicException $e) {
     header('HTTP/1.0 404 SiteBuild Not Found');
-    foreach ($sitebuild::VALID_PAGE_TYPES as $page_type) {
+    foreach ($sitebuild->getValidPageTypes() as $page_type) {
         echo '<a href="'.$_SERVER['SCRIPT_NAME'].'?page_type='.rawurlencode($page_type).'">'.$page_type.'</a><br />'.PHP_EOL;
     }
     exit();
 }
 
-$template = new Template();
-$template->setTemplatePath(__DIR__.'/source/templates/template.php');
-
-$sitebuild->setTemplate($template);
-
 $source_dir = __DIR__.'/source';
 
 $destination_dir = __DIR__.'/dist';
-if (is_dir($destination_dir)) {
-    delTree($destination_dir);
-    if (!is_dir($destination_dir)) {
-        mkdir($destination_dir, 0777, true);
-    }
-}
 // copy "assets" directory content:
-rcopy($source_dir.'/assets', $destination_dir.'/assets');
+// rcopy($source_dir.'/assets', $destination_dir.'/assets');
 
 $content = $sitebuild->build();
 
@@ -67,6 +60,23 @@ function delTree($dir, $remove_empty_dir = false) {
         return rmdir($dir);
     }
     return true;
+}
+
+/**
+ * removes files and non-empty directories
+ *
+ * Original source: http://php.net/manual/en/function.copy.php#104020
+ *
+ * @param string $dir
+ */
+function rrmdir($dir) {
+    if (is_dir($dir)) {
+        $files = scandir($dir);
+        foreach ($files as $file)
+            if ($file != "." && $file != "..") rrmdir("$dir/$file");
+            rmdir($dir);
+    }
+    else if (file_exists($dir)) unlink($dir);
 }
 
 /**
