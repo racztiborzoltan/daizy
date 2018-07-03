@@ -31,9 +31,10 @@ $source_dir = __DIR__.'/source';
 
 $destination_dir = __DIR__.'/dist';
 // copy "assets" directory content:
-// rcopy($source_dir.'/assets', $destination_dir.'/assets');
+rcopy($source_dir.'/assets', $destination_dir.'/assets');
 
 $content = $sitebuild->build();
+$content = trim($content);
 
 $content = preg_replace('#(\w*=")(assets/.*?")#i', '$1dist/$2', $content);
 

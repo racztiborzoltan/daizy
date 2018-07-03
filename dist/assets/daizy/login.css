@@ -1,0 +1,32 @@
+.login-area {
+	margin-top: 10vh;
+	text-align: center;
+	display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-area form {
+	background-color: transparent;
+	border: none;
+	display: block;
+	width: 100%;
+}
+
+.login-area input {
+	border-radius: 0;
+	border-top: none;
+	border-left: none;
+	border-right: none;
+	text-align: center;
+}
+
+.login-area .language-switcher select {
+    border: none;
+    cursor: pointer;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: transparent;
+}

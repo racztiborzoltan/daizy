@@ -14,7 +14,7 @@ class SiteBuild
     {
         $template_dir = $this->getTemplateDir();
         $files = scandir($template_dir);
-        $files = array_diff($files, ['.', '..', 'daizy_html_layout.php']);
+        $files = array_diff($files, ['.', '..', 'daizy_html_layout.php', 'daizy_html_layout_old.php']);
         $valid_page_types = [];
         foreach ($files as $file) {
             if (substr($file, -4) !== '.php') {

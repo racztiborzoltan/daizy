@@ -15,9 +15,15 @@
   --a-visited-color: #01579b;
   
   --background-color: var(--back-color);
+  --link-color: var(--a-link-color);
+  --visited-link-color: var(--a-link-color);
 }
 
-.scripts + noscript {
+html, body {
+	height: 100%;
+}
+
+noscript[data-show="true"] {
 	display: block;
 	position: fixed;
 	top: 0;
@@ -160,4 +166,31 @@ main .collapse>:checked+label+div{
     width: initial;
     margin: 0 0em;
     max-width: initial;
+}
+
+.block {
+	display: block;
+	width: 100%;
+}
+
+
+a.button.link {
+	background-color: transparent;
+	border: none;
+	color: var(--a-link-color);
+}
+
+.page-wrapper.not-found-page{
+/*     position: fixed; */
+/*     z-index: 99999; */
+/*     top: 0; */
+/*     left: 0; */
+/*     right: 0; */
+/*     bottom: 0; */
+    height: 100%;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    background-color: var(--back-color);
 }

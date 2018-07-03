@@ -5,6 +5,11 @@
 $baseHref = $this->data['baseHref'] ?? null;
 ?>
 
+<?php $this->start('header_title');?>
+	<title>Daizy Minimalistic Admin Template</title>
+<?php $this->stop();?>
+
+
 <!DOCTYPE html>
 <!-- Daizy Minimalistic Admin Template -->
 <html lang="hu">
@@ -27,15 +32,10 @@ $baseHref = $this->data['baseHref'] ?? null;
 			<?php echo $this->section('header_javascript')?>
 		<?php endif;?>
 	</head>
-	<body class="container">
-    	<div class="page-loader">
-    		<div class="spinner primary"></div>
-    	</div>
+	<body>
 		<?=$this->section('content')?>
-		<div class="scripts">
 		<?php if ($this->section('body_javascript')):?>
 			<?php echo $this->section('body_javascript')?>
 		<?php endif;?>
-		</div>
 	</body>
 </html>

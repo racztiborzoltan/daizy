@@ -117,7 +117,7 @@
 		//
 		// Remove page loader:
 		//
-		var page_loader = document.querySelector('body .page-wrapper > .page-loader');
+		var page_loader = document.querySelector('body > .page-loader');
 		if (!page_loader) {
 			return;
 		}

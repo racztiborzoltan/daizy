@@ -3,7 +3,7 @@
  * @var \League\Plates\Template\Template $this
  */
 ?>
-<?php $this->layout('daizy_html_layout', ['title' => 'Login page']) ?>
+<?php $this->layout('daizy_html_layout_old', ['title' => 'Login page']) ?>
 
 
 <?php $this->start('header_css');?>
