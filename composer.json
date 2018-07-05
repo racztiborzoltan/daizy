@@ -16,6 +16,9 @@
     },
     "require": {
         "php": "^7.1",
-        "league/plates": "^3.3"
+        "spatie/array-to-xml": "^2.7",
+        "gajus/dindent": "^2.0",
+        "genkgo/xsl": "^0.6.7",
+        "leafo/scssphp": "^0.7.6"
     }
 }
