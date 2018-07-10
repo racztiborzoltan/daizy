@@ -1,6 +1,41 @@
+// =============================================================================
+// Daizy Common JavaScripts
+//
 (function(window, document){
 
-	function onDomReady(callback) {
+	// -------------------------------------------------------------------------
+	// String.removeAccents method
+	//
+	if (!String.prototype.removeAccents) {
+		String.prototype.removeAccents = function () {
+			return removeAccents(this);
+		};
+	}
+	/**
+	 * Remove accents from source
+	 *
+	 * Original source: https://gist.github.com/alisterlf/3490957
+	 */
+	function removeAccents(strAccents) {
+		strAccents = strAccents.split('');
+		var strAccentsOut = new Array();
+		var strAccentsLen = strAccents.length;
+		var accents = 'ÀÁÂÃÄÅàáâãäåÒÓÔÕÕÖØòóôõöøÈÉÊËèéêëðÇçÐÌÍÎÏìíîïÙÚÛÜùúûüÑñŠšŸÿýŽž';
+		var accentsOut = "AAAAAAaaaaaaOOOOOOOooooooEEEEeeeeeCcDIIIIiiiiUUUUuuuuNnSsYyyZz";
+		for (var y = 0; y < strAccentsLen; y++) {
+			if (accents.indexOf(strAccents[y]) != -1) {
+				strAccentsOut[y] = accentsOut.substr(accents.indexOf(strAccents[y]), 1);
+			} else
+				strAccentsOut[y] = strAccents[y];
+		}
+		strAccentsOut = strAccentsOut.join('');
+		return strAccentsOut;
+	}
+	// -------------------------------------------------------------------------
+
+	var Daizy = {};
+
+	Daizy.onDomReady = function(callback) {
 		//
 		// original: https://plainjs.com/javascript/events/running-code-when-the-document-is-ready-15/
 		//
@@ -14,15 +49,16 @@
 		});
 	}
 
-	function onWindowLoad(callback) {
+	Daizy.onWindowLoad = function (callback) {
 		window.addEventListener('load', callback)
 	}
+
 
 	/**
 	 * Egy DOM elem CSS transition művelet vége eseményére lehet eseménykezelőt
 	 * felcsatolni!
 	 */
-	function onTransitionEnd(element, callback) {
+	Daizy.onTransitionEnd = function (element, callback) {
 
 		// Function from David Walsh: http://davidwalsh.name/css-animation-callback
 		function whichTransitionEvent(){
@@ -52,6 +88,7 @@
 		});
 	}
 
+
 	/**
 	 * DOM elemhez esemény csatolása megadott számú végrehajtási számmal
 	 *
@@ -60,7 +97,7 @@
 	 * @param integer times hányszor kell lefutnia az eseménynek
 	 * @param callback
 	 */
-	function onTimes(element, event, times, callback) {
+	Daizy.onTimes = function (element, event, times, callback) {
 		var times_counter = 0;
 		element.addEventListener(event, function (e) {
 			times_counter = times_counter + 1;
@@ -78,20 +115,21 @@
 	 * @param string event esemény neve
 	 * @param callback
 	 */
-	function onOnce(element, event, callback) {
-		onTimes(element, event, 1, callback);
+	Daizy.onOnce = function (element, event, callback) {
+		Daizy.onTimes(element, event, 1, callback);
 	}
+
 
 	// helper for enabling IE 8 event bindings
 	// original source: https://plainjs.com/javascript/events/live-binding-event-handlers-14/
-	function addEvent(el, type, handler) {
+	Daizy.addEvent = function (el, type, handler) {
 	    if (el.attachEvent) el.attachEvent('on'+type, handler); else el.addEventListener(type, handler);
 	}
 
 	// live binding helper using matchesSelector
 	// original source: https://plainjs.com/javascript/events/live-binding-event-handlers-14/
-	function onLive(selector, event, callback, context) {
-	    addEvent(context || document, event, function(e) {
+	Daizy.onLive = function (selector, event, callback, context) {
+	    Daizy.addEvent(context || document, event, function(e) {
 	        var found, el = e.target || e.srcElement;
 	        while (el && el.matches && el !== context && !(found = el.matches(selector))) el = el.parentElement;
 	        if (found) callback.call(el, e);
@@ -99,7 +137,7 @@
 	}
 
 	// original source: https://plainjs.com/javascript/events/trigger-an-event-11/
-	function triggerEvent(el, type){
+	Daizy.triggerEvent = function (el, type){
 		if ('createEvent' in document) {
 			// modern browsers, IE9+
 			var e = document.createEvent('HTMLEvents');
@@ -113,7 +151,14 @@
 		}
 	}
 
-	onWindowLoad(function(event){
+	window.Daizy = Daizy;
+}).call(this, window, window.document);
+// =============================================================================
+
+// =============================================================================
+// Remove page loader
+(function(window, document){
+	Daizy.onWindowLoad(function(event){
 		//
 		// Remove page loader:
 		//
@@ -121,94 +166,11 @@
 		if (!page_loader) {
 			return;
 		}
-		onTransitionEnd(page_loader, function(){
+		Daizy.onTransitionEnd(page_loader, function(){
 			this.remove();
 		});
-		page_loader.classList.add('animation-fade-out');
+		page_loader.classList.add('fade-out');
 		//		page_loader ? page_loader.remove() : null;
 	});
-
-	/**
-	 * Egy keresés indítása a fejlécben lévő keresőmezővel
-	 */
-	function start_header_search(term)
-	{
-		search_input.value = term;
-		triggerEvent(search_input, 'keyup');
-	}
-
-	var search_form = document.querySelector('header form.search') || document.createElement('form');
-	var search_input = document.querySelector('header .search input[type="search"]') || document.createElement('input');
-	search_input.addEventListener('keyup', function (e) {
-		if (typeof this.prev_value == 'undefined') {
-			this.prev_value = null;
-		}
-		if (this.prev_value === this.value) {
-			return;
-		}
-		this.prev_value = this.value;
-
-		var term = this.value;
-		var elements = document.querySelectorAll('main .collapse label .caption');
-
-		for (var i = 0; i < elements.length; i++) {
-			var element = elements[i];
-			var closest_label = element.closest('label') || document.createElement('label');
-			// Ha van találat, vagy ha üres a kereső mező értéke, akkor látszik az aktuális elem:
-			if (element.textContent.toLowerCase().indexOf(term.toLowerCase()) > -1) {
-				closest_label.removeAttribute('hidden');
-			} else {
-				closest_label.setAttribute('hidden', '');
-			}
-		}
-	});
-
-	onLive('.maximize-section', 'click', function(e){
-		// stop the immediate action of this event
-		e.preventDefault();
-		// prevent the event fro bubbling up
-		e.stopPropagation();
-
-		var clicked_element = this;
-		var closest_label = clicked_element.closest('label') || document.createElement('label');
-		var closest_label_text = closest_label.textContent.trim();
-
-		var label_prev_input = closest_label.previousElementSibling;
-
-		if (!clicked_element.getAttribute('data-maximized')) {
-
-			//
-			// ha maximalizálni kell a megfelelő collapse szekciót:
-			//
-
-			label_prev_input.maximized_before_maximize = label_prev_input.checked == true;
-			// ha nincs nyitva a megfelelő collapse szekció, akkor be kell kattintani:
-			if (!label_prev_input.checked) {
-				label_prev_input.setAttribute('checked', 'checked');
-				label_prev_input.checked = true;
-			}
-
-			start_header_search(closest_label_text);
-			clicked_element.setAttribute('data-maximized', 'true');
-			document.body.setAttribute('data-collapse-section-maximized', '');
-		} else {
-
-			//
-			// ha vissza kell állítani a megfelelő collapse szekciót:
-			//
-
-			start_header_search('');
-			clicked_element.removeAttribute('data-maximized');
-			document.body.removeAttribute('data-collapse-section-maximized');
-			// Ha nem volt a maximalizálás előtt megnyitva a collapse szekció,
-			// akkor visszaállítás után sem kell nyitva lennie:
-			if (!label_prev_input.maximized_before_maximize) {
-				label_prev_input.removeAttribute('checked');
-				label_prev_input.checked = false;
-			}
-		}
-
-		return false;
-	}, document.querySelector('main .collapse'));
-
-})(window, window.document);
+}).call(this, window, window.document);
+// =============================================================================

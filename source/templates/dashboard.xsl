@@ -1,20 +1,30 @@
 <xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 	<xsl:import href="includes/daizy_html_layout.xsl" />
-	<xsl:output method="html" encoding="utf-8" indent="yes" omit-xml-declaration="no"/>
 	
-	<xsl:param name="head_title" select="'Login Page'" />
+	<xsl:param name="head_title" select="'Dashboard Page'" />
+	
+	<xsl:param name="copyright_text" select="' DaiZy Html Template v0.0.0'"/>
+
 	
 	<xsl:template match="head_css">
 		<xsl:apply-imports/>
-		<link rel="stylesheet" href="assets/daizy/dashbaord.css"/>
+		
+		<!-- login.css fájl másolása -->
+		<xsl:variable name="dashboard_css_path">assets/daizy/dashboard.css</xsl:variable>
+		<xsl:value-of select="php:function('\Daizy\SiteBuildHelper::copyFile', $dashboard_css_path)"/>
+		<link rel="stylesheet" href="{$dashboard_css_path}"/>
 	</xsl:template>
 
 	
 	<xsl:template match="body_javascript">
 		<xsl:apply-imports/>
-		<script src="assets/daizy/dashboard.js" type="text/javascript"></script>
+		
+		<!-- dashboard.js fájl másolása -->
+		<xsl:variable name="dashboard_js_path">assets/daizy/dashboard.js</xsl:variable>
+		<xsl:value-of select="php:function('\Daizy\SiteBuildHelper::copyFile', $dashboard_js_path)"/>
+		<script src="{$dashboard_js_path}" type="text/javascript"></script>
 	</xsl:template>
-	
+
 
 	<xsl:template name="body_content">
 		<div class="page-wrapper col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 col-sm-12">
@@ -22,9 +32,8 @@
 				<form class="search" onsubmit="return false;">
 					<input type="search" placeholder="Search..."/>
 				</form>
-
 				<label for="drawer-control" class="drawer-toggle"></label>
-
+				
 				<input type="checkbox" id="drawer-control" class="drawer"/>
 				<div>
 					<label for="drawer-control" class="drawer-close"></label>
@@ -51,16 +60,16 @@
 						<span class="icon-link"></span>
 						<span class="caption">Logout</span>
 					</a>
-				</div>
+				</div>			
 			</header>
-
+		
 			<main>
 				<div class="collapse">
 					<input type="checkbox" id="collapse-section-dashboard" aria-hidden="true"/>
 					<label for="collapse-section-dashboard" aria-hidden="true">
 						<span class="caption">Dashboard</span>
 						<a href="#" class="icon-svg float-right maximize-section">
-							<?php echo file_get_contents($feather_icons_dir.'/maximize-2.svg')?>
+							<xsl:call-template name="feather-icon-maximize-2"/>
 						</a>
 					</label>
 					<div>
@@ -76,7 +85,7 @@
 					<label for="collapse-section-tables" aria-hidden="true">
 						<span class="caption">Tables</span>
 						<a href="#" class="icon-svg float-right maximize-section">
-							<?php echo file_get_contents($feather_icons_dir.'/maximize-2.svg')?>
+							<xsl:call-template name="feather-icon-maximize-2"/>
 						</a>
 					</label>
 					<div>
@@ -211,7 +220,7 @@
 					<label for="collapse-section-forms" aria-hidden="true">
 						<span class="caption">Forms</span>
 						<a href="#" class="icon-svg float-right maximize-section">
-							<?php echo file_get_contents($feather_icons_dir.'/maximize-2.svg')?>
+							<xsl:call-template name="feather-icon-maximize-2"/>
 						</a>
 					</label>
 					<div>
@@ -249,8 +258,8 @@
 
 			<footer class="text-center">
 				<tt class="copyright">
-					<small title="<?php echo $copyright_text = '&copy; DaiZy Html Template v0.0.0'?>" class="caption">
-						<?php echo $copyright_text?>
+					<small class="caption">
+						<xsl:value-of select="$copyright_text"/>
 					</small>
 				</tt>
 			</footer>

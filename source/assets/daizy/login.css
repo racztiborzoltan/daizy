@@ -1,25 +1,47 @@
 .login-area {
+	height: 100%;
 	margin-top: 10vh;
 	text-align: center;
-	display: flex;
-    align-content: center;
-    align-items: center;
-    justify-content: center;
+	justify-content: center;
+}
+
+.login-area .collapse>:checked+label+div{
+	background-color: transparent;
+	border: none;
+}
+.login-area .collapse > label {
+	justify-content: center;
+}
+.login-area .collapse > label + div {
+	overflow: hidden;
 }
 
 .login-area form {
 	background-color: transparent;
 	border: none;
+	text-align: center;
 	display: block;
-	width: 100%;
+}
+
+.login-area .button.link{
+	background-color: transparent;
+	border-color: transparent;
+	cursor: pointer;
+	color: var(--link-color);
+}
+.login-area .button.link:hover,
+.login-area .button.link:focus{
+	text-decoration: underline;
+	color: var(--visited-link-color);
 }
 
 .login-area input {
-	border-radius: 0;
+	width: 100%;
+	text-align: center;
+	outline: none;
 	border-top: none;
 	border-left: none;
 	border-right: none;
-	text-align: center;
 }
 
 .login-area .language-switcher select {
@@ -29,4 +51,15 @@
     -webkit-appearance: none;
     appearance: none;
     background-color: transparent;
+}
+
+.login-area :placeholder-shown{
+	text-align: center;
+}
+.login-area :placeholder-shown:hover{
+	font-style: italic;
+}
+.login-area :placeholder-shown:focus{
+	font-weight: bold;
+	font-style: normal;
 }

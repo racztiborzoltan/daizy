@@ -4,16 +4,34 @@ namespace Daizy;
 class SiteBuild
 {
 
+    /**
+     * @var string
+     */
     private $_source_dir = null;
 
+    /**
+     * @var string
+     */
     private $_destination_dir = null;
 
+    /**
+     * @var string
+     */
     private $_template_dir = null;
 
+    /**
+     * @var string
+     */
     private $_page_type = null;
 
+    /**
+     * @var array
+     */
     private $_variables = [];
 
+    /**
+     * @var \Leafo\ScssPhp\Compiler
+     */
     private $_scss_compiler = null;
 
     public function getSourceDir(): string
@@ -80,6 +98,10 @@ class SiteBuild
         return $this;
     }
 
+    /**
+     * @throws \LogicException
+     * @return string
+     */
     public function getPageType()
     {
         if (empty($this->_page_type)) {
@@ -284,10 +306,14 @@ class SiteBuild
         return $this;
     }
 
+    /**
+     * @return \Leafo\ScssPhp\Compiler
+     */
     public function getScssCompiler(): \Leafo\ScssPhp\Compiler
     {
         if (empty($this->_scss_compiler)) {
             $this->_scss_compiler = new \Leafo\ScssPhp\Compiler();
+            $this->_scss_compiler->setFormatter(new \Leafo\ScssPhp\Formatter\Expanded());
         }
         return $this->_scss_compiler;
     }
@@ -295,7 +321,6 @@ class SiteBuild
     public function compileScssFileToString(string $scss_file_path): string
     {
         $scss = $this->getScssCompiler();
-        $scss->setFormatter(new \Leafo\ScssPhp\Formatter\Expanded());
         return $scss->compile(file_get_contents($scss_file_path));
     }
 
@@ -328,6 +353,7 @@ class SiteBuild
 
         $proc = new \Genkgo\Xsl\XsltProcessor();
         $proc->importStylesheet($xsl_document);
+        $proc->registerPHPFunctions();
         $dom_document = $proc->transformToDoc($xml_document);
         $dom_document->formatOutput = true;
         $dom_document->preserveWhiteSpace = false;
@@ -345,7 +371,6 @@ class SiteBuild
 
     public function build(): string
     {
-        $this->_compileScss();
         return $this->_buildPageType($this->getPageType());
     }
 }

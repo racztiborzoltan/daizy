@@ -1,12 +1,18 @@
 <xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+	<xsl:output method="html" encoding="utf-8" indent="yes" omit-xml-declaration="yes"/>
 	
-	<xsl:param name="head_title" select="'404 Page'" />
+	<xsl:param name="head_title" select="'DaiZy Minimalistic Admin Template'" />
 	
 	<xsl:template match="head_css">
-		<link rel="stylesheet" href="assets/daizy//mini.css-3.0.0/dist/mini-default.min.css"/>
-		<link rel="stylesheet" href="assets/daizy/basscss-8.0.2/basscss.min.css"/>
-		<link rel="stylesheet" href="assets/daizy/mini-css-plus.css"/>
-		<link rel="stylesheet" href="assets/daizy/daizy.css"/>
+		<!-- mini css fájl átmásolása a cél helyre -->
+		<xsl:variable name="mini_css_path">assets/vendor/mini.css-3.0.0/dist/mini-default.min.css</xsl:variable>
+		<xsl:value-of select="php:function('\Daizy\SiteBuildHelper::copyFile', $mini_css_path)"/>
+		<link rel="stylesheet" href="{$mini_css_path}"/>
+		
+		<!-- "assets/daizy/daizy.min.css" fájl átmásolása a cél helyre -->
+		<xsl:variable name="daizy_css_path">assets/daizy/daizy.min.css</xsl:variable>
+		<xsl:value-of select="php:function('\Daizy\SiteBuildHelper::copyFile', $daizy_css_path)"/>
+		<link rel="stylesheet" href="{$daizy_css_path}"/>
 	</xsl:template>
 	
 	
@@ -14,25 +20,35 @@
 	</xsl:template>
 	
 	<xsl:template match="body_javascript">
-		<noscript data-show="true">Javascript disabled!</noscript>
-		<script src="assets/daizy/umbrella-2.10.2/umbrella.min.js" type="text/javascript"></script>
-		<script src="assets/daizy/daizy.js" type="text/javascript"></script>
-	</xsl:template>
+		<noscript class="nojs">Javascript disabled!</noscript>
+			<script src="https:////cdn.polyfill.io/v2/polyfill.min.js"></script>
+<!-- 		<script src="assets/daizy/umbrella-2.10.2/umbrella.min.js" type="text/javascript"></script> -->
 
-	<xsl:template name="feather_icon">
-<!-- 		<xsl:if test="$icon = ''"> -->
-<!-- 			<xsl:message terminate="yes"> -->
-<!-- 				Error: Artist is an empty string! -->
-<!-- 			</xsl:message> -->
-<!-- 		</xsl:if> -->
-		<xsl:param name="icon"></xsl:param>
-		<xsl:variable name="icon_path" select="concat(/variables/feather_icons_dir, '/', $icon, '.svg')"></xsl:variable>
-		<xsl:value-of select="$icon_path"/>
-		<xsl:value-of select="document('D:/PortableApps/www/Z/daizy/dev/source/assets/daizy/feather-4.7.3/icons/maxinmize.svg')"/>
-<!-- 		<xsl:value-of select="unparsed-text('D:\PortableApps\www\Z\daizy\dev\source\assets\daizy\feather-4.7.3\icons\maxinmize.svg')"/> -->
-<!-- 		$feather_icons_dir.'/maximize-2.svg -->
+		<!-- daizy.js fájl átmásolása a cél helyre -->
+		<xsl:variable name="daizy_js_path">assets/daizy/daizy.js</xsl:variable>
+		<xsl:value-of select="php:function('\Daizy\SiteBuildHelper::copyFile', $daizy_js_path)"/>
+		<script src="{$daizy_js_path}" type="text/javascript"></script>
 	</xsl:template>
 	
+	<xsl:template name="feather-icon-maximize-2">
+		<svg
+			xmlns="http://www.w3.org/2000/svg"
+			width="24"
+			height="24"
+			viewBox="0 0 24 24"
+			fill="none"
+			stroke="currentColor"
+			stroke-width="2"
+			stroke-linecap="round"
+			stroke-linejoin="round"
+		>
+			<polyline points="15 3 21 3 21 9" />
+			<polyline points="9 21 3 21 3 15" />
+			<line x1="21" y1="3" x2="14" y2="10" />
+			<line x1="3" y1="21" x2="10" y2="14" />
+		</svg> 	
+	</xsl:template>
+
 	<!-- 
 	HTML body tartalmat előállítás sablon, ami névvel van ellátva
 	-->	
@@ -57,13 +73,10 @@
 				<xsl:apply-templates select="head_css"></xsl:apply-templates>
 			</head>
 			<body class="container">
-				<xsl:call-template name="feather_icon">
-					<xsl:with-param name="icon" select="'maximize'"/>
-				</xsl:call-template>
 				<div class="page-loader">
 					<div class="spinner primary"></div>
 				</div>
-				
+             
 				<xsl:call-template name="body_content"/>
 				
 				<div class="scripts">
