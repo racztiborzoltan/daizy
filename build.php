@@ -41,7 +41,6 @@ $scss_file_dir = dirname($scss_file_path);
 $scss_compiler = $sitebuild->getScssCompiler();
 $scss_compiler->setFormatter(new \Leafo\ScssPhp\Formatter\Compressed());
 $scss_compiler->addImportPath(dirname($scss_file_path));
-$scss_compiler->addImportPath(dirname($scss_file_path). '/../../mini.css-3.0.0/src/flavors');
 // Ez azért, hogy a sima css fájlok is bekerüljenek az egyesített fájlba teljes tartalommal:
 $scss_compiler->addImportPath(function($path) use ($scss_file_dir) {
     $path = $scss_file_dir . '/' . $path;
@@ -52,6 +51,8 @@ $scss_compiler->addImportPath(function($path) use ($scss_file_dir) {
 $sitebuild->compileScssFileToFile($scss_file_path, __DIR__ . '/source/assets/daizy/daizy.min.css');
 
 SiteBuildHelper::setSiteBuild($sitebuild);
+
+$sitebuild->clearDestinationDirectory($sitebuild->getDestinationDir());
 
 $content = $sitebuild->build();
 // $content = preg_replace('#(\w*=")(assets/.*?")#i', '$1dist/$2', $content);

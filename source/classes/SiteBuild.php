@@ -300,6 +300,31 @@ class SiteBuild
         }
     }
 
+    /**
+     * Remove all content in destination directory
+     */
+    public function clearDestinationDirectory()
+    {
+        $destination_dir = $this->getDestinationDir();
+
+        $dir_items = new \RecursiveIteratorIterator(new \RecursiveDirectoryIterator($destination_dir), \RecursiveIteratorIterator::CHILD_FIRST);
+        foreach($dir_items as $item){
+            /**
+             * @var \SplFileInfo $item
+             */
+            if (in_array($item->getFilename(), ['.', '..'])) {
+                continue;
+            }
+
+            if ($item->isFile()) {
+                unlink($item->getPathname());
+            }
+            if ($item->isDir()) {
+                rmdir($item->getPathname());
+            }
+        }
+    }
+
     public function setScssCompiler(\Leafo\ScssPhp\Compiler $scss_compiler)
     {
         $this->_scss_compiler = $scss_compiler;

@@ -13,7 +13,7 @@
 	</xsl:template>
 
 	<xsl:template name="body_content">
-		<main class="page-wrapper not-found-page col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 col-sm-12">
+		<main class="page-wrapper not-found-page mt-auto">
 			<h1>404 - Page Not Found</h1>
 		</main>
 	</xsl:template>

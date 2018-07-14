@@ -1,65 +1,54 @@
-.login-area {
-	height: 100%;
-	margin-top: 10vh;
+.authentication-area {
+	padding-top: 10vh;
 	text-align: center;
 	justify-content: center;
 }
 
-.login-area .collapse>:checked+label+div{
-	background-color: transparent;
-	border: none;
-}
-.login-area .collapse > label {
-	justify-content: center;
-}
-.login-area .collapse > label + div {
-	overflow: hidden;
-}
-
-.login-area form {
+.authentication-area form {
 	background-color: transparent;
 	border: none;
 	text-align: center;
 	display: block;
 }
 
-.login-area .button.link{
-	background-color: transparent;
-	border-color: transparent;
-	cursor: pointer;
-	color: var(--link-color);
-}
-.login-area .button.link:hover,
-.login-area .button.link:focus{
-	text-decoration: underline;
-	color: var(--visited-link-color);
-}
-
-.login-area input {
-	width: 100%;
+.authentication-area form input {
 	text-align: center;
+/* 	border: none; */
+	background-color: transparent;
 	outline: none;
 	border-top: none;
 	border-left: none;
 	border-right: none;
 }
+.authentication-area form select:focus,
+.authentication-area form input:focus {
+	background-color: transparent;
+	outline: none;
+	box-shadow: none;
+}
 
-.login-area .language-switcher select {
-    border: none;
+.authentication-area .language-switcher select {
+	width: auto;
+	margin: auto;
+	text-align: center;
+	border: none;
     cursor: pointer;
     -moz-appearance: none;
     -webkit-appearance: none;
     appearance: none;
     background-color: transparent;
 }
+.authentication-area .language-switcher select:focus {
+	text-decoration: underline;
+}
 
-.login-area :placeholder-shown{
+.authentication-area :placeholder-shown{
 	text-align: center;
 }
-.login-area :placeholder-shown:hover{
+.authentication-area :placeholder-shown:hover{
 	font-style: italic;
 }
-.login-area :placeholder-shown:focus{
+.authentication-area :placeholder-shown:focus{
 	font-weight: bold;
 	font-style: normal;
 }

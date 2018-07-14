@@ -24,16 +24,17 @@
 		this.prev_value = this.value;
 
 		var term = this.value;
-		var elements = document.querySelectorAll('main .collapse label .caption');
+		var elements = document.querySelectorAll('.menu-contents .menu-content-header .caption');
 
 		for (var i = 0; i < elements.length; i++) {
 			var element = elements[i];
-			var closest_label = element.closest('label') || document.createElement('label');
+			var closest_menu_content = element.closest('.menu-content') || document.createElement('div');
+
 			// Ha van találat, vagy ha üres a kereső mező értéke, akkor látszik az aktuális elem:
 			if (element.textContent.toLowerCase().removeAccents().indexOf(term.toLowerCase().removeAccents()) > -1) {
-				closest_label.removeAttribute('hidden');
+				closest_menu_content.removeAttribute('hidden');
 			} else {
-				closest_label.setAttribute('hidden', '');
+				closest_menu_content.setAttribute('hidden', '');
 			}
 		}
 	});

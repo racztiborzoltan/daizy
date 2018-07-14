@@ -6,73 +6,77 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Login Page</title>
-		<link rel="stylesheet" href="assets/vendor/mini.css-3.0.0/dist/mini-default.min.css">
+		<link rel="stylesheet" href="assets/vendor/bootstrap-4.1.2-dist/css/bootstrap.min.css">
 		<link rel="stylesheet" href="assets/daizy/daizy.min.css">
 		<link rel="stylesheet" href="assets/daizy/login.css">
 	</head>
-	<body class="container">
+	<body class="bg-light">
 		<div class="page-loader">
-			<div class="spinner primary"></div>
+			<div class="dot text-info pulse">&middot;</div>
 		</div>
-		<main class="page-wrapper login-area col-lg-4 col-lg-offset-4 col-md-6 col-md-offset-3 col-sm-12">
-			<div class="collapse">
-				<input type="radio" id="accordion-login-form" checked aria-hidden="true" name="login_area_accordion">
-				<label for="accordion-login-form" aria-hidden="true" hidden="">Accordion section 1</label>
-				<div>
-					<h3>
-						Login
-					</h3>
-					<form class="login">
-						<div class="responsive-margin">
-							<input class="block" type="text" placeholder="E-mail" required="required" autofocus="autofocus">
-						</div>
-						<div class="responsive-margin">
-							<input class="block" type="password" placeholder="Password" required="required">
-						</div>
-						<div class="toast message failed" hidden="">Login failed</div>
-						<div class="toast message failed" hidden="">Login successful</div>
-						<div class="responsive-margin">
-							<button type="submit" class="primary shadowed">Login</button>
-						</div>
-						<div class="responsive-margin">
-							<button type="button" class="button link" onclick="this.firstElementChild.click();">
-								<label for="accordion-lost-password-form">Forgotten password</label>
-							</button>
-						</div>
-						<div class="responsive-margin language-switcher">
-							<select class="form-control" title="Select language">
-								<option value="hu">hu</option>
-								<option value="en">en</option>
-								<option value="de">de</option>
-							</select>
-						</div>
-					</form>
-				</div>
-				<input type="radio" id="accordion-lost-password-form" aria-hidden="true" name="login_area_accordion">
-				<label for="accordion-lost-password-form" aria-hidden="true" hidden=""></label>
-				<div>
-					<h3>
-						Forgotten password
-					</h3>
-					<form class="lost-password">
-						<div class="responsive-margin">
-							<input class="block" type="text" placeholder="E-mail" required="required" autofocus="autofocus">
-						</div>
-						<div class="responsive-margin">
-							<button type="submit" class="primary shadowed">Submit</button>
-						</div>
-						<div class="responsive-margin">
-							<button type="button" class="button link" onclick="this.firstElementChild.click();">
-								<label for="accordion-login-form">Back to login</label>
-							</button>
-						</div>
-					</form>
+		<main class="page-wrapper authentication-area container bg-light">
+			<div class="row">
+				<div class="col-lg-4 offset-lg-4 col-md-6 offset-md-3 col-sm-12 accordion accordion-authentication">
+					<div class="collapse" id="accordion-login-form" data-parent=".accordion-authentication">
+						<form class="login">
+							<div class="form-group">
+								<h3 class="display-5">
+									Login
+								</h3>
+							</div>
+							<div class="form-group">
+								<input class="form-control" type="text" placeholder="E-mail" required="required" autofocus="autofocus">
+							</div>
+							<div class="form-group">
+								<input class="form-control" type="password" placeholder="Password" required="required">
+							</div>
+							<div class="toast message failed" hidden="">Login failed</div>
+							<div class="toast message failed" hidden="">Login successful</div>
+							<div class="form-group">
+								<button type="submit" class="btn btn-primary">Login</button>
+							</div>
+							<div class="form-group">
+								<button type="button" class="btn btn-link" data-toggle="collapse" data-target="#accordion-lost-password-form">
+Forgotten password
+</button>
+							</div>
+							<div class="form-group language-switcher">
+								<select class="form-control" title="Select language">
+									<option value="hu">hu</option>
+									<option value="en">en</option>
+									<option value="de">de</option>
+								</select>
+							</div>
+						</form>
+					</div>
+					<div class="collapse show" id="accordion-lost-password-form" data-parent=".accordion-authentication">
+						<form class="lost-password">
+							<div class="form-group">
+								<h3 class="display-5">
+									Forgotten password
+								</h3>
+							</div>
+							<div class="form-group">
+								<input class="form-control" type="text" placeholder="E-mail" required="required" autofocus="autofocus">
+							</div>
+							<div class="form-group">
+								<button type="submit" class="btn btn-primary">Submit</button>
+							</div>
+							<div class="form-group">
+								<button type="button" class="btn btn-link" data-toggle="collapse" data-target="#accordion-login-form">
+Back to login
+</button>
+							</div>
+						</form>
+					</div>
 				</div>
 			</div>
 		</main>
 		<div class="scripts">
 			<noscript class="nojs">Javascript disabled!</noscript>
 			<script src="https:////cdn.polyfill.io/v2/polyfill.min.js"></script>
+			<script src="assets/vendor/jQuery-3.3.1/jquery-3.3.1.min.js" type="text/javascript"></script>
+			<script src="assets/vendor/bootstrap-4.1.2-dist/js/bootstrap.bundle.min.js" type="text/javascript"></script>
 			<script src="assets/daizy/daizy.js" type="text/javascript"></script>
 			<script src="assets/daizy/login.js" type="text/javascript"></script>
 		</div>

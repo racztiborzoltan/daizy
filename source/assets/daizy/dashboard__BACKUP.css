@@ -1,0 +1,75 @@
+header {
+  display: flex;
+  align-items: center;
+}
+header .search {
+  margin: 0;
+  margin-left: 1em;
+  margin-right: 1em;
+  padding: 0;
+  border: none;
+  display: inline-flex;
+  flex-grow: 1;
+  flex: 1;
+}
+header .search input {
+  background-color: transparent;
+  margin: 0;
+  border-color: transparent;
+  flex-grow: 1;
+  width: 1px;
+}
+header [type="checkbox"].drawer + * .caption {
+  display: inline-block;
+  text-transform: none;
+}
+
+/*
+ Amikor nyitva van a fejlécben a hamburger menü:
+ */
+header [type="checkbox"].drawer:checked + * {
+  max-width: 80%;
+  padding-right: 3em;
+}
+header [type="checkbox"].drawer:checked + * > * {
+  display: block;
+  text-align: left;
+}
+@media screen and (min-width: 768px) {
+  header [type="checkbox"].drawer:not(.persistent) + * {
+    overflow: hidden;
+    border: none;
+  }
+  header [type="checkbox"].drawer + * .caption {
+    display: none;
+  }
+  header [type="checkbox"].drawer + * {
+    width: auto;
+  }
+}
+.icon-svg {
+  display: inline-block;
+  vertical-align: middle;
+  width: 1em;
+}
+.icon-svg svg {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+}
+main .collapse > :checked + label + div {
+  height: 100%;
+  max-height: 100%;
+  background-color: transparent;
+}
+[data-collapse-section-maximized] .page-wrapper {
+  width: initial;
+  margin: 0 0em;
+  max-width: initial;
+}
+
+
+/* :hover:placeholder-shown, */
+/* :focus:placeholder-shown { */
+/* } */

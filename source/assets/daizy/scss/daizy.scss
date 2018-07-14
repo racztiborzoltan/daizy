@@ -1,27 +1,8 @@
-@import '../../vendor/colors-3.0.0/src/_variables.css';
-@import '../../vendor/colors-3.0.0/src/_skins.css';
+/* @import '../../vendor/colors-3.0.0/src/_variables.css'; */
+/* @import '../../vendor/colors-3.0.0/src/_skins.css'; */
 
 :root {
-	--fore-color: #111;
-	--secondary-fore-color: #444;
-	--back-color: #f8f8f8;
-	--secondary-back-color: #f0f0f0;
-	--blockquote-color: #f57c00;
-	--pre-color: #1565c0;
-	--border-color: #aaa;
-	--secondary-border-color: #ddd;
-	--heading-ratio: 1.19;
-	--universal-margin: 0.5rem;
-	--universal-padding: 0.5rem;
-	--universal-border-radius: 0.125rem;
-	--a-link-color: #0277bd;
-	--a-visited-color: #01579b;	
-	
-	// overloading:
-/* 	--back-color: var(--silver); */
-	
-	// new variables:
-	--background-color: var(--back-color);
+	--background-color: var(--light);
 	--link-color: var(--a-link-color);
 	--visited-link-color: var(--a-visited-color);
 	
@@ -62,7 +43,27 @@ noscript.nojs {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	background-color: var(--back-color);
+	background-color: var(--background-color);
+}
+.page-loader .dot{
+	font-size: 20em;
+	display: inline-block;
+	
+    animation: pulsate 1s ease-out;
+    animation-iteration-count: infinite; 
+    opacity: 0.0;
+    
+    animation: pulsate 1s ease-out;
+    animation-iteration-count: infinite;
+    opacity: 1; 
+    
+}
+
+/* source from: http://tilomitra.github.io/infinite/infinite.css */
+@keyframes pulsate {
+    0% {-webkit-transform: scale(0.1, 0.1); opacity: 0.0;}
+    50% {opacity: 1.0;}
+    100% {-webkit-transform: scale(1.2, 1.2); opacity: 0.0;}
 }
 
 @import 'mini-css-plus.scss';
