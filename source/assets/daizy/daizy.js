@@ -151,6 +151,80 @@
 		}
 	}
 
+	/**
+	 * Hide an element
+	 *
+	 * @param Element element
+	 */
+	Daizy.hideElement = function (element){
+		element.setAttribute('hidden', '');
+	}
+
+	/**
+	 * Hide an element
+	 *
+	 * @param Element element
+	 */
+	Daizy.showElement = function (element){
+		element.removeAttribute('hidden');
+	}
+
+	Daizy.toggleElement = function (element){
+		element.getAttribute('hidden') === null ? Daizy.hideElement(element) : Daizy.showElement(element);
+	}
+
+	/**
+	 * Fullscreen API is enabled?
+	 *
+	 * @return boolean
+	 */
+	Daizy.isFullscreenEnabled = function () {
+		// original source: https://davidwalsh.name/fullscreen
+		return document.fullscreenEnabled || document.mozFullScreenEnabled || document.webkitFullscreenEnabled;
+	}
+
+	/**
+	 * Returns the element which has been pushed to fullscreen
+	 *
+	 * @return Element|null
+	 */
+	Daizy.getFullscreenEnabled = function () {
+		// original source: https://davidwalsh.name/fullscreen
+		return document.fullscreenElement || document.mozFullScreenElement || document.webkitFullscreenElement;
+	}
+
+	/**
+	 * Element into fullscreen
+	 */
+	Daizy.startFullscreen = function (element) {
+		// original source: https://davidwalsh.name/fullscreen
+		// Find the right method, call on correct element
+		if(element.requestFullscreen) {
+			element.requestFullscreen();
+		} else if(element.mozRequestFullScreen) {
+			element.mozRequestFullScreen();
+		} else if(element.webkitRequestFullscreen) {
+			element.webkitRequestFullscreen();
+		} else if(element.msRequestFullscreen) {
+			element.msRequestFullscreen();
+		}
+	}
+
+	/**
+	 * Exit fullscreen mode
+	 */
+	Daizy.exitFullscreen = function () {
+		// original source: https://davidwalsh.name/fullscreen
+		// Whack fullscreen
+		if(document.exitFullscreen) {
+			document.exitFullscreen();
+		} else if(document.mozCancelFullScreen) {
+			document.mozCancelFullScreen();
+		} else if(document.webkitExitFullscreen) {
+			document.webkitExitFullscreen();
+		}
+	}
+
 	window.Daizy = Daizy;
 }).call(this, window, window.document);
 // =============================================================================
@@ -170,7 +244,6 @@
 			this.remove();
 		});
 		page_loader.classList.add('fade-out');
-		//		page_loader ? page_loader.remove() : null;
 	});
 }).call(this, window, window.document);
 // =============================================================================

@@ -1,4 +1,8 @@
-<xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+<xsl:stylesheet 
+	version="2.0" 
+	xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+	xmlns:xlink="http://www.w3.org/1999/xlink"
+	>
 	<xsl:output method="html" encoding="utf-8" indent="yes" omit-xml-declaration="yes"/>
 	
 	<xsl:param name="head_title" select="'DaiZy Minimalistic Admin Template'" />
@@ -22,8 +26,12 @@
 	
 	<xsl:template match="body_javascript">
 		<noscript class="nojs">Javascript disabled!</noscript>
-			<script src="https:////cdn.polyfill.io/v2/polyfill.min.js"></script>
-<!-- 		<script src="assets/daizy/umbrella-2.10.2/umbrella.min.js" type="text/javascript"></script> -->
+		<script src="https:////cdn.polyfill.io/v2/polyfill.min.js"></script>
+
+		<!-- svgxuse javascript fájl átmásolása a cél helyre -->
+		<xsl:variable name="svgxuse_js_path">assets/vendor/svgxuse-1.2.6/svgxuse.min.js</xsl:variable>
+		<xsl:value-of select="php:function('\Daizy\SiteBuildHelper::copyFile', $svgxuse_js_path)"/>
+		<script src="{$svgxuse_js_path}" type="text/javascript"></script>
 
 		<!-- jquey javascript fájl átmásolása a cél helyre -->
 		<xsl:variable name="jquery_js_path">assets/vendor/jQuery-3.3.1/jquery-3.3.1.min.js</xsl:variable>
@@ -52,6 +60,10 @@
 	XSLT átalakítást elindító sablon definíció
 	-->
 	<xsl:template match="/variables">
+	
+		<!-- copy svg icon sprite file -->
+		<xsl:value-of select="php:function('\Daizy\SiteBuildHelper::copyFile', 'assets/daizy/icons-sprite.svg')"/>
+	
 		<xsl:text disable-output-escaping='yes'>&lt;!DOCTYPE html&gt;</xsl:text>
 		<xsl:comment>Daizy Minimalistic Admin Template</xsl:comment>
 		<html lang="hu">
@@ -65,11 +77,10 @@
 
 				<xsl:apply-templates select="head_css"></xsl:apply-templates>
 			</head>
-			<body class="bg-light">
+			<body class="bg-light daizy-wrapper">
 				<div class="page-loader">
-					<div class="dot text-info pulse"><xsl:text disable-output-escaping="yes">&amp;middot;</xsl:text></div>
+					<div class="dot text-info"><xsl:text disable-output-escaping="yes">&amp;middot;</xsl:text></div>
 				</div>
-             	
 				<xsl:call-template name="body_content"/>
 				
 				<div class="scripts">
@@ -77,9 +88,12 @@
 				</div>
 			</body>
 		</html>
+		<xsl:comment>
+			<xsl:text> </xsl:text><xsl:value-of select="/variables/copyright_text"/><xsl:text> </xsl:text>
+		</xsl:comment>
 	</xsl:template>
 	
-	<xsl:template name="bytesize_icons">
+	<xsl:template name="bytesize_icons__TEMP">
 		<xsl:param name="name"></xsl:param>
 		<xsl:choose>
 		

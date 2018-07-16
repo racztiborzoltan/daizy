@@ -24,10 +24,10 @@
 	
 
 	<xsl:template name="body_content">
-		<main class="page-wrapper authentication-area container bg-light">
+		<main class="authentication-area container bg-light">
 			<div class="row">
 				<div class="col-lg-4 offset-lg-4 col-md-6 offset-md-3 col-sm-12 accordion accordion-authentication" >
-					<div class="collapse" id="accordion-login-form" data-parent=".accordion-authentication">
+					<div class="collapse show" id="accordion-login-form" data-parent=".accordion-authentication">
 						<form class="login">
 							<div class="form-group">
 								<h3 class="display-5">Login</h3>
@@ -57,7 +57,7 @@
 							</div>
 						</form>
 					</div>
-					<div class="collapse show" id="accordion-lost-password-form" data-parent=".accordion-authentication">
+					<div class="collapse" id="accordion-lost-password-form" data-parent=".accordion-authentication">
 						<form class="lost-password">
 							<div class="form-group">
 								<h3 class="display-5">Forgotten password</h3>

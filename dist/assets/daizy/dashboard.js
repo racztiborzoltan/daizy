@@ -1,7 +1,10 @@
+'use strict';
 // =============================================================================
 // DASHBOARD
 //
 (function(window, document){
+
+	Daizy.Dashboard = {};
 
 	/**
 	 * Egy keresés indítása a fejlécben lévő keresőmezővel
@@ -15,17 +18,16 @@
 	var search_form = document.querySelector('header form.search') || document.createElement('form');
 	var search_input = document.querySelector('header .search input[type="search"]') || document.createElement('input');
 	search_input.addEventListener('keyup', function (e) {
-		if (typeof this.prev_value == 'undefined') {
-			this.prev_value = null;
-		}
+		this.prev_value = this.prev_value || null;
 		if (this.prev_value === this.value) {
 			return;
 		}
 		this.prev_value = this.value;
 
-		var term = this.value;
+		var term = this.value.trim();
 		var elements = document.querySelectorAll('.menu-contents .menu-content-header .caption');
 
+		var is_match = false;
 		for (var i = 0; i < elements.length; i++) {
 			var element = elements[i];
 			var closest_menu_content = element.closest('.menu-content') || document.createElement('div');
@@ -33,59 +35,67 @@
 			// Ha van találat, vagy ha üres a kereső mező értéke, akkor látszik az aktuális elem:
 			if (element.textContent.toLowerCase().removeAccents().indexOf(term.toLowerCase().removeAccents()) > -1) {
 				closest_menu_content.removeAttribute('hidden');
+				is_match = true;
 			} else {
 				closest_menu_content.setAttribute('hidden', '');
 			}
 		}
+		var no_match_alert = document.querySelector('#header_search_no_results');
+		if (is_match) {
+			no_match_alert.setAttribute('hidden', '');
+		} else {
+			no_match_alert.removeAttribute('hidden');
+		}
 	});
 
-	Daizy.onLive('.maximize-section', 'click', function(e){
-		// stop the immediate action of this event
+	Daizy.onLive('.maximize-menu-content-section', 'click', function(e){
 		e.preventDefault();
-		// prevent the event fro bubbling up
 		e.stopPropagation();
 
 		var clicked_element = this;
-		var closest_label = clicked_element.closest('label') || document.createElement('label');
-		var closest_label_text = closest_label.textContent.trim();
+		var closest_menu_content = clicked_element.closest('.menu-content') || document.createElement('div');
+		var menu_content_caption = closest_menu_content.querySelector('[data-toggle="collapse"]') || document.querySelector('div');
 
-		var label_prev_input = closest_label.previousElementSibling;
+		Daizy.startFullscreen(document.body);
+		return;
 
-		if (!clicked_element.getAttribute('data-maximized')) {
+		var collapse = closest_menu_content.querySelector('.collapse') || document.createElement('div');
 
-			//
-			// ha maximalizálni kell a megfelelő collapse szekciót:
-			//
-
-			label_prev_input.maximized_before_maximize = label_prev_input.checked == true;
-			// ha nincs nyitva a megfelelő collapse szekció, akkor be kell kattintani:
-			if (!label_prev_input.checked) {
-				label_prev_input.setAttribute('checked', 'checked');
-				label_prev_input.checked = true;
-			}
-
-			start_header_search(closest_label_text);
-			clicked_element.setAttribute('data-maximized', 'true');
-			document.body.setAttribute('data-collapse-section-maximized', '');
-		} else {
-
-			//
-			// ha vissza kell állítani a megfelelő collapse szekciót:
-			//
-
-			start_header_search('');
-			clicked_element.removeAttribute('data-maximized');
-			document.body.removeAttribute('data-collapse-section-maximized');
-			// Ha nem volt a maximalizálás előtt megnyitva a collapse szekció,
-			// akkor visszaállítás után sem kell nyitva lennie:
-			if (!label_prev_input.maximized_before_maximize) {
-				label_prev_input.removeAttribute('checked');
-				label_prev_input.checked = false;
-			}
+		document.body.setAttribute('data-menu-content-maximized', 'true');
+		closest_menu_content.setAttribute('data-maximized', 'true');
+		start_header_search(menu_content_caption.textContent);
+		// Ha a collapse még nincs nyitva:
+		collapse.opened_before_maximize = collapse.classList.contains('show');
+		if (!collapse.opened_before_maximize) {
+			$(collapse).collapse('show');
 		}
 
-		return false;
-	}, document.querySelector('main .collapse'));
+		// maximalizáló és minimalizáló gombok cseréje:
+		Daizy.toggleElement(closest_menu_content.querySelector('.maximize-menu-content-section') || document.createElement('div'));
+		Daizy.toggleElement(closest_menu_content.querySelector('.minimize-menu-content-section') || document.createElement('div'));
+	}, document.querySelector('.menu-contents'));
+
+	Daizy.onLive('.minimize-menu-content-section', 'click', function(e){
+		e.preventDefault();
+		e.stopPropagation();
+
+		var clicked_element = this;
+		var closest_menu_content = clicked_element.closest('.menu-content') || document.createElement('div');
+		var menu_content_caption = closest_menu_content.querySelector('[data-toggle="collapse"]') || document.querySelector('div');
+		var collapse = closest_menu_content.querySelector('.collapse') || document.createElement('div');
+
+		document.body.removeAttribute('data-menu-content-maximized');
+		closest_menu_content.removeAttribute('data-maximized');
+		start_header_search('');
+		// Ha a maximalizálás előtt nem volt nyitva, akkor újra be kell csukni:
+		if (!collapse.opened_before_maximize) {
+			$(collapse).collapse('hide');
+		}
+
+		// maximalizáló és minimalizáló gombok cseréje:
+		Daizy.toggleElement(closest_menu_content.querySelector('.maximize-menu-content-section') || document.createElement('div'));
+		Daizy.toggleElement(closest_menu_content.querySelector('.minimize-menu-content-section') || document.createElement('div'));
+	}, document.querySelector('.menu-contents'));
 
 }).call(this, window, window.document);
 // =============================================================================

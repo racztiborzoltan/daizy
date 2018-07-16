@@ -1,12 +1,29 @@
+/* :hover:placeholder-shown, */
+/* :focus:placeholder-shown { */
+/* } */
+
 header .search {
 	flex-grow: 1;
+	flex-basis: 6em;
+}
+header .search input {
+	background-color: transparent;
+	margin: 0;
+	border-radius: 0;
+	border-top-color: transparent;
+	border-left-color: transparent;
+	border-right-color: transparent;
+}
+header .search input:focus {
+	box-shadow: none;
+	border-radius: 4px;
 }
 
 header nav {
 	background-color: transparent;
-	-webkit-box-shadow: 0px 2px 1px -2px var(--gray);
-	-moz-box-shadow: 0px 2px 1px -2px var(--gray);
-	box-shadow: 0px 2px 1px -2px var(--gray);
+	-webkit-box-shadow: 0 4px 2px -3px var(--gray);
+	-moz-box-shadow: 0 4px 2px -3px var(--gray);
+	box-shadow: 0 4px 2px -3px var(--gray);
 }
 header .menu-item .caption {
 	display: inline-block;
@@ -24,10 +41,12 @@ header .menu-item .icon{
 	display: inline-block;
 }
 /* header .menu-item  */
-.icon svg{
-	height: 1.4em;
-}
-
+svg.icon {
+  display: inline-block;
+  vertical-align: middle;
+  width: 1em;
+  height: 1em;
+} 
 header .mobile-menu-toggler {
 	border: none;
 }
@@ -40,37 +59,49 @@ header .language-switcher .icon {
 		display: none;
 	}
 }
-header .language-switcher select {
-  border: none;
-  cursor: pointer;
-  padding: 0 0.4em;
-  -moz-appearance: none;
-  -webkit-appearance: none;
-  appearance: none;
-  background-color: transparent;
+header .menu-item.language-switcher * {
+	cursor: pointer;
 }
-
+header .language-switcher select {
+	border: none;
+	cursor: pointer;
+	padding: 0 0.4em;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	appearance: none;
+	background-color: transparent;
+	vertical-align: middle;
+	color: inherit;
+	width: auto !important;
+	height: auto !important;
+	display: inline-block;
+}
+header .language-switcher:hover select,
+header .language-switcher select:focus {
+	background-color: transparent;
+	box-shadow: none;
+	text-decoration: underline;
+}
 
 
 
 .menu-contents .menu-content-header {
 	display: flex;
 	flex-direction: row;
+	border-bottom: none;
 }
 .menu-contents .menu-content-header .btn .icon{
 	height: 1em;
 }
-
-
-
-
-footer {
-  text-align: center;
-  padding-top: 0;
-  padding-bottom: 0;
-  border-top: none;
-  background-color: transparent;
+.menu-contents .menu-content {
+	border: none;
 }
-footer .copyright {
-  color: transparent;
+
+
+
+[data-menu-content-maximized="true"] .daizy-wrapper {
+  width: initial;
+  margin: 0 0em;
+  max-width: initial;
 }
+

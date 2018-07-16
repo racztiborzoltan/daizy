@@ -363,9 +363,15 @@ class SiteBuild
      */
     private function _buildPageType(string $page_type)
     {
+        $xsl_path = $this->getTemplateDir() . $this->getPageType() . '.xsl';
+        $xsl_dir = dirname($xsl_path);
+
+        $prev_cwd = getcwd();
+        chdir($xsl_dir);
+
         $xsl_document = new \DOMDocument();
         $xsl_document->formatOutput = true;
-        $xsl_document->load($this->getTemplateDir() . $this->getPageType() . '.xsl');
+        $xsl_document->load($xsl_path);
 
         $xml_document = new \DOMDocument();
         $xml_document->formatOutput = true;
@@ -380,10 +386,17 @@ class SiteBuild
         $proc->importStylesheet($xsl_document);
         $proc->registerPHPFunctions();
         $dom_document = $proc->transformToDoc($xml_document);
+
+        if (!$dom_document) {
+            return false;
+        }
+
         $dom_document->formatOutput = true;
         $dom_document->preserveWhiteSpace = false;
         $dom_document->recover = true;
         $dom_document->encoding = 'UTF-8';
+
+        chdir($prev_cwd);
 
         $content = $dom_document->saveHTML($dom_document);
 

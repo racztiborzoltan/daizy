@@ -41,6 +41,7 @@ noscript.nojs {
 	right: 0;
 	bottom: 0;
 	display: flex;
+	align-content: center;
 	align-items: center;
 	justify-content: center;
 	background-color: var(--background-color);
@@ -48,22 +49,16 @@ noscript.nojs {
 .page-loader .dot{
 	font-size: 20em;
 	display: inline-block;
+	line-height: 0;
 	
-    animation: pulsate 1s ease-out;
-    animation-iteration-count: infinite; 
-    opacity: 0.0;
-    
-    animation: pulsate 1s ease-out;
+    animation: fontsizePulse 1s ease-out;
     animation-iteration-count: infinite;
     opacity: 1; 
-    
 }
-
-/* source from: http://tilomitra.github.io/infinite/infinite.css */
-@keyframes pulsate {
-    0% {-webkit-transform: scale(0.1, 0.1); opacity: 0.0;}
-    50% {opacity: 1.0;}
-    100% {-webkit-transform: scale(1.2, 1.2); opacity: 0.0;}
+@keyframes fontsizePulse {
+    0% {font-size: 1em;opacity: 0.1;}
+    50% {font-size: 20em;opacity: 1;}
+    100% {font-size: 1em;opacity: 0.1;}
 }
 
 @import 'mini-css-plus.scss';

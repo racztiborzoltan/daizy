@@ -7,6 +7,8 @@ require_once 'vendor/autoload.php';
 
 $current_page_type = $_GET['page_type'] ?? '';
 
+$VERSION = '0.1.0';
+
 
 $sitebuild = new SiteBuild();
 $sitebuild->setSourceDir(__DIR__.'/source');
@@ -17,6 +19,7 @@ $sitebuild->setTemplateDir(__DIR__.'/source/templates');
 //$sitebuild->setVariable('baseHref', dirname($_SERVER['SCRIPT_NAME']) . '/dist/');
 $sitebuild->setVariable('baseHref', 'dist/');
 $sitebuild->setVariable('feather_icons_dir', realpath(__DIR__.'/source/assets/daizy/feather-4.7.3/icons'));
+$sitebuild->setVariable('copyright_text', 'DaiZy Html (Admin Dashboard) Template v' . $VERSION);
 
 //
 // page type validation:
@@ -66,6 +69,11 @@ foreach ($sitebuild->getValidPageTypes() as $page_type) {
     $dist_content = $sitebuild->build();
 
     $dist_html_path = $sitebuild->getDestinationDir() . $page_type . '.html';
+
+    if ($dist_content === false) {
+        unlink($dist_html_path);
+        continue;
+    }
     file_put_contents($dist_html_path, $dist_content);
 }
 unset($page_type);
