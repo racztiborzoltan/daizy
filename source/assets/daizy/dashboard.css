@@ -89,6 +89,7 @@ header .language-switcher select:focus {
 	display: flex;
 	flex-direction: row;
 	border-bottom: none;
+	padding: 0;
 }
 .menu-contents .menu-content-header .btn .icon{
 	height: 1em;

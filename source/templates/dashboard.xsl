@@ -129,22 +129,7 @@
 	
 	<xsl:template name="dashboard_menu_contents">
 		<div class="menu-contents">
-			<xsl:call-template name="dashboard_menu_content__dashboard"></xsl:call-template>
-			
-			<xsl:call-template name="dashboard_menu_content__typography"></xsl:call-template>
-			<xsl:call-template name="dashboard_menu_content__images"></xsl:call-template>
-			<xsl:call-template name="dashboard_menu_content__tables"></xsl:call-template>
-			<xsl:call-template name="dashboard_menu_content__list_groups"></xsl:call-template>
-			<xsl:call-template name="dashboard_menu_content__buttons"></xsl:call-template>
-			<xsl:call-template name="dashboard_menu_content__jumbotrons"></xsl:call-template>
-			<xsl:call-template name="dashboard_menu_content__cards"></xsl:call-template>
-			<xsl:call-template name="dashboard_menu_content__forms"></xsl:call-template>
-			<xsl:call-template name="dashboard_menu_content__navs"></xsl:call-template>
-			<xsl:call-template name="dashboard_menu_content__badges"></xsl:call-template>
-			<xsl:call-template name="dashboard_menu_content__alerts"></xsl:call-template>
-			<xsl:call-template name="dashboard_menu_content__popovers"></xsl:call-template>
-			<xsl:call-template name="dashboard_menu_content__progress_bars"></xsl:call-template>
-			<xsl:call-template name="dashboard_menu_content__modals"></xsl:call-template>
+			<xsl:apply-templates select="/variables/dashboard_menu_content"></xsl:apply-templates>
 		</div>
 	</xsl:template>
 	
@@ -159,7 +144,7 @@
 		</xsl:if>
 		
 		<div class="card-header menu-content-header">
-			<button class="btn btn-link btn-block collapsed" type="button" data-toggle="collapse" data-target="#{$menu_content_id}" aria-expanded="true" aria-controls="{$menu_content_id}">
+			<button class="btn btn-link btn-block btn-lg collapsed" type="button" data-toggle="collapse" data-target="#{$menu_content_id}" aria-expanded="true" aria-controls="{$menu_content_id}">
 				<span class="caption">
 					<xsl:value-of select="$menu_content_caption"></xsl:value-of>
 				</span>

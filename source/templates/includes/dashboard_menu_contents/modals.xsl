@@ -4,7 +4,7 @@
 	xmlns:xlink="http://www.w3.org/1999/xlink"
 	>
 
-	<xsl:template name="dashboard_menu_content__modals">
+	<xsl:template match="modals">
 		<div class="card bg-light mt-3 menu-content">
 			<xsl:variable name="collapse_id" select="php:function('uniqid', 'id_')"></xsl:variable>
 			<xsl:variable name="collapse_caption" select="'Modals'"></xsl:variable>

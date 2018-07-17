@@ -23,6 +23,24 @@ call_user_func(function(){
     $sitebuild->setVariable('baseHref', '../dist/');
     $sitebuild->setVariable('feather_icons_dir', realpath($ROOT_DIR.'source/assets/daizy/feather-4.7.3/icons'));
     $sitebuild->setVariable('copyright_text', 'DaiZy Html (Admin Dashboard) Template v' . $VERSION);
+    // dashboard menu content order
+    $sitebuild->setVariable('dashboard_menu_content', [
+        'dashboard' => '',
+        'typography' => '',
+        'images' => '',
+        'tables' => '',
+        'list_groups' => '',
+        'buttons' => '',
+        'jumbotrons' => '',
+        'cards' => '',
+        'forms' => '',
+        'navs' => '',
+        'badges' => '',
+        'alerts' => '',
+        'popovers' => '',
+        'progress_bars' => '',
+        'modals' => '',
+    ]);
 
     //
     // page type validation:
