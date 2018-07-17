@@ -97,6 +97,9 @@ header .language-switcher select:focus {
 .menu-contents .menu-content {
 	border: none;
 }
+.menu-content-toggler:hover {
+	text-decoration: none;
+}
 
 
 
@@ -105,4 +108,3 @@ header .language-switcher select:focus {
   margin: 0 0em;
   max-width: initial;
 }
-

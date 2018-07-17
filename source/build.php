@@ -25,21 +25,51 @@ call_user_func(function(){
     $sitebuild->setVariable('copyright_text', 'DaiZy Html (Admin Dashboard) Template v' . $VERSION);
     // dashboard menu content order
     $sitebuild->setVariable('dashboard_menu_content', [
-        'dashboard' => '',
-        'typography' => '',
-        'images' => '',
-        'tables' => '',
-        'list_groups' => '',
-        'buttons' => '',
-        'jumbotrons' => '',
-        'cards' => '',
-        'forms' => '',
-        'navs' => '',
-        'badges' => '',
-        'alerts' => '',
-        'popovers' => '',
-        'progress_bars' => '',
-        'modals' => '',
+        'dashboard' => [
+            'caption' => 'Dashboard',
+        ],
+        'typography' => [
+            'caption' => 'Typography',
+        ],
+        'images' => [
+            'caption' => 'Images',
+        ],
+        'tables' => [
+            'caption' => 'Tables',
+        ],
+        'list_groups' => [
+            'caption' => 'List groups',
+        ],
+        'buttons' => [
+            'caption' => 'Buttons',
+        ],
+        'jumbotrons' => [
+            'caption' => 'Jumbotrons',
+        ],
+        'cards' => [
+            'caption' => 'Cards',
+        ],
+        'forms' => [
+            'caption' => 'Forms',
+        ],
+        'navs' => [
+            'caption' => 'Navs',
+        ],
+        'badges' => [
+            'caption' => 'Badges',
+        ],
+        'alerts' => [
+            'caption' => 'Alerts',
+        ],
+        'popovers' => [
+            'caption' => 'Popovers',
+        ],
+        'progress_bars' => [
+            'caption' => 'Progress bars',
+        ],
+        'modals' => [
+            'caption' => 'Modals',
+        ],
     ]);
 
     //

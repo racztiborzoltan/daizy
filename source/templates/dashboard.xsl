@@ -110,8 +110,12 @@
 	
 	<xsl:template name="body_main">
 		<main class="container my-3">
-			<xsl:call-template name="dashboard_menu_contents"></xsl:call-template>
-			<xsl:call-template name="dashbaord_no_search_results"></xsl:call-template>
+			<div class="menu-contents">
+				<xsl:apply-templates select="/variables/dashboard_menu_content"></xsl:apply-templates>
+			</div>
+			<div id="header_search_no_results" class="alert alert-info text-info text-center" hidden="">
+				No matching search found!
+			</div>
 		</main>
 	</xsl:template>
 	
@@ -121,15 +125,35 @@
 	</xsl:template>
 	
 	
-	<xsl:template name="dashbaord_no_search_results">
-		<div id="header_search_no_results" class="alert alert-info text-info text-center" hidden="">
-			No matching search found!
-		</div>
-	</xsl:template>
-	
-	<xsl:template name="dashboard_menu_contents">
-		<div class="menu-contents">
-			<xsl:apply-templates select="/variables/dashboard_menu_content"></xsl:apply-templates>
+	<!--  
+	@desc Display collapsable menu content element
+	@param string $menu_content_id Optional. If not present, generate automatically
+	@param string $menu_content_caption Required!
+	@param string $menu_content Required!
+	@xml
+		<menu_content_node_name>
+			<caption>
+				Caption for menu content
+			</caption>
+		<menu_content_node_name/>
+	-->
+	<xsl:template name="display_menu_content">
+		<xsl:param name="menu_content" required="yes"></xsl:param>
+		
+		<xsl:variable name="collapse_id" select="concat(name(), '-', generate-id())"></xsl:variable>
+		<xsl:variable name="menu_content_caption" select="caption"></xsl:variable>
+		
+		<div class="card bg-light mt-3 menu-content">
+			<xsl:call-template name="dashboard_menu_content_header">
+				<xsl:with-param name="menu_content_id" select="$collapse_id"></xsl:with-param>
+				<xsl:with-param name="menu_content_caption" select="$menu_content_caption"></xsl:with-param>
+			</xsl:call-template>
+			
+			<div id="{$collapse_id}" class="collapse">
+				<div class="card-body">
+					<xsl:copy-of select="$menu_content"></xsl:copy-of>
+				</div>
+			</div>
 		</div>
 	</xsl:template>
 	
@@ -144,7 +168,7 @@
 		</xsl:if>
 		
 		<div class="card-header menu-content-header">
-			<button class="btn btn-link btn-block btn-lg collapsed" type="button" data-toggle="collapse" data-target="#{$menu_content_id}" aria-expanded="true" aria-controls="{$menu_content_id}">
+			<button class="btn btn-link btn-block btn-lg collapsed menu-content-toggler" type="button" data-toggle="collapse" data-target="#{$menu_content_id}" aria-expanded="true" aria-controls="{$menu_content_id}">
 				<span class="caption">
 					<xsl:value-of select="$menu_content_caption"></xsl:value-of>
 				</span>

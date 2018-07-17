@@ -56,7 +56,7 @@
 		var closest_menu_content = clicked_element.closest('.menu-content') || document.createElement('div');
 		var menu_content_caption = closest_menu_content.querySelector('[data-toggle="collapse"]') || document.querySelector('div');
 
-		Daizy.startFullscreen(document.body);
+		Daizy.startFullscreen(document.documentElement);
 		return;
 
 		var collapse = closest_menu_content.querySelector('.collapse') || document.createElement('div');
@@ -82,6 +82,10 @@
 		var clicked_element = this;
 		var closest_menu_content = clicked_element.closest('.menu-content') || document.createElement('div');
 		var menu_content_caption = closest_menu_content.querySelector('[data-toggle="collapse"]') || document.querySelector('div');
+
+		Daizy.exitFullscreen();
+		return;
+
 		var collapse = closest_menu_content.querySelector('.collapse') || document.createElement('div');
 
 		document.body.removeAttribute('data-menu-content-maximized');
