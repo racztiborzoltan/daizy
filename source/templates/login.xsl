@@ -24,57 +24,55 @@
 	
 
 	<xsl:template name="body_content">
-		<main class="authentication-area container bg-light">
-			<div class="row">
-				<div class="col-lg-4 offset-lg-4 col-md-6 offset-md-3 col-sm-12 accordion accordion-authentication" >
-					<div class="collapse show" id="accordion-login-form" data-parent=".accordion-authentication">
-						<form class="login">
-							<div class="form-group">
-								<h3 class="display-5">Login</h3>
-							</div>
-							<div class="form-group">
-								<input class="form-control" type="text" placeholder="E-mail" required="required" autofocus="autofocus"/>
-							</div>
-							<div class="form-group">
-								<input class="form-control" type="password" placeholder="Password" required="required"/>
-							</div>
-							<div class="toast message failed" hidden="">Login failed</div>
-							<div class="toast message failed" hidden="">Login successful</div>
-							<div class="form-group">
-								<button type="submit" class="btn btn-primary">Login</button>
-							</div>
-							<div class="form-group">
-								<button type="button" class="btn btn-link" data-toggle="collapse" data-target="#accordion-lost-password-form">
-									Forgotten password
-								</button>
-							</div>
-							<div class="form-group language-switcher">
-								<select class="form-control" title="Select language">
-									<option value="hu">hu</option>
-									<option value="en">en</option>
-									<option value="de">de</option>
-								</select>
-							</div>
-						</form>
-					</div>
-					<div class="collapse" id="accordion-lost-password-form" data-parent=".accordion-authentication">
-						<form class="lost-password">
-							<div class="form-group">
-								<h3 class="display-5">Forgotten password</h3>
-							</div>
-							<div class="form-group">
-								<input class="form-control" type="text" placeholder="E-mail" required="required" autofocus="autofocus"/>
-							</div>
-							<div class="form-group">
-								<button type="submit" class="btn btn-primary">Submit</button>
-							</div>
-							<div class="form-group">
-								<button type="button" class="btn btn-link" data-toggle="collapse" data-target="#accordion-login-form">
-									Back to login
-								</button>
-							</div>
-						</form>
-					</div>
+		<main class="authentication-area row">
+			<div class="col-lg-4 offset-lg-4 col-md-6 offset-md-3 col-sm-12 accordion accordion-authentication" >
+				<div class="collapse show" id="accordion-login-form" data-parent=".accordion-authentication">
+					<form class="login">
+						<div class="form-group">
+							<h3 class="display-5">Login</h3>
+						</div>
+						<div class="form-group">
+							<input class="form-control" type="text" placeholder="E-mail" required="required" autofocus="autofocus"/>
+						</div>
+						<div class="form-group">
+							<input class="form-control" type="password" placeholder="Password" required="required"/>
+						</div>
+						<div class="toast message failed" hidden="">Login failed</div>
+						<div class="toast message failed" hidden="">Login successful</div>
+						<div class="form-group">
+							<button type="submit" class="btn btn-primary">Login</button>
+						</div>
+						<div class="form-group">
+							<button type="button" class="btn btn-link" data-toggle="collapse" data-target="#accordion-lost-password-form">
+								Forgotten password
+							</button>
+						</div>
+						<div class="form-group language-switcher">
+							<select class="form-control" title="Select language">
+								<option value="hu">hu</option>
+								<option value="en">en</option>
+								<option value="de">de</option>
+							</select>
+						</div>
+					</form>
+				</div>
+				<div class="collapse" id="accordion-lost-password-form" data-parent=".accordion-authentication">
+					<form class="lost-password">
+						<div class="form-group">
+							<h3 class="display-5">Forgotten password</h3>
+						</div>
+						<div class="form-group">
+							<input class="form-control" type="text" placeholder="E-mail" required="required" autofocus="autofocus"/>
+						</div>
+						<div class="form-group">
+							<button type="submit" class="btn btn-primary">Submit</button>
+						</div>
+						<div class="form-group">
+							<button type="button" class="btn btn-link" data-toggle="collapse" data-target="#accordion-login-form">
+								Back to login
+							</button>
+						</div>
+					</form>
 				</div>
 			</div>
 		</main>

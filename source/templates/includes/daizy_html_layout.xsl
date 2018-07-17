@@ -3,7 +3,7 @@
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
 	xmlns:xlink="http://www.w3.org/1999/xlink"
 	>
-	<xsl:output method="html" encoding="utf-8" indent="yes" omit-xml-declaration="yes"/>
+	<xsl:output method="html" encoding="UTF-8" indent="yes" omit-xml-declaration="yes"/>
 	
 	<xsl:param name="head_title" select="'DaiZy Minimalistic Admin Template'" />
 	
@@ -66,7 +66,7 @@
 	
 		<xsl:text disable-output-escaping='yes'>&lt;!DOCTYPE html&gt;</xsl:text>
 		<xsl:comment>Daizy Minimalistic Admin Template</xsl:comment>
-		<html lang="hu">
+		<html lang="en">
 			<head>
 				<xsl:if test="baseHref">
 					<base href="{baseHref}"/>
@@ -77,7 +77,7 @@
 
 				<xsl:apply-templates select="head_css"></xsl:apply-templates>
 			</head>
-			<body class="bg-light daizy-wrapper">
+			<body class="container bg-light daizy-wrapper">
 				<div class="page-loader">
 					<div class="dot text-info"><xsl:text disable-output-escaping="yes">&amp;middot;</xsl:text></div>
 				</div>

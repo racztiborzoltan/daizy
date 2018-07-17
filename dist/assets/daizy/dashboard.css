@@ -85,20 +85,28 @@ header .language-switcher select:focus {
 
 
 
-.menu-contents .menu-content-header {
+.menu-content-list .menu-content-item {
+	border: none;
+	background-color: transparent;
+}
+ .menu-content-item .menu-content-header {
 	display: flex;
 	flex-direction: row;
+	justify-content: center;
 	border-bottom: none;
 	padding: 0;
+	background-color: transparent;
 }
-.menu-contents .menu-content-header .btn .icon{
+ .menu-content-item .menu-content-header .btn .icon{
 	height: 1em;
 }
-.menu-contents .menu-content {
-	border: none;
+.menu-content-toggler {
+	border-color: transparent;
 }
-.menu-content-toggler:hover {
-	text-decoration: none;
+.menu-content-container {
+	-webkit-box-shadow: 0 4px 2px -3px var(--gray);
+	-moz-box-shadow: 0 4px 2px -3px var(--gray);
+	box-shadow: 0 4px 2px -3px var(--gray);
 }
 
 
@@ -107,4 +115,8 @@ header .language-switcher select:focus {
   width: initial;
   margin: 0 0em;
   max-width: initial;
+}
+
+.full-width {
+	min-width: 100%;
 }

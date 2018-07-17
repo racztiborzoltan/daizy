@@ -3,10 +3,10 @@
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
 	xmlns:xlink="http://www.w3.org/1999/xlink"
 	>
+	
 	<xsl:import href="includes/daizy_html_layout.xsl" />
 	
 	<xsl:import href="includes/dashboard_menu_contents/dashbaord.xsl" />
-	
 	<xsl:import href="includes/dashboard_menu_contents/typography.xsl" />
 	<xsl:import href="includes/dashboard_menu_contents/images.xsl" />
 	<xsl:import href="includes/dashboard_menu_contents/tables.xsl" />
@@ -23,7 +23,6 @@
 	<xsl:import href="includes/dashboard_menu_contents/modals.xsl" />
 	
 	<xsl:param name="head_title" select="'Dashboard Page'" />
-
 
 
 	<xsl:template match="head_css">
@@ -43,6 +42,11 @@
 		<xsl:variable name="dashboard_js_path">assets/daizy/dashboard.js</xsl:variable>
 		<xsl:value-of select="php:function('\Daizy\SiteBuildHelper::copyFile', $dashboard_js_path)"/>
 		<script src="{$dashboard_js_path}" type="text/javascript"></script>
+		
+		<!-- demo.dashboard.js fájl másolása -->
+		<xsl:variable name="demo_dashboard_js_path">assets/daizy/demo.dashboard.js</xsl:variable>
+		<xsl:value-of select="php:function('\Daizy\SiteBuildHelper::copyFile', $demo_dashboard_js_path)"/>
+		<script src="{$demo_dashboard_js_path}" type="text/javascript"></script>
 	</xsl:template>
 
 
@@ -53,7 +57,7 @@
 	</xsl:template>
 	
 	<xsl:template name="body_header">
-		<header class="container">
+		<header>
 			<nav class="navbar navbar-expand-md navbar-light">
 				<form class="search mr-md-3" onsubmit="return false;">
 					<input class="form-control" type="search" placeholder="Search..." aria-label="Search"/>
@@ -109,8 +113,8 @@
 	</xsl:template>
 	
 	<xsl:template name="body_main">
-		<main class="container my-3">
-			<div class="menu-contents">
+		<main class="my-3">	
+			<div class="menu-content-list">
 				<xsl:apply-templates select="/variables/dashboard_menu_content"></xsl:apply-templates>
 			</div>
 			<div id="header_search_no_results" class="alert alert-info text-info text-center" hidden="">
@@ -127,8 +131,6 @@
 	
 	<!--  
 	@desc Display collapsable menu content element
-	@param string $menu_content_id Optional. If not present, generate automatically
-	@param string $menu_content_caption Required!
 	@param string $menu_content Required!
 	@xml
 		<menu_content_node_name>
@@ -143,37 +145,20 @@
 		<xsl:variable name="collapse_id" select="concat(name(), '-', generate-id())"></xsl:variable>
 		<xsl:variable name="menu_content_caption" select="caption"></xsl:variable>
 		
-		<div class="card bg-light mt-3 menu-content">
-			<xsl:call-template name="dashboard_menu_content_header">
-				<xsl:with-param name="menu_content_id" select="$collapse_id"></xsl:with-param>
-				<xsl:with-param name="menu_content_caption" select="$menu_content_caption"></xsl:with-param>
-			</xsl:call-template>
-			
-			<div id="{$collapse_id}" class="collapse">
+		<div class="card mt-3 menu-content-item">
+			<div class="card-header menu-content-header">
+				<button class="btn btn-outline-primary btn-lg collapsed menu-content-toggler" type="button" data-toggle="collapse" data-target="#{$collapse_id}" aria-expanded="true" aria-controls="{$collapse_id}">
+					<span class="caption">
+						<xsl:value-of select="$menu_content_caption"></xsl:value-of>
+					</span>
+				</button>
+				<xsl:call-template name="button_maximize_section"></xsl:call-template>
+			</div>
+			<div id="{$collapse_id}" class="collapse menu-content-container">
 				<div class="card-body">
 					<xsl:copy-of select="$menu_content"></xsl:copy-of>
 				</div>
 			</div>
-		</div>
-	</xsl:template>
-	
-	<xsl:template name="dashboard_menu_content_header">
-		<xsl:param name="menu_content_id" required="yes"></xsl:param>
-		<xsl:param name="menu_content_caption" required="yes"/>
-		
-		<xsl:if test="$menu_content_id = ''">
-			<xsl:message terminate="yes">
-				"menu_content_id" parameter is required!
-			</xsl:message>
-		</xsl:if>
-		
-		<div class="card-header menu-content-header">
-			<button class="btn btn-link btn-block btn-lg collapsed menu-content-toggler" type="button" data-toggle="collapse" data-target="#{$menu_content_id}" aria-expanded="true" aria-controls="{$menu_content_id}">
-				<span class="caption">
-					<xsl:value-of select="$menu_content_caption"></xsl:value-of>
-				</span>
-			</button>
-			<xsl:call-template name="button_maximize_section"></xsl:call-template>
 		</div>
 	</xsl:template>
 	
