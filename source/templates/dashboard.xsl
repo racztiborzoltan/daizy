@@ -59,12 +59,18 @@
 	<xsl:template name="body_header">
 		<header>
             <nav>
-				<form class="search mr-md-3" onsubmit="return false;">
-					<input class="form-control" type="search" placeholder="Search..." aria-label="Search"/>
+				<form class="search" onsubmit="return false;">
+					<input type="search" placeholder="Search..." aria-label="Search"/>
 				</form>
 				
-				<button type="button" data-menu-toggler=""> <xsl:text disable-output-escaping="yes">&amp;</xsl:text>equiv;</button>
+				<xsl:variable name="temp_menu_toggler_id">
+				    <xsl:value-of select="generate-id()"></xsl:value-of>
+				</xsl:variable>
+				<label for="{$temp_menu_toggler_id}" data-menu-toggler="">
+				    <xsl:text disable-output-escaping="yes">&amp;</xsl:text>equiv;
+				</label>
 				
+				<input id="{$temp_menu_toggler_id}" type="checkbox" data-menu-toggler="" hidden=""/>
 				<ul class="nav-menu">
 					<li>
 						<a href="" title="Main Page">
@@ -75,10 +81,7 @@
 					<li>
 						<label class="language-switcher" title="Change Language">
 							<svg class="icon"><use xlink:href="assets/daizy/icons-sprite.svg#bytesize-settings"></use></svg>
-							<span class="caption">
-								Language
-							</span>
-							<select class="form-control" title="Change language...">
+							<select title="Change language...">
 								<option value="hu">hu</option>
 								<option value="en">en</option>
 								<option value="de">de</option>
@@ -101,10 +104,6 @@
 	<xsl:template name="body_header__BACKUP">
 		<header>
 			<nav class="navbar navbar-expand-md navbar-light">
-				<form class="search mr-md-3" onsubmit="return false;">
-					<input class="form-control" type="search" placeholder="Search..." aria-label="Search"/>
-				</form>
-				
 				<!-- <a class="navbar-brand" href="#">Navbar</a> -->
 				<button class="navbar-toggler mobile-menu-toggler" type="button" data-toggle="collapse" data-target="#headerNavbarContent" aria-controls="headerNavbarContent" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
@@ -156,6 +155,9 @@
 	
 	<xsl:template name="body_main">
 		<main class="my-3">	
+            <details>
+                <summary><button type="button">X</button></summary>
+            </details>
 			<div class="menu-content-list">
 				<xsl:apply-templates select="/variables/dashboard_menu_content"></xsl:apply-templates>
 			</div>

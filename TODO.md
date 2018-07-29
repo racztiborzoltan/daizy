@@ -17,3 +17,5 @@
 	https://stackoverflow.com/questions/1424234/how-do-i-inline-the-contents-of-an-external-html-document-using-xslt
 
 - multiple level menu in dashboard header
+
+- browser tests
