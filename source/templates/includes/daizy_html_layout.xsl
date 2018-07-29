@@ -8,12 +8,6 @@
 	<xsl:param name="head_title" select="'DaiZy Minimalistic Admin Template'" />
 	
 	<xsl:template match="head_css">
-		<!-- bootswatch css fájl átmásolása a cél helyre -->
-		<xsl:variable name="bootstrap_css_path">assets/vendor/bootstrap-4.1.2-dist/css/bootstrap.min.css</xsl:variable>
-		<xsl:value-of select="php:function('\Daizy\SiteBuildHelper::copyFile', $bootstrap_css_path)"/>
-		<xsl:value-of select="php:function('\Daizy\SiteBuildHelper::copyFile', 'assets/vendor/bootstrap-4.1.2-dist/css/bootstrap.min.css.map')"/>
-		<link rel="stylesheet" href="{$bootstrap_css_path}"/>
-		
 		<!-- "assets/daizy/daizy.min.css" fájl átmásolása a cél helyre -->
 		<xsl:variable name="daizy_css_path">assets/daizy/daizy.min.css</xsl:variable>
 		<xsl:value-of select="php:function('\Daizy\SiteBuildHelper::copyFile', $daizy_css_path)"/>
@@ -37,12 +31,6 @@
 		<xsl:variable name="jquery_js_path">assets/vendor/jQuery-3.3.1/jquery-3.3.1.min.js</xsl:variable>
 		<xsl:value-of select="php:function('\Daizy\SiteBuildHelper::copyFile', $jquery_js_path)"/>
 		<script src="{$jquery_js_path}" type="text/javascript"></script>
-
-		<!-- bootstrap.min.js fájl átmásolása a cél helyre -->
-		<xsl:variable name="bootstrap_js_path">assets/vendor/bootstrap-4.1.2-dist/js/bootstrap.bundle.min.js</xsl:variable>
-		<xsl:value-of select="php:function('\Daizy\SiteBuildHelper::copyFile', $bootstrap_js_path)"/>
-		<xsl:value-of select="php:function('\Daizy\SiteBuildHelper::copyFile', 'assets/vendor/bootstrap-4.1.2-dist/js/bootstrap.bundle.min.js.map')"/>
-		<script src="{$bootstrap_js_path}" type="text/javascript"></script>
 
 		<!-- daizy.js fájl átmásolása a cél helyre -->
 		<xsl:variable name="daizy_js_path">assets/daizy/daizy.js</xsl:variable>

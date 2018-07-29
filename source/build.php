@@ -28,48 +28,48 @@ call_user_func(function(){
         'dashboard' => [
             'caption' => 'Dashboard',
         ],
-        'typography' => [
-            'caption' => 'Typography',
-        ],
-        'images' => [
-            'caption' => 'Images',
-        ],
-        'tables' => [
-            'caption' => 'Tables',
-        ],
-        'list_groups' => [
-            'caption' => 'List groups',
-        ],
-        'buttons' => [
-            'caption' => 'Buttons',
-        ],
-        'jumbotrons' => [
-            'caption' => 'Jumbotrons',
-        ],
-        'cards' => [
-            'caption' => 'Cards',
-        ],
-        'forms' => [
-            'caption' => 'Forms',
-        ],
-        'navs' => [
-            'caption' => 'Navs',
-        ],
-        'badges' => [
-            'caption' => 'Badges',
-        ],
-        'alerts' => [
-            'caption' => 'Alerts',
-        ],
-        'popovers' => [
-            'caption' => 'Popovers',
-        ],
-        'progress_bars' => [
-            'caption' => 'Progress bars',
-        ],
-        'modals' => [
-            'caption' => 'Modals',
-        ],
+//         'typography' => [
+//             'caption' => 'Typography',
+//         ],
+//         'images' => [
+//             'caption' => 'Images',
+//         ],
+//         'tables' => [
+//             'caption' => 'Tables',
+//         ],
+//         'list_groups' => [
+//             'caption' => 'List groups',
+//         ],
+//         'buttons' => [
+//             'caption' => 'Buttons',
+//         ],
+//         'jumbotrons' => [
+//             'caption' => 'Jumbotrons',
+//         ],
+//         'cards' => [
+//             'caption' => 'Cards',
+//         ],
+//         'forms' => [
+//             'caption' => 'Forms',
+//         ],
+//         'navs' => [
+//             'caption' => 'Navs',
+//         ],
+//         'badges' => [
+//             'caption' => 'Badges',
+//         ],
+//         'alerts' => [
+//             'caption' => 'Alerts',
+//         ],
+//         'popovers' => [
+//             'caption' => 'Popovers',
+//         ],
+//         'progress_bars' => [
+//             'caption' => 'Progress bars',
+//         ],
+//         'modals' => [
+//             'caption' => 'Modals',
+//         ],
     ]);
 
     //
@@ -86,6 +86,7 @@ call_user_func(function(){
         exit();
     }
 
+    // -------------------------------------------------------------------------
     // scss fordítás
     /**
      * @var \Leafo\ScssPhp\Compiler $scss_compiler
@@ -103,6 +104,25 @@ call_user_func(function(){
         }
     });
     $sitebuild->compileScssFileToFile($scss_file_path, $ROOT_DIR . 'source/assets/daizy/daizy.min.css');
+
+    /**
+     * @var \Leafo\ScssPhp\Compiler $scss_compiler
+     */
+    $scss_file_path = $ROOT_DIR . 'source/assets/daizy/scss/dashboard.scss';
+    $scss_file_dir = dirname($scss_file_path);
+    $scss_compiler = $sitebuild->getScssCompiler();
+    $scss_compiler->setFormatter(new \Leafo\ScssPhp\Formatter\Compressed());
+    $scss_compiler->addImportPath(dirname($scss_file_path));
+    // Ez azért, hogy a sima css fájlok is bekerüljenek az egyesített fájlba teljes tartalommal:
+    $scss_compiler->addImportPath(function($path) use ($scss_file_dir) {
+        $path = $scss_file_dir . '/' . $path;
+        if (is_file($path)) {
+            return $path;
+        }
+    });
+    $sitebuild->compileScssFileToFile($scss_file_path, $ROOT_DIR . 'source/assets/daizy/dashboard.min.css');
+
+    // -------------------------------------------------------------------------
 
     SiteBuildHelper::setSiteBuild($sitebuild);
 

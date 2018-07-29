@@ -29,7 +29,7 @@
 		<xsl:apply-imports/>
 		
 		<!-- login.css fájl másolása -->
-		<xsl:variable name="dashboard_css_path">assets/daizy/dashboard.css</xsl:variable>
+		<xsl:variable name="dashboard_css_path">assets/daizy/dashboard.min.css</xsl:variable>
 		<xsl:value-of select="php:function('\Daizy\SiteBuildHelper::copyFile', $dashboard_css_path)"/>
 		<link rel="stylesheet" href="{$dashboard_css_path}"/>
 	</xsl:template>
@@ -57,6 +57,48 @@
 	</xsl:template>
 	
 	<xsl:template name="body_header">
+		<header>
+            <nav>
+				<form class="search mr-md-3" onsubmit="return false;">
+					<input class="form-control" type="search" placeholder="Search..." aria-label="Search"/>
+				</form>
+				
+				<button type="button" data-menu-toggler=""> <xsl:text disable-output-escaping="yes">&amp;</xsl:text>equiv;</button>
+				
+				<ul class="nav-menu">
+					<li>
+						<a href="" title="Main Page">
+							<svg class="icon"><use xlink:href="assets/daizy/icons-sprite.svg#bytesize-home"></use></svg>
+							<span class="caption">Main Page</span>
+						</a>
+					</li>
+					<li>
+						<label class="language-switcher" title="Change Language">
+							<svg class="icon"><use xlink:href="assets/daizy/icons-sprite.svg#bytesize-settings"></use></svg>
+							<span class="caption">
+								Language
+							</span>
+							<select class="form-control" title="Change language...">
+								<option value="hu">hu</option>
+								<option value="en">en</option>
+								<option value="de">de</option>
+							</select>
+						</label>
+					</li>
+					<li>
+						<a href="#" title="Logout">
+							<svg class="icon"><use xlink:href="assets/daizy/icons-sprite.svg#bytesize-logout"></use></svg>
+							<span class="caption">
+								Logout
+							</span>
+						</a>
+					</li>
+				</ul>
+            </nav>
+		</header>
+	</xsl:template>
+	
+	<xsl:template name="body_header__BACKUP">
 		<header>
 			<nav class="navbar navbar-expand-md navbar-light">
 				<form class="search mr-md-3" onsubmit="return false;">
