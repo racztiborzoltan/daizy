@@ -30,7 +30,7 @@
       <input type="radio" name="accordion" id="login-area" class="collapse" aria-hidden="true" checked="checked" autocomplete="off"/>
 			<form class="col-6 login">
         <p>
-					<h3 class="display-5">Login</h3>
+					<h3>Login</h3>
         </p>
         <p>
 					<input type="text" placeholder="E-mail" required="required" autofocus="autofocus"/>
@@ -62,7 +62,7 @@
       <input type="radio" name="accordion" id="lost-password-area" class="collapse" aria-hidden="true" autocomplete="off"/>
 			<form class="col-6 lost-password">
 				<p>
-					<h3 class="display-5">Forgotten password</h3>
+					<h3>Forgotten password</h3>
         </p>
 				<p>
 					<input type="text" placeholder="E-mail" required="required"/>
