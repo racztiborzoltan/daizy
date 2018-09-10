@@ -7,73 +7,71 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Login Page</title>
 		<link rel="stylesheet" href="assets/daizy/daizy.min.css">
-		<link rel="stylesheet" href="assets/daizy/login.css">
+		<link rel="stylesheet" href="assets/daizy/login.min.css">
 	</head>
-	<body class="container bg-light daizy-wrapper">
-		<div class="page-loader">
-			<div class="dot text-info">&middot;</div>
+	<body class="container daizy-wrapper">
+		<div class="page-loader text-primary">
+			<div class="dot">&middot;</div>
 		</div>
 		<main class="authentication-area row">
-			<div class="col-lg-4 offset-lg-4 col-md-6 offset-md-3 col-sm-12 accordion accordion-authentication">
-				<div class="collapse show" id="accordion-login-form" data-parent=".accordion-authentication">
-					<form class="login">
-						<div class="form-group">
-							<h3 class="display-5">
-								Login
-							</h3>
-						</div>
-						<div class="form-group">
-							<input class="form-control" type="text" placeholder="E-mail" required="required" autofocus="autofocus">
-						</div>
-						<div class="form-group">
-							<input class="form-control" type="password" placeholder="Password" required="required">
-						</div>
-						<div class="toast message failed" hidden="">Login failed</div>
-						<div class="toast message failed" hidden="">Login successful</div>
-						<div class="form-group">
-							<button type="submit" class="btn btn-primary">Login</button>
-						</div>
-						<div class="form-group">
-							<button type="button" class="btn btn-link" data-toggle="collapse" data-target="#accordion-lost-password-form">
+			<div class="col-3"></div>
+			<input type="radio" name="accordion" id="login-area" class="collapse" aria-hidden="true" checked autocomplete="off">
+			<form class="col-6 login">
+				<p>
+					<h3 class="display-5">
+						Login
+					</h3>
+				</p>
+				<p>
+					<input type="text" placeholder="E-mail" required="required" autofocus="autofocus">
+				</p>
+				<p>
+					<input type="password" placeholder="Password" required="required">
+				</p>
+				<div class="toast message failed" hidden="">Login failed</div>
+				<div class="toast message failed" hidden="">Login successful</div>
+				<p>
+					<button type="submit" class="btn btn-primary">Login</button>
+				</p>
+				<p>
+					<label class="button clear" for="lost-password-area" tabindex="0">
 Forgotten password
-</button>
-						</div>
-						<div class="form-group language-switcher">
-							<select class="form-control" title="Select language">
-								<option value="hu">hu</option>
-								<option value="en">en</option>
-								<option value="de">de</option>
-							</select>
-						</div>
-					</form>
-				</div>
-				<div class="collapse" id="accordion-lost-password-form" data-parent=".accordion-authentication">
-					<form class="lost-password">
-						<div class="form-group">
-							<h3 class="display-5">
-								Forgotten password
-							</h3>
-						</div>
-						<div class="form-group">
-							<input class="form-control" type="text" placeholder="E-mail" required="required" autofocus="autofocus">
-						</div>
-						<div class="form-group">
-							<button type="submit" class="btn btn-primary">Submit</button>
-						</div>
-						<div class="form-group">
-							<button type="button" class="btn btn-link" data-toggle="collapse" data-target="#accordion-login-form">
+</label>
+				</p>
+				<p class="language-switcher">
+					<select title="Select language">
+						<option value="hu">hu</option>
+						<option value="en">en</option>
+						<option value="de">de</option>
+					</select>
+				</p>
+			</form>
+			<div class="is-full-width"></div>
+			<div class="col-3"></div>
+			<input type="radio" name="accordion" id="lost-password-area" class="collapse" aria-hidden="true" autocomplete="off">
+			<form class="col-6 lost-password">
+				<p>
+					<h3 class="display-5">
+						Forgotten password
+					</h3>
+				</p>
+				<p>
+					<input type="text" placeholder="E-mail" required="required">
+				</p>
+				<p>
+					<button type="submit" class="btn btn-primary">Submit</button>
+				</p>
+				<p>
+					<label class="button clear" for="login-area" tabindex="0">
 Back to login
-</button>
-						</div>
-					</form>
-				</div>
-			</div>
+</label>
+				</p>
+			</form>
 		</main>
 		<div class="scripts">
 			<noscript class="nojs">Javascript disabled!</noscript>
-			<script src="https:////cdn.polyfill.io/v2/polyfill.min.js"></script>
+			<script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
 			<script src="assets/vendor/svgxuse-1.2.6/svgxuse.min.js" type="text/javascript"></script>
-			<script src="assets/vendor/jQuery-3.3.1/jquery-3.3.1.min.js" type="text/javascript"></script>
 			<script src="assets/daizy/daizy.js" type="text/javascript"></script>
 			<script src="assets/daizy/login.js" type="text/javascript"></script>
 		</div>

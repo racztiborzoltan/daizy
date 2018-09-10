@@ -6,8 +6,8 @@
 	<xsl:template match="head_css">
 		<xsl:apply-imports/>
 		
-		<!-- dashboard.css fájl másolása -->
-		<xsl:variable name="login_css_path">assets/daizy/login.css</xsl:variable>
+		<!-- login.min.css fájl másolása -->
+		<xsl:variable name="login_css_path">assets/daizy/login.min.css</xsl:variable>
 		<xsl:value-of select="php:function('\Daizy\SiteBuildHelper::copyFile', $login_css_path)"/>
 		<link rel="stylesheet" href="{$login_css_path}"/>
 	</xsl:template>
@@ -25,56 +25,57 @@
 
 	<xsl:template name="body_content">
 		<main class="authentication-area row">
-			<div class="col-lg-4 offset-lg-4 col-md-6 offset-md-3 col-sm-12 accordion accordion-authentication" >
-				<div class="collapse show" id="accordion-login-form" data-parent=".accordion-authentication">
-					<form class="login">
-						<div class="form-group">
-							<h3 class="display-5">Login</h3>
-						</div>
-						<div class="form-group">
-							<input class="form-control" type="text" placeholder="E-mail" required="required" autofocus="autofocus"/>
-						</div>
-						<div class="form-group">
-							<input class="form-control" type="password" placeholder="Password" required="required"/>
-						</div>
-						<div class="toast message failed" hidden="">Login failed</div>
-						<div class="toast message failed" hidden="">Login successful</div>
-						<div class="form-group">
-							<button type="submit" class="btn btn-primary">Login</button>
-						</div>
-						<div class="form-group">
-							<button type="button" class="btn btn-link" data-toggle="collapse" data-target="#accordion-lost-password-form">
-								Forgotten password
-							</button>
-						</div>
-						<div class="form-group language-switcher">
-							<select class="form-control" title="Select language">
-								<option value="hu">hu</option>
-								<option value="en">en</option>
-								<option value="de">de</option>
-							</select>
-						</div>
-					</form>
-				</div>
-				<div class="collapse" id="accordion-lost-password-form" data-parent=".accordion-authentication">
-					<form class="lost-password">
-						<div class="form-group">
-							<h3 class="display-5">Forgotten password</h3>
-						</div>
-						<div class="form-group">
-							<input class="form-control" type="text" placeholder="E-mail" required="required" autofocus="autofocus"/>
-						</div>
-						<div class="form-group">
-							<button type="submit" class="btn btn-primary">Submit</button>
-						</div>
-						<div class="form-group">
-							<button type="button" class="btn btn-link" data-toggle="collapse" data-target="#accordion-login-form">
-								Back to login
-							</button>
-						</div>
-					</form>
-				</div>
-			</div>
+      <div class="col-3"></div>
+      
+      <input type="radio" name="accordion" id="login-area" class="collapse" aria-hidden="true" checked="checked" autocomplete="off"/>
+			<form class="col-6 login">
+        <p>
+					<h3 class="display-5">Login</h3>
+        </p>
+        <p>
+					<input type="text" placeholder="E-mail" required="required" autofocus="autofocus"/>
+        </p>
+        <p>
+					<input type="password" placeholder="Password" required="required"/>
+        </p>
+				<div class="toast message failed" hidden="">Login failed</div>
+				<div class="toast message failed" hidden="">Login successful</div>
+        <p>
+					<button type="submit" class="btn btn-primary">Login</button>
+        </p>
+        <p>
+					<label class="button clear" for="lost-password-area" tabindex="0">
+						Forgotten password
+					</label>
+        </p>
+        <p class="language-switcher">
+					<select title="Select language">
+						<option value="hu">hu</option>
+						<option value="en">en</option>
+						<option value="de">de</option>
+					</select>
+        </p>
+			</form>
+      <div class="is-full-width"></div>
+      <div class="col-3"></div>
+      
+      <input type="radio" name="accordion" id="lost-password-area" class="collapse" aria-hidden="true" autocomplete="off"/>
+			<form class="col-6 lost-password">
+				<p>
+					<h3 class="display-5">Forgotten password</h3>
+        </p>
+				<p>
+					<input type="text" placeholder="E-mail" required="required"/>
+        </p>
+        <p>
+					<button type="submit" class="btn btn-primary">Submit</button>
+        </p>
+        <p>
+					<label class="button clear" for="login-area" tabindex="0">
+						Back to login
+					</label>
+        </p>
+			</form>
 		</main>
 	</xsl:template>
 	

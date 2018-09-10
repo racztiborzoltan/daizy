@@ -4,6 +4,9 @@
 //
 (function(window, document){
 
+	console.error('REIMPLEMENTATION!!!');
+	return;
+
 	var $ = undefined;
 	var jQuery = undefined;
 

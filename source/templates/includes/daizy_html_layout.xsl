@@ -20,17 +20,12 @@
 	
 	<xsl:template match="body_javascript">
 		<noscript class="nojs">Javascript disabled!</noscript>
-		<script src="https:////cdn.polyfill.io/v2/polyfill.min.js"></script>
+		<script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
 
 		<!-- svgxuse javascript fájl átmásolása a cél helyre -->
 		<xsl:variable name="svgxuse_js_path">assets/vendor/svgxuse-1.2.6/svgxuse.min.js</xsl:variable>
 		<xsl:value-of select="php:function('\Daizy\SiteBuildHelper::copyFile', $svgxuse_js_path)"/>
 		<script src="{$svgxuse_js_path}" type="text/javascript"></script>
-
-		<!-- jquey javascript fájl átmásolása a cél helyre -->
-		<xsl:variable name="jquery_js_path">assets/vendor/jQuery-3.3.1/jquery-3.3.1.min.js</xsl:variable>
-		<xsl:value-of select="php:function('\Daizy\SiteBuildHelper::copyFile', $jquery_js_path)"/>
-		<script src="{$jquery_js_path}" type="text/javascript"></script>
 
 		<!-- daizy.js fájl átmásolása a cél helyre -->
 		<xsl:variable name="daizy_js_path">assets/daizy/daizy.js</xsl:variable>
@@ -65,9 +60,9 @@
 
 				<xsl:apply-templates select="head_css"></xsl:apply-templates>
 			</head>
-			<body class="container bg-light daizy-wrapper">
-				<div class="page-loader">
-					<div class="dot text-info"><xsl:text disable-output-escaping="yes">&amp;middot;</xsl:text></div>
+			<body class="container daizy-wrapper">
+				<div class="page-loader text-primary">
+					<div class="dot"><xsl:text disable-output-escaping="yes">&amp;middot;</xsl:text></div>
 				</div>
 				<xsl:call-template name="body_content"/>
 				

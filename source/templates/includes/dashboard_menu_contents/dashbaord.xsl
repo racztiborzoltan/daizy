@@ -4,6 +4,9 @@
 	xmlns:xlink="http://www.w3.org/1999/xlink"
 	>
 	
+	<xsl:include href="../daizy_html_layout.xsl" />
+	
+	
 	<xsl:template match="dashboard">
 		<xsl:call-template name="display_menu_content">
 			<xsl:with-param name="menu_content">

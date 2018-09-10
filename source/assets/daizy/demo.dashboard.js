@@ -1,8 +1,11 @@
 'use strict';
 // =============================================================================
-// Demo JavaScripts for Dashboard with jQuery
+// Demo JavaScripts for Dashboard
 //
-(function(window, document, $){
+(function(window, document){
+
+	console.error('REIMPLEMENTATION!!!');
+	return;
 
 	Daizy.Dashboard.onMaximizeMenuContent = function(){
 		var menu_content_item = this;
@@ -21,5 +24,5 @@
 	};
 
 
-}).call(this, window, window.document, jQuery);
+}).call(this, window, window.document);
 // =============================================================================

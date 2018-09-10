@@ -122,6 +122,23 @@ call_user_func(function(){
     });
     $sitebuild->compileScssFileToFile($scss_file_path, $ROOT_DIR . 'source/assets/daizy/dashboard.min.css');
 
+    /**
+     * @var \Leafo\ScssPhp\Compiler $scss_compiler
+     */
+    $scss_file_path = $ROOT_DIR . 'source/assets/daizy/scss/login.scss';
+    $scss_file_dir = dirname($scss_file_path);
+    $scss_compiler = $sitebuild->getScssCompiler();
+    $scss_compiler->setFormatter(new \Leafo\ScssPhp\Formatter\Compressed());
+    $scss_compiler->addImportPath(dirname($scss_file_path));
+    // Ez azért, hogy a sima css fájlok is bekerüljenek az egyesített fájlba teljes tartalommal:
+    $scss_compiler->addImportPath(function($path) use ($scss_file_dir) {
+        $path = $scss_file_dir . '/' . $path;
+        if (is_file($path)) {
+            return $path;
+        }
+    });
+    $sitebuild->compileScssFileToFile($scss_file_path, $ROOT_DIR . 'source/assets/daizy/login.min.css');
+
     // -------------------------------------------------------------------------
 
     SiteBuildHelper::setSiteBuild($sitebuild);

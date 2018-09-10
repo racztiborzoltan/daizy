@@ -19,3 +19,8 @@
 - multiple level menu in dashboard header
 
 - browser tests
+
+- class css reset
+    - example: https://github.com/mblode/marx/
+
+- input.collapse clickable with keyboard (onfocus ENTER or SPACE)

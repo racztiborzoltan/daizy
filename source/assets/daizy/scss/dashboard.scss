@@ -97,7 +97,8 @@ header .language-switcher select {
     appearance: none;
     background-color: transparent;
     vertical-align: middle;
-    color: inherit;
+    color: var(--link-color);
+    color: blue;
     width: auto !important;
     height: auto !important;
     display: inline-block;
@@ -108,7 +109,7 @@ header .language-switcher select:focus {
     box-shadow: none;
     text-decoration: underline;
 }
-@media (min-width: $media-breakpoint-up) {
+@media (min-width: $daizy-media-breakpoint-up) {
     header .language-switcher .icon {
         display: none;
     }
@@ -116,7 +117,7 @@ header .language-switcher select:focus {
 /*
 ============================================================
 */
-@media (min-width: $media-breakpoint-up) {
+@media (min-width: $daizy-media-breakpoint-up) {
 	header nav input[data-menu-toggler]:checked + .nav-menu li {
 	   margin: inherit;
 	   padding: inherit;

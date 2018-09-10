@@ -154,10 +154,7 @@
 	</xsl:template>
 	
 	<xsl:template name="body_main">
-		<main class="my-3">	
-            <details>
-                <summary><button type="button">X</button></summary>
-            </details>
+		<main>
 			<div class="menu-content-list">
 				<xsl:apply-templates select="/variables/dashboard_menu_content"></xsl:apply-templates>
 			</div>
@@ -169,6 +166,7 @@
 	
 	<xsl:template name="body_footer">
 		<footer>
+            <small>DaiZy Html (Admin Dashboard) Template v0.1.0</small>
 		</footer>
 	</xsl:template>
 	
