@@ -39,6 +39,12 @@
 	<xsl:template name="body_content">
 	</xsl:template>
 	
+	<xsl:template name="comment_copyright_text">
+		<xsl:comment>
+			<xsl:value-of select="concat(' ', /variables/copyright_text, ' ')"/>
+		</xsl:comment>
+	</xsl:template>
+	
 	<!-- 
 	XSLT átalakítást elindító sablon definíció
 	-->
@@ -48,7 +54,7 @@
 		<xsl:value-of select="php:function('\Daizy\SiteBuildHelper::copyFile', 'assets/daizy/icons-sprite.svg')"/>
 	
 		<xsl:text disable-output-escaping='yes'>&lt;!DOCTYPE html&gt;</xsl:text>
-		<xsl:comment>Daizy Minimalistic Admin Template</xsl:comment>
+		<xsl:call-template name="comment_copyright_text"/>
 		<html lang="en">
 			<head>
 				<xsl:if test="baseHref">
@@ -71,9 +77,7 @@
 				</div>
 			</body>
 		</html>
-		<xsl:comment>
-			<xsl:text> </xsl:text><xsl:value-of select="/variables/copyright_text"/><xsl:text> </xsl:text>
-		</xsl:comment>
+		<xsl:call-template name="comment_copyright_text"/>
 	</xsl:template>
 	
 	<xsl:template name="bytesize_icons__TEMP">

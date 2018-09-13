@@ -25,56 +25,54 @@
 
 	<xsl:template name="body_content">
 		<main class="authentication-area row">
-      <div class="col-3"></div>
-      
-      <input type="radio" name="accordion" id="login-area" class="collapse" aria-hidden="true" checked="checked" autocomplete="off"/>
+			<div class="col-3"></div>
+			
+			<input type="radio" name="accordion" id="login-area" class="collapse" aria-hidden="true" checked="checked" autocomplete="off"/>
 			<form class="col-6 login">
-        <p>
-					<h3>Login</h3>
-        </p>
-        <p>
+				<p>
+			<h3>Login</h3>
+				</p>
+				<p>
 					<input type="text" placeholder="E-mail" required="required" autofocus="autofocus"/>
-        </p>
-        <p>
+				</p>
+				<p>
 					<input type="password" placeholder="Password" required="required"/>
-        </p>
-				<div class="toast message failed" hidden="">Login failed</div>
-				<div class="toast message failed" hidden="">Login successful</div>
-        <p>
-					<button type="submit" class="btn btn-primary">Login</button>
-        </p>
-        <p>
+				</p>
+				<p>
+					<button type="submit" class="button primary">Login</button>
+				</p>
+				<p>
 					<label class="button clear" for="lost-password-area" tabindex="0">
 						Forgotten password
 					</label>
-        </p>
-        <p class="language-switcher">
+				</p>
+				<p class="language-switcher">
 					<select title="Select language">
 						<option value="hu">hu</option>
 						<option value="en">en</option>
 						<option value="de">de</option>
 					</select>
-        </p>
+				</p>
 			</form>
-      <div class="is-full-width"></div>
-      <div class="col-3"></div>
-      
-      <input type="radio" name="accordion" id="lost-password-area" class="collapse" aria-hidden="true" autocomplete="off"/>
+			<div class="is-full-width"></div>
+			<div class="col-3"></div>
+			
+			<input type="radio" name="accordion" id="lost-password-area" class="collapse" aria-hidden="true" autocomplete="off"/>
 			<form class="col-6 lost-password">
 				<p>
 					<h3>Forgotten password</h3>
-        </p>
+				</p>
 				<p>
 					<input type="text" placeholder="E-mail" required="required"/>
-        </p>
-        <p>
-					<button type="submit" class="btn btn-primary">Submit</button>
-        </p>
-        <p>
+				</p>
+				<p>
+					<button type="submit" class="button primary">Submit</button>
+				</p>
+				<p>
 					<label class="button clear" for="login-area" tabindex="0">
 						Back to login
 					</label>
-        </p>
+				</p>
 			</form>
 		</main>
 	</xsl:template>

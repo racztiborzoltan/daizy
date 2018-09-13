@@ -2,17 +2,24 @@
 @import '../../vendor/colors-3.0.0/src/_skins.css';
 
 @import '_variables';
-@import '../../vendor/chota-0.5.0/dist/chota.min.css';
+
+/*! chota.css v0.5.0 | MIT License | github.com/jenil/chota */
+@import "../../vendor/chota-0.5.0/src/_base.css";
+@import "../../vendor/chota-0.5.0/src/_grid.css";
+@import "../../vendor/chota-0.5.0/src/_form.css";
+/* @import "../../vendor/chota-0.5.0/src/_nav.css"; */
+@import "../../vendor/chota-0.5.0/src/_card.css";
+/* @import "../../vendor/chota-0.5.0/src/_tab.css"; */
+/* @import "../../vendor/chota-0.5.0/src/_tag.css"; */
+@import "../../vendor/chota-0.5.0/src/_util.css"; 
 
 :root {
-	--primary-color: var(--blue);
 	--daizy-text-color: var(--black);
 	--daizy-border-radius: 0.3em;
 	--daizy-padding: 1em;
 	
-	--background-color: var(--white);
-	--link-color: var(--blue);
-	--visited-link-color: var(--a-visited-color);
+	--daizy-background-color: var(--white);
+	--daizy-link-color: var(--color-primary);
 	
 	--daizy-media-breakpoint-down: 767px;
 	--daizy-media-breakpoint-up: 768px;
@@ -22,110 +29,114 @@
 	/*
 	 * Chota overrides:
 	 */
-  --font-size: 16px;
+	--font-size: 16px;
 	
 	
 	/* https://css-tricks.com/snippets/css/system-font-stack */
-    font-family: var(--system-font-family);
-    font-size: 16px;
-    color: var(--daizy-text-color);
-    background-color: var(--background-color);
+	font-family: var(--system-font-family);
+	font-size: 16px;
+	color: var(--daizy-text-color);
+	background-color: var(--daizy-background-color);
 }
 
 html{
 	font-size: 16px;
 }
-html, body {
+body{
 /* 	height: 100%; */
-/*     max-width: 100%; */
-    padding: 0 0.5em;
-    margin: 0;
-    min-width: 16em;
+	padding: 0 0.5em;
+	max-width: 100%;
+	margin: 0;
+	min-width: 16em;
 }
 @media (min-width: $daizy-media-breakpoint-up) {
 	html, body {
-/* 	    max-width: 1100px; */
-	    margin: 0 auto;
-	    padding: 0 1em;
+		max-width: 1100px;
+		margin: 0 auto;
+		padding: 0 var(--daizy-padding);
 	}
 }
 
-a {
-	color: var(--link-color);
-}
+.daizy-wrapper {
+	
+	a {
+		color: var(--daizy-link-color);
+	}
+	
+	input, textarea, select, button {
+		font-size: inherit;
+	}
+	
+	footer {
+		padding: var(--daizy-padding) 0;
+	}
+	
+	body > footer {
+		margin: 0;
+	}
+	
+	noscript.nojs {
+		display: block;
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		z-index: 99999;
+		background-color: var(--daizy-background-color);
+		display: flex;
+		align-content: center;
+		align-items: center;
+		justify-content: center;
+		font-size: 3em;
+	}
+	
+	.page-loader {
+		position: fixed;
+		z-index: 99999;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		display: flex;
+		align-content: center;
+		align-items: center;
+		justify-content: center;
+		background-color: var(--daizy-background-color);
+	}
+	.page-loader .dot{
+		animation: fontsizePulse 1s ease-out;
+		animation-iteration-count: infinite;
+		opacity: 1; 
+	}
+	@keyframes fontsizePulse {
+		0% {font-size: 1em;opacity: 0.1;}
+		50% {font-size: 20em;opacity: 1;}
+		100% {font-size: 1em;opacity: 0.1;}
+	}
+	
+	.fade-out {
+		visibility: hidden;
+		opacity: 0;
+		transition: visibility 0s 1s, opacity 1s linear;
+	}
+	
+	.icon {
+		display: inline-block;
+	}
+	
+	.button {
+		cursor: pointer;
+	}
+	
+	input.collapse {
+		display: none;
+	}
+	input.collapse + * {
+		display: none;
+	}
+	input:checked.collapse + * {
+		display: block;
+	}
 
-input, textarea, select, button {
-	font-size: inherit;
-}
-
-footer {
-	padding: 1em 0;
-}
-
-body > footer {
-	margin: 0;
-}
-
-noscript.nojs {
-	display: block;
-	position: fixed;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	z-index: 99999;
-	background-color: var(--background-color);
-	display: flex;
-	align-content: center;
-	align-items: center;
-	justify-content: center;
-	font-size: 3em;
-}
-
-.page-loader {
-	position: fixed;
-	z-index: 99999;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	display: flex;
-	align-content: center;
-	align-items: center;
-	justify-content: center;
-	background-color: var(--background-color);
-}
-.page-loader .dot{
-	animation: fontsizePulse 1s ease-out;
-	animation-iteration-count: infinite;
-	opacity: 1; 
-}
-@keyframes fontsizePulse {
-    0% {font-size: 1em;opacity: 0.1;}
-    50% {font-size: 20em;opacity: 1;}
-    100% {font-size: 1em;opacity: 0.1;}
-}
-
-.fade-out {
-  visibility: hidden;
-  opacity: 0;
-  transition: visibility 0s 1s, opacity 1s linear;
-}
-
-.icon {
-	display: inline-block;
-}
-
-.button {
-	cursor: pointer;
-}
-
-input.collapse {
-	display: none;
-}
-input.collapse + * {
-	display: none;
-}
-input:checked.collapse + * {
-	display: block;
 }

@@ -58,19 +58,17 @@
 	
 	<xsl:template name="body_header">
 		<header>
-            <nav>
+
+			<nav>
 				<form class="search" onsubmit="return false;">
 					<input type="search" placeholder="Search..." aria-label="Search"/>
 				</form>
 				
-				<xsl:variable name="temp_menu_toggler_id">
-				    <xsl:value-of select="generate-id()"></xsl:value-of>
-				</xsl:variable>
-				<label for="{$temp_menu_toggler_id}" data-menu-toggler="">
-				    <xsl:text disable-output-escaping="yes">&amp;</xsl:text>equiv;
+				<label for="nav_menu_toggler" data-menu-toggler="">
+					<xsl:text disable-output-escaping="yes">&amp;</xsl:text>equiv;
 				</label>
 				
-				<input id="{$temp_menu_toggler_id}" type="checkbox" data-menu-toggler="" hidden=""/>
+				<input id="nav_menu_toggler" type="checkbox" data-menu-toggler="" hidden=""/>
 				<ul class="nav-menu">
 					<li>
 						<a href="" title="Main Page">
@@ -97,50 +95,7 @@
 						</a>
 					</li>
 				</ul>
-            </nav>
-		</header>
-	</xsl:template>
-	
-	<xsl:template name="body_header__BACKUP">
-		<header>
-			<nav class="navbar navbar-expand-md navbar-light">
-				<!-- <a class="navbar-brand" href="#">Navbar</a> -->
-				<button class="navbar-toggler mobile-menu-toggler" type="button" data-toggle="collapse" data-target="#headerNavbarContent" aria-controls="headerNavbarContent" aria-expanded="false" aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-			
-				<div class="collapse navbar-collapse" id="headerNavbarContent">
-					<ul class="navbar-nav">
-						<li class="nav-item">
-							<a class="nav-link menu-item" href="" title="Main Page">
-								<svg class="icon"><use xlink:href="assets/daizy/icons-sprite.svg#bytesize-home"></use></svg>
-								<span class="caption">Main Page</span>
-							</a>
-						</li>
-						<li class="nav-item">
-							<label class="nav-link menu-item language-switcher m-0" title="Change Language">
-								<svg class="icon"><use xlink:href="assets/daizy/icons-sprite.svg#bytesize-settings"></use></svg>
-								<span class="caption">
-									Language
-								</span>
-								<select class="form-control" title="Change language...">
-									<option value="hu">hu</option>
-									<option value="en">en</option>
-									<option value="de">de</option>
-								</select>
-							</label>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link menu-item" href="#" title="Logout">
-								<svg class="icon"><use xlink:href="assets/daizy/icons-sprite.svg#bytesize-logout"></use></svg>
-								<span class="caption">
-									Logout
-								</span>
-							</a>
-						</li>
-					</ul>
-				</div>
-			</nav>	
+			</nav>
 		</header>
 	</xsl:template>
 	
@@ -166,7 +121,7 @@
 	
 	<xsl:template name="body_footer">
 		<footer>
-            <small>DaiZy Html (Admin Dashboard) Template v0.1.0</small>
+			<xsl:call-template name="comment_copyright_text"/>
 		</footer>
 	</xsl:template>
 	
@@ -187,21 +142,22 @@
 		<xsl:variable name="collapse_id" select="concat(name(), '-', generate-id())"></xsl:variable>
 		<xsl:variable name="menu_content_caption" select="caption"></xsl:variable>
 		
-		<div class="card mt-3 menu-content-item">
-			<div class="card-header menu-content-header">
-				<button class="btn btn-outline-primary btn-lg collapsed menu-content-toggler" type="button" data-toggle="collapse" data-target="#{$collapse_id}" aria-expanded="true" aria-controls="{$collapse_id}">
+		<section class="card menu-content-item">
+			<header class="card-header menu-content-header">
+				<label class="button clear" for="collapse_{$collapse_id}" tabindex="0">
 					<span class="caption">
 						<xsl:value-of select="$menu_content_caption"></xsl:value-of>
 					</span>
-				</button>
+				</label>
+				<!-- 
 				<xsl:call-template name="button_maximize_section"></xsl:call-template>
-			</div>
-			<div id="{$collapse_id}" class="collapse menu-content-container">
-				<div class="card-body">
-					<xsl:copy-of select="$menu_content"></xsl:copy-of>
-				</div>
-			</div>
-		</div>
+				-->
+			</header>
+			<input type="checkbox" id="collapse_{$collapse_id}" class="collapse" aria-hidden="true" autocomplete="off"/>
+			<article id="{$collapse_id}" class="menu-content-container">
+				<xsl:copy-of select="$menu_content"></xsl:copy-of>
+			</article>
+		</section>
 	</xsl:template>
 	
 </xsl:stylesheet>
