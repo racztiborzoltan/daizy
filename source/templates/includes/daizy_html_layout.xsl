@@ -1,7 +1,9 @@
 <xsl:stylesheet 
-	version="2.0" 
+	version="1.1" 
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
 	xmlns:xlink="http://www.w3.org/1999/xlink"
+	xmlns:php="http://php.net/xsl"
+	exclude-result-prefixes="xlink php"
 	>
 	<xsl:output method="html" encoding="UTF-8" indent="yes" omit-xml-declaration="yes"/>
 	
@@ -25,12 +27,12 @@
 		<!-- svgxuse javascript fájl átmásolása a cél helyre -->
 		<xsl:variable name="svgxuse_js_path">assets/vendor/svgxuse-1.2.6/svgxuse.min.js</xsl:variable>
 		<xsl:value-of select="php:function('\Daizy\SiteBuildHelper::copyFile', $svgxuse_js_path)"/>
-		<script src="{$svgxuse_js_path}" type="text/javascript"></script>
+		<script src="{$svgxuse_js_path}"></script>
 
 		<!-- daizy.js fájl átmásolása a cél helyre -->
 		<xsl:variable name="daizy_js_path">assets/daizy/daizy.js</xsl:variable>
 		<xsl:value-of select="php:function('\Daizy\SiteBuildHelper::copyFile', $daizy_js_path)"/>
-		<script src="{$daizy_js_path}" type="text/javascript"></script>
+		<script src="{$daizy_js_path}"></script>
 	</xsl:template>
 	
 	<!-- 
@@ -78,45 +80,6 @@
 			</body>
 		</html>
 		<xsl:call-template name="comment_copyright_text"/>
-	</xsl:template>
-	
-	<xsl:template name="bytesize_icons__TEMP">
-		<xsl:param name="name"></xsl:param>
-		<xsl:choose>
-		
-			<xsl:when test="$name = 'home'">
-				<svg viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
-					<path d="M12 20 L12 30 4 30 4 12 16 2 28 12 28 30 20 30 20 20 Z" />
-				</svg>
-			</xsl:when>
-			
-			<xsl:when test="$name = 'settings'">
-				<svg id="i-settings" viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
-					<path d="M13 2 L13 6 11 7 8 4 4 8 7 11 6 13 2 13 2 19 6 19 7 21 4 24 8 28 11 25 13 26 13 30 19 30 19 26 21 25 24 28 28 24 25 21 26 19 30 19 30 13 26 13 25 11 28 8 24 4 21 7 19 6 19 2 Z" />
-					<circle cx="16" cy="16" r="4" />
-				</svg>
-			</xsl:when>
-			
-			<xsl:when test="$name = 'info'">
-				<svg viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
-					<path d="M16 14 L16 23 M16 8 L16 10" />
-					<circle cx="16" cy="16" r="14" />
-				</svg>							
-			</xsl:when>
-			
-			<xsl:when test="$name = 'logout'">
-				<svg viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
-					<path d="M28 16 L8 16 M20 8 L28 16 20 24 M11 28 L3 28 3 4 11 4" />
-				</svg>
-			</xsl:when>
-			
-			<xsl:when test="$name = 'external'">
-				<svg id="i-external" viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
-					<path d="M14 9 L3 9 3 29 23 29 23 18 M18 4 L28 4 28 14 M28 4 L14 18" />
-				</svg>
-			</xsl:when>
-			
-		</xsl:choose>
 	</xsl:template>
 	
 </xsl:stylesheet>

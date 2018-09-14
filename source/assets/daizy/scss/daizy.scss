@@ -13,6 +13,10 @@
 /* @import "../../vendor/chota-0.5.0/src/_tag.css"; */
 @import "../../vendor/chota-0.5.0/src/_util.css"; 
 
+@import '_typography.scss';
+@import '_collapse.scss';
+@import '_tabs.scss';
+
 :root {
 	--daizy-text-color: var(--black);
 	--daizy-border-radius: 0.3em;
@@ -29,7 +33,8 @@
 	/*
 	 * Chota overrides:
 	 */
-	--font-size: 16px;
+	--font-size: 1rem;
+	--daizy-font-size: var(--font-size);
 	
 	
 	/* https://css-tricks.com/snippets/css/system-font-stack */
@@ -40,7 +45,7 @@
 }
 
 html{
-	font-size: 16px;
+	font-size: var(--daizy-font-size);
 }
 body{
 /* 	height: 100%; */
@@ -48,6 +53,7 @@ body{
 	max-width: 100%;
 	margin: 0;
 	min-width: 16em;
+	font-size: var(--daizy-font-size);
 }
 @media (min-width: $daizy-media-breakpoint-up) {
 	html, body {
@@ -129,14 +135,4 @@ body{
 		cursor: pointer;
 	}
 	
-	input.collapse {
-		display: none;
-	}
-	input.collapse + * {
-		display: none;
-	}
-	input:checked.collapse + * {
-		display: block;
-	}
-
 }

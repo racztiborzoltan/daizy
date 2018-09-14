@@ -123,17 +123,17 @@
 	// helper for enabling IE 8 event bindings
 	// original source: https://plainjs.com/javascript/events/live-binding-event-handlers-14/
 	Daizy.addEvent = function (el, type, handler) {
-	    if (el.attachEvent) el.attachEvent('on'+type, handler); else el.addEventListener(type, handler);
+		if (el.attachEvent) el.attachEvent('on'+type, handler); else el.addEventListener(type, handler);
 	}
 
 	// live binding helper using matchesSelector
 	// original source: https://plainjs.com/javascript/events/live-binding-event-handlers-14/
 	Daizy.onLive = function (selector, event, callback, context) {
-	    Daizy.addEvent(context || document, event, function(e) {
-	        var found, el = e.target || e.srcElement;
-	        while (el && el.matches && el !== context && !(found = el.matches(selector))) el = el.parentElement;
-	        if (found) callback.call(el, e);
-	    });
+		Daizy.addEvent(context || document, event, function(e) {
+			var found, el = e.target || e.srcElement;
+			while (el && el.matches && el !== context && !(found = el.matches(selector))) el = el.parentElement;
+			if (found) callback.call(el, e);
+		});
 	}
 
 	// original source: https://plainjs.com/javascript/events/trigger-an-event-11/
@@ -161,7 +161,7 @@
 	}
 
 	/**
-	 * Hide an element
+	 * Show an element
 	 *
 	 * @param Element element
 	 */
@@ -169,6 +169,12 @@
 		element.removeAttribute('hidden');
 	}
 
+
+	/**
+	 * Toggling an element (hide or show)
+	 *
+	 * @param Element element
+	 */
 	Daizy.toggleElement = function (element){
 		element.getAttribute('hidden') === null ? Daizy.hideElement(element) : Daizy.showElement(element);
 	}

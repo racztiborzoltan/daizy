@@ -382,7 +382,7 @@ class SiteBuild
         ],$this->_variables);
         $xml_document->loadXML(\Spatie\ArrayToXml\ArrayToXml::convert($variables, 'variables'));
 
-        $proc = new \Genkgo\Xsl\XsltProcessor();
+        $proc = new \XsltProcessor();
         $proc->importStylesheet($xsl_document);
         $proc->registerPHPFunctions();
         $dom_document = $proc->transformToDoc($xml_document);

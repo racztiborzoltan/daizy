@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f8438681320f15b88c95f475e4a55e3a",
+    "content-hash": "dbcf5d08f36b0d22e499698dce02489c",
     "packages": [
         {
             "name": "gajus/dindent",
@@ -50,44 +50,6 @@
                 "indent"
             ],
             "time": "2014-10-08T10:03:04+00:00"
-        },
-        {
-            "name": "genkgo/xsl",
-            "version": "0.6.7",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/genkgo/xsl.git",
-                "reference": "4499fc614fd9e683352b20a641b35235e27572e1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/genkgo/xsl/zipball/4499fc614fd9e683352b20a641b35235e27572e1",
-                "reference": "4499fc614fd9e683352b20a641b35235e27572e1",
-                "shasum": ""
-            },
-            "require": {
-                "ext-xsl": "*",
-                "php": ">=7.0"
-            },
-            "require-dev": {
-                "ext-intl": "*",
-                "genkgo/cache": "~0.2.0",
-                "phpunit/phpunit": "~6.0"
-            },
-            "suggest": {
-                "genkgo/cache": "Cache transpiled templates"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Genkgo\\Xsl\\": [
-                        "src"
-                    ]
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "description": "XSL 2.0 Transpiler in PHP",
-            "time": "2018-06-13T21:58:37+00:00"
         },
         {
             "name": "leafo/scssphp",

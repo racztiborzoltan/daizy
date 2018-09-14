@@ -1,4 +1,8 @@
-<xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+<xsl:stylesheet 
+	version="1.1" 
+	xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+	xmlns:php="http://php.net/xsl"
+	>
 	<xsl:import href="includes/daizy_html_layout.xsl" />
 	
 	<xsl:param name="head_title" select="'404 Page'" />

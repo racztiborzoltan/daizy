@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<content>
+	<article id="sample_tabs">
+		<header>
+			<h1>Tabs</h1>
+		</header>
+		
+		<section class="tabs">
+			<nav class="tabs-nav">
+				<label for="tabs__tab_1" class="tab">
+					Tab 1
+				</label>
+				<label for="tabs__tab_2" class="tab">
+					Tab 2
+				</label>
+				<label for="tabs__tab_3" class="tab">
+					Tab 3
+				</label>
+			</nav>
+			
+			<input id="tabs__tab_1" name="tabs_tab_pane" class="collapse" type="radio" checked="checked"/>
+			<div class="pane">
+				Pane 1
+			</div>
+			
+			<input id="tabs__tab_2" name="tabs_tab_pane" class="collapse" type="radio"/>
+			<div class="pane">
+				Pane 2
+			</div>
+			
+			<input id="tabs__tab_3" name="tabs_tab_pane" class="collapse" type="radio"/>
+			<div class="pane">
+				Pane 3
+			</div>
+		</section>
+	</article>
+</content>

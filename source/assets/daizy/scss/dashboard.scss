@@ -174,10 +174,20 @@
 				.menu-content-header{
 					text-align: center;
 					
-					.button{
+					.menu-content-toggler{
 						margin: 0;
-						font-size: 1.2em;
 					}
+					.menu-content-toggler:focus{
+						outline: none;
+					}
+				}
+				
+				
+				.menu-content-container {
+					padding-top: var(--daizy-padding);
+				}
+				input:checked.collapse + .menu-content-container {
+					border-top: 1px solid var(--color-lightGrey)
 				}
 				
 			}

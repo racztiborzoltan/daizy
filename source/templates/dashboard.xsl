@@ -1,29 +1,14 @@
 <xsl:stylesheet 
-	version="2.0" 
+	version="1.1" 
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
 	xmlns:xlink="http://www.w3.org/1999/xlink"
+	xmlns:php="http://php.net/xsl"
+	exclude-result-prefixes="xlink php"
 	>
 	
 	<xsl:import href="includes/daizy_html_layout.xsl" />
 	
-	<xsl:import href="includes/dashboard_menu_contents/dashbaord.xsl" />
-	<xsl:import href="includes/dashboard_menu_contents/typography.xsl" />
-	<xsl:import href="includes/dashboard_menu_contents/images.xsl" />
-	<xsl:import href="includes/dashboard_menu_contents/tables.xsl" />
-	<xsl:import href="includes/dashboard_menu_contents/list_groups.xsl" />
-	<xsl:import href="includes/dashboard_menu_contents/buttons.xsl" />
-	<xsl:import href="includes/dashboard_menu_contents/jumbotrons.xsl" />
-	<xsl:import href="includes/dashboard_menu_contents/cards.xsl" />
-	<xsl:import href="includes/dashboard_menu_contents/forms.xsl" />
-	<xsl:import href="includes/dashboard_menu_contents/navs.xsl" />
-	<xsl:import href="includes/dashboard_menu_contents/badges.xsl" />
-	<xsl:import href="includes/dashboard_menu_contents/alerts.xsl" />
-	<xsl:import href="includes/dashboard_menu_contents/popovers.xsl" />
-	<xsl:import href="includes/dashboard_menu_contents/progress_bars.xsl" />
-	<xsl:import href="includes/dashboard_menu_contents/modals.xsl" />
-	
 	<xsl:param name="head_title" select="'Dashboard Page'" />
-
 
 	<xsl:template match="head_css">
 		<xsl:apply-imports/>
@@ -34,19 +19,31 @@
 		<link rel="stylesheet" href="{$dashboard_css_path}"/>
 	</xsl:template>
 
+
+	<xsl:template name="script_tag_with_copy">
+		<xsl:param name="src"></xsl:param>
+		
+		<!-- a javascript fájl másolása -->
+		<xsl:value-of select="php:function('\Daizy\SiteBuildHelper::copyFile', $src)"/>
+		<script src="{$src}" type="text/javascript"></script>
+	</xsl:template>
+
 	
 	<xsl:template match="body_javascript">
 		<xsl:apply-imports/>
 		
-		<!-- dashboard.js fájl másolása -->
-		<xsl:variable name="dashboard_js_path">assets/daizy/dashboard.js</xsl:variable>
-		<xsl:value-of select="php:function('\Daizy\SiteBuildHelper::copyFile', $dashboard_js_path)"/>
-		<script src="{$dashboard_js_path}" type="text/javascript"></script>
+		<xsl:call-template name="script_tag_with_copy">
+			<xsl:with-param name="src">assets/daizy/dashboard.js</xsl:with-param>
+		</xsl:call-template>
 		
-		<!-- demo.dashboard.js fájl másolása -->
-		<xsl:variable name="demo_dashboard_js_path">assets/daizy/demo.dashboard.js</xsl:variable>
-		<xsl:value-of select="php:function('\Daizy\SiteBuildHelper::copyFile', $demo_dashboard_js_path)"/>
-		<script src="{$demo_dashboard_js_path}" type="text/javascript"></script>
+		<xsl:call-template name="script_tag_with_copy">
+			<xsl:with-param name="src">assets/daizy/daizy.tabs.js</xsl:with-param>
+		</xsl:call-template>
+		
+		<xsl:call-template name="script_tag_with_copy">
+			<xsl:with-param name="src">assets/daizy/demo.dashboard.js</xsl:with-param>
+		</xsl:call-template>
+		
 	</xsl:template>
 
 
@@ -111,7 +108,11 @@
 	<xsl:template name="body_main">
 		<main>
 			<div class="menu-content-list">
-				<xsl:apply-templates select="/variables/dashboard_menu_content"></xsl:apply-templates>
+				<xsl:for-each select="/variables/dashboard_menu_content/*">
+					<xsl:call-template name="display_menu_content">
+						<xsl:with-param name="menu_content" select="document(concat('includes/dashboard_menu_contents/', name(.) ,'.xml'))/content/*"></xsl:with-param>
+					</xsl:call-template>
+				</xsl:for-each>
 			</div>
 			<div id="header_search_no_results" class="alert alert-info text-info text-center" hidden="">
 				No matching search found!
@@ -144,16 +145,14 @@
 		
 		<section class="card menu-content-item">
 			<header class="card-header menu-content-header">
-				<label class="button clear" for="collapse_{$collapse_id}" tabindex="0">
-					<span class="caption">
-						<xsl:value-of select="$menu_content_caption"></xsl:value-of>
-					</span>
+				<label class="button clear menu-content-toggler" for="collapse_{$collapse_id}" tabindex="0">
+					<xsl:value-of select="$menu_content_caption"></xsl:value-of>
 				</label>
 				<!-- 
 				<xsl:call-template name="button_maximize_section"></xsl:call-template>
 				-->
 			</header>
-			<input type="checkbox" id="collapse_{$collapse_id}" class="collapse" aria-hidden="true" autocomplete="off"/>
+			<input type="checkbox" id="collapse_{$collapse_id}" class="collapse" aria-hidden="true"/>
 			<article id="{$collapse_id}" class="menu-content-container">
 				<xsl:copy-of select="$menu_content"></xsl:copy-of>
 			</article>

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!-- DaiZy Html (Admin Dashboard) Template v0.1.0 -->
-<html xmlns:xlink="http://www.w3.org/1999/xlink" lang="en">
+<html lang="en">
 	<head>
 		<base href="">
 		<meta charset="utf-8">
@@ -25,7 +25,7 @@
 					<li>
 						<a href="" title="Main Page">
 							<svg class="icon">
-								<use xlink:href="assets/daizy/icons-sprite.svg#bytesize-home"></use>
+								<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/daizy/icons-sprite.svg#bytesize-home"></use>
 							</svg>
 							<span class="caption">Main Page</span>
 						</a>
@@ -33,7 +33,7 @@
 					<li>
 						<label class="language-switcher" title="Change Language">
 							<svg class="icon">
-								<use xlink:href="assets/daizy/icons-sprite.svg#bytesize-settings"></use>
+								<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/daizy/icons-sprite.svg#bytesize-settings"></use>
 							</svg>
 							<select title="Change language...">
 								<option value="hu">hu</option>
@@ -45,7 +45,7 @@
 					<li>
 						<a href="#" title="Logout">
 							<svg class="icon">
-								<use xlink:href="assets/daizy/icons-sprite.svg#bytesize-logout"></use>
+								<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/daizy/icons-sprite.svg#bytesize-logout"></use>
 							</svg>
 							<span class="caption">
 Logout
@@ -59,10 +59,10 @@ Logout
 			<div class="menu-content-list">
 				<section class="card menu-content-item">
 					<header class="card-header menu-content-header">
-						<label class="button clear" for="collapse_dashboard-idm1114736664" tabindex="0"><span class="caption">Dashboard</span></label>
+						<label class="button clear menu-content-toggler" for="collapse_dashboard-idm1421193560" tabindex="0">Dashboard</label>
 					</header>
-					<input type="checkbox" id="collapse_dashboard-idm1114736664" class="collapse" aria-hidden="true" autocomplete="off">
-					<article id="dashboard-idm1114736664" class="menu-content-container">
+					<input type="checkbox" id="collapse_dashboard-idm1421193560" class="collapse" aria-hidden="true">
+					<article id="dashboard-idm1421193560" class="menu-content-container">
 						<h3>
 							Daizy Minimalistic Admin Template
 						</h3>
@@ -76,293 +76,722 @@ Logout
 				</section>
 				<section class="card menu-content-item">
 					<header class="card-header menu-content-header">
-						<label class="button clear" for="collapse_typography-idm1114735224" tabindex="0"><span class="caption">Typography</span></label>
+						<label class="button clear menu-content-toggler" for="collapse_typography-idm1421194568" tabindex="0">Typography</label>
 					</header>
-					<input type="checkbox" id="collapse_typography-idm1114735224" class="collapse" aria-hidden="true" autocomplete="off">
-					<article id="typography-idm1114735224" class="menu-content-container">
-						<div class="row">
-							<div class="col-md-6">
-								<h3 class="mt-5">
-									Headings
-								</h3>
+					<input type="checkbox" id="collapse_typography-idm1421194568" class="collapse" aria-hidden="true">
+					<article id="typography-idm1421194568" class="menu-content-container">
+						<article id="text__headings">
+							<header>
 								<h1>
-									h1. Bootstrap heading
+									Headings
+								</h1>
+							</header>
+							<div>
+								<h1>
+									Heading 1
 								</h1>
 								<h2>
-									h2. Bootstrap heading
+									Heading 2
 								</h2>
 								<h3>
-									h3. Bootstrap heading
+									Heading 3
 								</h3>
 								<h4>
-									h4. Bootstrap heading
+									Heading 4
 								</h4>
 								<h5>
-									h5. Bootstrap heading
+									Heading 5
 								</h5>
 								<h6>
-									h6. Bootstrap heading
+									Heading 6
 								</h6>
-								<h3 class="mt-5">
-									Lead
-								</h3>
-								<p class="lead">Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus.</p>
-								<h3 class="mt-5">
-									Styles
-								</h3>
-								<p>
-									You can use the mark tag to
-
-									<mark>highlight</mark>
-									text.
-								</p>
-								<p>
-									<del>This line of text is meant to be treated as deleted text.</del>
-								</p>
-								<p>
-									<s>This line of text is meant to be treated as no longer accurate.</s>
-								</p>
-								<p>
-									<ins>This line of text is meant to be treated as an addition to the document.</ins>
-								</p>
-								<p>
-									<u>This line of text will render as underlined</u>
-								</p>
-								<p><small>This line of text is meant to be treated as fine print.</small></p>
-								<p><strong>This line rendered as bold text.</strong></p>
-								<p><em>This line rendered as italicized text.</em></p>
-								<p class="text-muted">And this is a muted text.</p>
-								<p><abbr title="Abbreviation">abbr</abbr><abbr title="Abbreviation with initialism" class="initialism">abbr+init</abbr></p>
-								<h3 class="mt-5">
-									Colors
-								</h3>
-								<p><span class="text-primary">.text-primary</span><span class="text-secondary">.text-secondary</span><span class="text-success">.text-success</span><span class="text-danger">.text-danger</span><span class="text-warning">.text-warning</span><span class="text-info">.text-info</span><span class="text-light">.text-light</span><span class="text-dark">.text-dark</span><span class="text-white">.text-white</span></p>
-								<p>
-									<span><a href="#" class="text-primary">Primary link</a></span>
-									<span><a href="#" class="text-secondary">Secondary link</a></span>
-									<span><a href="#" class="text-success">Success link</a></span>
-									<span><a href="#" class="text-danger">Danger link</a></span>
-									<span><a href="#" class="text-warning">Warning link</a></span>
-									<span><a href="#" class="text-info">Info link</a></span>
-									<span><a href="#" class="text-light">Light link</a></span>
-									<span><a href="#" class="text-dark">Dark link</a></span>
-									<span><a href="#" class="text-white">White link</a></span>
-								</p>
-								<h3 class="mt-5">
-									Inline code
-								</h3>
-								<p>For example, <code>&lt;section&gt;</code> should be wrapped as inline.</p>
-								<p><var>y</var> = <var>m</var><var>x</var> + <var>b</var></p>
-								<p>
-									To switch directories, type <kbd>cd</kbd> followed by the name of the directory.
-									<br>
-									To edit settings, press 
-									<kbd><kbd>ctrl</kbd> + <kbd>,</kbd></kbd>
-								</p>
-								<p><samp>This text is meant to be treated as sample output from a computer program.</samp></p>
 							</div>
-							<div class="col-md-6">
-								<h3 class="mt-5">
-									Displays
-								</h3>
-								<h1 class="display-1">
-									Display 1
+							<footer>
+								<hr>
+							</footer>
+						</article>
+						<article id="text__paragraphs">
+							<header>
+								<h1>
+									Paragraphs
 								</h1>
-								<h1 class="display-2">
-									Display 2
-								</h1>
-								<h1 class="display-3">
-									Display 3
-								</h1>
-								<h1 class="display-4">
-									Display 4
-								</h1>
-								<h3 class="mt-5">
-									Sample body
-								</h3>
-								<p class="text-justify">
-Lórum ipse - mint senyért - nyált <a href="javascript:void(0)">ságos iség</a>, ahol beles metás, csaprozás, vermény, csaprát és más meni zsorlóca kuncáskodik. Mosztag, férzet napé, fuvódás 11, törnyélés ; valamint szuvegés vitancs: a dozmus drikója, jultsás kelés magyarul. A szuvegés és gyarány pasztákban buggyos mendernyékről, filingéjükről és pucájukról húzódik a fabampa. Hűtő benne a legújabban belég mendernyék mártja is, részletesen sáskodik a kétenc fríg lepkonyaival. Csétletésről cigál le egy kéző lengelész csapárába rimulnia, ahol három másik szivény együtt érleti spotráit. Ha a bénulás summája kalkodik, úgy púdulhat, mintha az volna a sülső csoltása, hogy a szedhentes és egyes tengyelét lécetse ki a pávágyokból. Ez vajon vertető ölyök vagy vegítő dosna? Szalalizál bunya a felegesben olyan szellőző kedő, amely farisban kevetteti a nyagondos hizmusok „énemlő” lárias mizmusait?
-</p>
-								<h3 class="mt-5">
-									Code block
-								</h3>
-								<button class="btn btn-sm btn-primary my-1" id="hljs-theme-toggler">Toggle HLJS theme</button>
-								<pre>
-									<code class="hljs java">
-										<span class="hljs-comment">/** * <span class="hljs-doctag">@author</span> John Smith &lt;john.smith@example.com&gt; */</span>
-										<span class="hljs-keyword">package</span> l2f.gameserver.model; <span class="hljs-keyword">public</span><span class="hljs-keyword">abstract</span>
-										<span class="hljs-class"><span class="hljs-keyword">class</span><span class="hljs-title">L2Char</span><span class="hljs-keyword">extends</span><span class="hljs-title">L2Object</span></span>
-										{
-<span class="hljs-keyword">public</span><span class="hljs-keyword">static</span><span class="hljs-keyword">final</span> Short ERROR = <span class="hljs-number">0x0001</span>; 
-										<span class="hljs-function">
-											<span class="hljs-keyword">public</span><span class="hljs-keyword">void</span><span class="hljs-title">moveTo</span>
-											<span class="hljs-params">(<span class="hljs-keyword">int</span> x, <span class="hljs-keyword">int</span> y, <span class="hljs-keyword">int</span> z)</span>
-										</span>
-										{
-_ai = <span class="hljs-keyword">null</span>;
-log(<span class="hljs-string">"Should not be called"</span>);
-<span class="hljs-keyword">if</span> (<span class="hljs-number">1</span> &gt; <span class="hljs-number">5</span>) { <span class="hljs-comment">// wtf!?</span><span class="hljs-keyword">return</span>;
-}
-}
-}
-									</code>
-								</pre>
+							</header>
+							<div>
+								<p>A paragraph (from the Greek paragraphos, “to write beside” or “written beside”) is a self-contained unit of a discourse in writing dealing with a particular point or idea. A paragraph consists of one or more sentences. Though not required
+by the syntax of any language, paragraphs are usually an expected part of formal writing, used to organize longer prose.</p>
 							</div>
-						</div>
-						<div class="row">
-							<div class="col-12">
-								<h3 class="mt-5">
-									Blockquote
-								</h3>
-								<blockquote class="blockquote">
-									<p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-									<footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
+							<footer>
+								<hr>
+							</footer>
+						</article>
+						<article id="text__blockquotes">
+							<header>
+								<h1>
+									Blockquotes
+								</h1>
+							</header>
+							<div>
+								<blockquote>
+									<p>A block quotation (also known as a long quotation or extract) is a quotation in a written document, that is set off from the main text as a paragraph, or block of text.</p>
+									<p>It is typically distinguished visually using indentation and a different typeface or smaller size quotation. It may or may not include a citation, usually placed at the bottom.</p>
+									<cite>
+<a href="#!">Said no one, ever.</a>
+</cite>
 								</blockquote>
 							</div>
-						</div>
-						<div class="row">
-							<div class="col-12">
-								<h3 class="mt-5">
-									...centered
-								</h3>
-								<blockquote class="blockquote text-center">
-									<p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-									<footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
-								</blockquote>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-12">
-								<h3 class="mt-5">
-									...on right
-								</h3>
-								<blockquote class="blockquote text-right">
-									<p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-									<footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
-								</blockquote>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-4">
-								<h3 class="mt-5">
-									List
-								</h3>
-								<ul>
-									<li>Lorem ipsum dolor sit amet</li>
-									<li>Consectetur adipiscing elit</li>
-									<li>Integer molestie lorem at massa</li>
-									<li>Facilisis in pretium nisl aliquet</li>
-									<li>
-										Nulla volutpat aliquam velit
-
-										<ul>
-											<li>Phasellus iaculis neque</li>
-											<li>Purus sodales ultricies</li>
-											<li>Vestibulum laoreet porttitor sem</li>
-											<li>Ac tristique libero volutpat at</li>
-										</ul>
-									</li>
-									<li>Faucibus porta lacus fringilla vel</li>
-									<li>Aenean sit amet erat nunc</li>
-									<li>Eget porttitor lorem</li>
-								</ul>
-							</div>
-							<div class="col-4">
-								<h3 class="mt-5">
-									...unstyled
-								</h3>
-								<ul class="list-unstyled">
-									<li>Lorem ipsum dolor sit amet</li>
-									<li>Consectetur adipiscing elit</li>
-									<li>Integer molestie lorem at massa</li>
-									<li>Facilisis in pretium nisl aliquet</li>
-									<li>
-										Nulla volutpat aliquam velit
-
-										<ul>
-											<li>Phasellus iaculis neque</li>
-											<li>Purus sodales ultricies</li>
-											<li>Vestibulum laoreet porttitor sem</li>
-											<li>Ac tristique libero volutpat at</li>
-										</ul>
-									</li>
-									<li>Faucibus porta lacus fringilla vel</li>
-									<li>Aenean sit amet erat nunc</li>
-									<li>Eget porttitor lorem</li>
-								</ul>
-							</div>
-							<div class="col-4">
-								<h3 class="mt-5">
-									...inline
-								</h3>
-								<ul class="list-inline">
-									<li class="list-inline-item">Lorem ipsum</li>
-									<li class="list-inline-item">Phasellus iaculis</li>
-									<li class="list-inline-item">Nulla volutpat</li>
-								</ul>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-12">
-								<h3 class="mt-5">
+							<footer>
+								<hr>
+							</footer>
+						</article>
+						<article id="text__lists">
+							<header>
+								<h1>
+									Lists
+								</h1>
+							</header>
+							<div>
+								<h3>
 									Definition list
 								</h3>
-							</div>
-						</div>
-						<dl class="row">
-							<dt class="col-sm-3">Description lists</dt>
-							<dd class="col-sm-9">A description list is perfect for defining terms.</dd>
-							<dt class="col-sm-3">Euismod</dt>
-							<dd class="col-sm-9">
-								<p>Vestibulum id ligula porta felis euismod semper eget lacinia odio sem nec elit.</p>
-								<p>Donec id elit non mi porta gravida at eget metus.</p>
-							</dd>
-							<dt class="col-sm-3">Malesuada porta</dt>
-							<dd class="col-sm-9">Etiam porta sem malesuada magna mollis euismod.</dd>
-							<dt class="col-sm-3 text-truncate">Truncated term is truncated</dt>
-							<dd class="col-sm-9">Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</dd>
-							<dt class="col-sm-3">Nesting</dt>
-							<dd class="col-sm-9">
-								<dl class="row">
-									<dt class="col-sm-4">Nested definition list</dt>
-									<dd class="col-sm-8">Aenean posuere, tortor sed cursus feugiat, nunc augue blandit nunc.</dd>
+								<dl>
+									<dt>Definition List Title</dt>
+									<dd>This is a definition list division.</dd>
 								</dl>
-							</dd>
-						</dl>
-						<div class="row">
-							<div class="col-12">
-								<h3 class="mt-5">
-									Background colors
+								<h3>
+									Ordered List
 								</h3>
+								<ol>
+									<li>List Item 1</li>
+									<li>List Item 2</li>
+									<li>List Item 3</li>
+								</ol>
+								<h3>
+									Unordered List
+								</h3>
+								<ul>
+									<li>List Item 1</li>
+									<li>List Item 2</li>
+									<li>List Item 3</li>
+								</ul>
 							</div>
-							<div class="col-md-4">
-								<div class="p-3 mb-2 bg-primary text-white">.bg-primary</div>
+							<footer>
+								<hr>
+							</footer>
+						</article>
+						<article id="text__hr">
+							<header>
+								<h1>
+									Horizontal rules
+								</h1>
+							</header>
+							<div>
+								<hr>
 							</div>
-							<div class="col-md-4">
-								<div class="p-3 mb-2 bg-secondary text-white">.bg-secondary</div>
+							<footer>
+								<hr>
+							</footer>
+						</article>
+						<article id="text__tables">
+							<header>
+								<h1>
+									Tabular data
+								</h1>
+							</header>
+							<table>
+								<caption>Table Caption</caption>
+								<thead>
+									<tr>
+										<th>Table Heading 1</th>
+										<th>Table Heading 2</th>
+										<th>Table Heading 3</th>
+										<th>Table Heading 4</th>
+										<th>Table Heading 5</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Table Cell 1</td>
+										<td>Table Cell 2</td>
+										<td>Table Cell 3</td>
+										<td>Table Cell 4</td>
+										<td>Table Cell 5</td>
+									</tr>
+									<tr>
+										<td>Table Cell 1</td>
+										<td>Table Cell 2</td>
+										<td>Table Cell 3</td>
+										<td>Table Cell 4</td>
+										<td>Table Cell 5</td>
+									</tr>
+								</tbody>
+								<tfoot>
+									<tr>
+										<th>Table Footer 1</th>
+										<th>Table Footer 2</th>
+										<th>Table Footer 3</th>
+										<th>Table Footer 4</th>
+										<th>Table Footer 5</th>
+									</tr>
+								</tfoot>
+							</table>
+							<br>
+							<h4>
+								Table with strips. Just add the
+<code>striped</code> class to
+<code>&lt;table&gt;</code>.
+
+							</h4>
+							<table class="striped">
+								<caption>Table Caption</caption>
+								<thead>
+									<tr>
+										<th>Table Heading 1</th>
+										<th>Table Heading 2</th>
+										<th>Table Heading 3</th>
+										<th>Table Heading 4</th>
+										<th>Table Heading 5</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Table Cell 1</td>
+										<td>Table Cell 2</td>
+										<td>Table Cell 3</td>
+										<td>Table Cell 4</td>
+										<td>Table Cell 5</td>
+									</tr>
+									<tr>
+										<td>Table Cell 1</td>
+										<td>Table Cell 2</td>
+										<td>Table Cell 3</td>
+										<td>Table Cell 4</td>
+										<td>Table Cell 5</td>
+									</tr>
+									<tr>
+										<td>Table Cell 1</td>
+										<td>Table Cell 2</td>
+										<td>Table Cell 3</td>
+										<td>Table Cell 4</td>
+										<td>Table Cell 5</td>
+									</tr>
+									<tr>
+										<td>Table Cell 1</td>
+										<td>Table Cell 2</td>
+										<td>Table Cell 3</td>
+										<td>Table Cell 4</td>
+										<td>Table Cell 5</td>
+									</tr>
+								</tbody>
+								<tfoot>
+									<tr>
+										<th>Table Footer 1</th>
+										<th>Table Footer 2</th>
+										<th>Table Footer 3</th>
+										<th>Table Footer 4</th>
+										<th>Table Footer 5</th>
+									</tr>
+								</tfoot>
+							</table>
+							<footer>
+								<hr>
+							</footer>
+						</article>
+						<article id="text__code">
+							<header>
+								<h1>
+									Code
+								</h1>
+							</header>
+							<div>
+								<p>
+<strong>Keyboard input:</strong>
+<kbd>Cmd</kbd>
+</p>
+								<p>
+<strong>Inline code:</strong>
+<code>&lt;div&gt;code&lt;/div&gt;</code>
+</p>
+								<p>
+<strong>Sample output:</strong>
+<samp>This is sample output from a computer program.</samp>
+</p>
+								<h2>
+									Pre-formatted text
+								</h2>
+								<pre>P R E F O R M A T T E D T E X T ! " # $ % &amp; ' ( ) * + , - . / 0 1 2 3 4 5 6 7 8 9 : ; &lt; = &gt; ? @ A B C D E F G H I J K L M N O P Q R S T U V W X Y Z [ \ ] ^ _ ` a b c d e f g h i j k l m n o p q r s t u v w x y z { | } ~ ~ 0 1 2 3 4 5 6 7 8 9 : ; &lt; = &gt; ? @ A B C D E F G H I J K L M N O P Q R S T U V W X Y Z [ \ ] ^ _ ` a b c d e f g h i j k l m n o p q r s t u v w x y z { | } ~ </pre>
+								<pre>
+<code>&lt;h2&gt;Pre-formatted text&lt;/h2&gt;</code>
+</pre>
 							</div>
-							<div class="col-md-4">
-								<div class="p-3 mb-2 bg-success text-white">.bg-success</div>
+							<footer>
+								<hr>
+							</footer>
+						</article>
+						<article id="text__inline">
+							<header>
+								<h1>
+									Inline elements
+								</h1>
+							</header>
+							<div>
+								<p>
+<a href="#!">This is a text link</a>.
+</p>
+								<p>
+<strong>Strong is used to indicate strong importance.</strong>
+</p>
+								<p>
+<em>This text has added emphasis.</em>
+</p>
+								<p>The
+<b>b element</b> is stylistically different text from normal text, without any special importance.
+</p>
+								<p>The
+<i>i element</i> is text that is offset from the normal text.
+</p>
+								<p>
+									The
+
+									<u>u element</u>
+									is text with an unarticulated, though explicitly rendered, non-textual annotation.
+
+								</p>
+								<p>
+									<del>This text is deleted</del>
+									and
+
+									<ins>This text is inserted</ins>
+									.
+
+								</p>
+								<p>
+									<s>This text has a strikethrough</s>
+									.
+
+								</p>
+								<p>Superscript
+<sup>®</sup>.
+</p>
+								<p>Subscript for things like H
+<sub>2</sub>O.
+</p>
+								<p>
+<small>This small text is small for for fine print, etc.</small>
+</p>
+								<p>Abbreviation:
+<abbr title="HyperText Markup Language">HTML</abbr>
+</p>
+								<p>
+									<q cite="https://developer.mozilla.org/en-US/docs/HTML/Element/q">This text is a short inline quotation.</q>
+								</p>
+								<p>
+<cite>This is a citation.</cite>
+</p>
+								<p>The
+<dfn>dfn element</dfn> indicates a definition.
+</p>
+								<p>
+									The
+
+									<mark>mark element</mark>
+									indicates a highlight.
+
+								</p>
+								<p>The
+<var>variable element</var>, such as
+<var>x</var> =
+<var>y</var>.
+</p>
+								<p>
+									The time element:
+
+									<time datetime="2013-04-06T12:32+00:00">2 weeks ago</time>
+								</p>
 							</div>
-							<div class="col-md-4">
-								<div class="p-3 mb-2 bg-danger text-white">.bg-danger</div>
+							<footer>
+								<hr>
+							</footer>
+						</article>
+					</article>
+				</section>
+				<section class="card menu-content-item">
+					<header class="card-header menu-content-header">
+						<label class="button clear menu-content-toggler" for="collapse_embedded_content-idm1421192912" tabindex="0">Embedded content</label>
+					</header>
+					<input type="checkbox" id="collapse_embedded_content-idm1421192912" class="collapse" aria-hidden="true">
+					<article id="embedded_content-idm1421192912" class="menu-content-container">
+						<article id="embedded__images">
+							<header>
+								<h2>
+									Images
+								</h2>
+							</header>
+							<div>
+								<h3>
+									No
+<code>&lt;figure&gt;</code> element
+
+								</h3>
+								<p>
+									<img src="http://unsplash.it/480/480" alt="Image alt text">
+								</p>
+								<h3>
+									Wrapped in a
+<code>&lt;figure&gt;</code> element, no
+<code>&lt;figcaption&gt;</code>
+
+								</h3>
+								<figure>
+									<img src="http://unsplash.it/420/420" alt="Image alt text">
+								</figure>
+								<h3>
+									Wrapped in a
+<code>&lt;figure&gt;</code> element, with a
+<code>&lt;figcaption&gt;</code>
+
+								</h3>
+								<figure>
+									<img src="http://unsplash.it/420/420" alt="Image alt text">
+									<figcaption>Here is a caption for this image.</figcaption>
+								</figure>
 							</div>
-							<div class="col-md-4">
-								<div class="p-3 mb-2 bg-warning text-dark">.bg-warning</div>
+							<footer>
+								<hr>
+							</footer>
+						</article>
+						<article id="embedded__audio">
+							<header>
+								<h2>
+									Audio
+								</h2>
+							</header>
+							<div>
+								<audio controls="">audio</audio>
 							</div>
-							<div class="col-md-4">
-								<div class="p-3 mb-2 bg-info text-white">.bg-info</div>
+							<footer>
+								<hr>
+							</footer>
+						</article>
+						<article id="embedded__video">
+							<header>
+								<h2>
+									Video
+								</h2>
+							</header>
+							<div>
+								<video controls="">video</video>
 							</div>
-							<div class="col-md-4">
-								<div class="p-3 mb-2 bg-light text-dark">.bg-light</div>
+							<footer>
+								<hr>
+							</footer>
+						</article>
+						<article id="embedded__canvas">
+							<header>
+								<h2>
+									Canvas
+								</h2>
+							</header>
+							<div>
+								<canvas>canvas</canvas>
 							</div>
-							<div class="col-md-4">
-								<div class="p-3 mb-2 bg-dark text-white">.bg-dark</div>
+							<footer>
+								<hr>
+							</footer>
+						</article>
+						<article id="embedded__meter">
+							<header>
+								<h2>
+									Meter
+								</h2>
+							</header>
+							<div>
+								<meter value="2" min="0" max="10">2 out of 10</meter>
 							</div>
-							<div class="col-md-4">
-								<div class="p-3 mb-2 bg-white text-dark">.bg-white</div>
+							<footer>
+								<hr>
+							</footer>
+						</article>
+						<article id="embedded__progress">
+							<header>
+								<h2>
+									Progress
+								</h2>
+							</header>
+							<div>
+								<progress>progress</progress>
 							</div>
-						</div>
+							<footer>
+								<hr>
+							</footer>
+						</article>
+						<article id="embedded__svg">
+							<header>
+								<h2>
+									Inline SVG
+								</h2>
+							</header>
+							<div>
+								<svg width="100px" height="100px">
+									<circle cx="100" cy="100" r="100" fill="#1fa3ec"></circle>
+								</svg>
+							</div>
+							<footer>
+								<hr>
+							</footer>
+						</article>
+						<article id="embedded__iframe">
+							<header>
+								<h2>
+									IFrame
+								</h2>
+							</header>
+							<div>
+								<iframe src="index.html" height="300"></iframe>
+							</div>
+							<footer>
+								<hr>
+							</footer>
+						</article>
+					</article>
+				</section>
+				<section class="card menu-content-item">
+					<header class="card-header menu-content-header">
+						<label class="button clear menu-content-toggler" for="collapse_form_elements-idm1421192840" tabindex="0">Form elements</label>
+					</header>
+					<input type="checkbox" id="collapse_form_elements-idm1421192840" class="collapse" aria-hidden="true">
+					<article id="form_elements-idm1421192840" class="menu-content-container">
+						<form>
+							<fieldset id="forms__input">
+								<legend>Input fields</legend>
+								<p>
+									<label for="input__text">Text Input</label>
+									<input id="input__text" type="text" placeholder="Text Input">
+								</p>
+								<p>
+									<label for="input__password">Password</label>
+									<input id="input__password" type="password" placeholder="Type your Password">
+								</p>
+								<p>
+									<label for="input__webaddress">Web Address</label>
+									<input id="input__webaddress" type="url" placeholder="http://yoursite.com">
+								</p>
+								<p>
+									<label for="input__emailaddress">Email Address</label>
+									<input id="input__emailaddress" type="email" placeholder="name@email.com">
+								</p>
+								<p>
+									<label for="input__phone">Phone Number</label>
+									<input id="input__phone" type="tel" placeholder="(999) 999-9999">
+								</p>
+								<p>
+									<label for="input__search">Search</label>
+									<input id="input__search" type="search" placeholder="Enter Search Term">
+								</p>
+								<p>
+									<label for="input__text2">Number Input</label>
+									<input id="input__text2" type="number" placeholder="Enter a Number">
+								</p>
+								<p>
+									<label for="input__text3" class="error">Error</label>
+									<input id="input__text3" class="error" type="text" placeholder="Text Input">
+								</p>
+								<p>
+									<label for="input__text4" class="success">Valid</label>
+									<input id="input__text4" class="success" type="text" placeholder="Text Input">
+								</p>
+								<p>
+									<label for="input__text5">Disabled Text Input</label>
+									<input id="input__text5" type="text" placeholder="Disabled Text Input" disabled>
+								</p>
+								<p class="grouped">
+									<input type="search" name="input__text6" id="input__text6" placeholder="Search">
+									<button class="button icon-only">
+										<img src="https://icongr.am/feather/search.svg?size=16" alt="">
+									</button>
+								</p>
+								<p class="grouped">
+									<input type="text" name="input__text7" id="input__text7" placeholder="Username">
+									<input type="text" name="input__text8" id="input__text8" placeholder="Password">
+									<button class="button primary">Submit</button>
+								</p>
+							</fieldset>
+							<hr>
+							<fieldset id="forms__select">
+								<legend>Select menus</legend>
+								<p>
+									<label for="select">Select</label>
+									<select id="select">
+										<optgroup label="Option Group">
+											<option>Option One</option>
+											<option>Option Two</option>
+											<option>Option Three</option>
+										</optgroup>
+									</select>
+								</p>
+							</fieldset>
+							<hr>
+							<fieldset id="forms__checkbox">
+								<legend>Checkboxes</legend>
+								<ul class="list list--bare">
+									<li>
+										<label for="checkbox1">
+											<input id="checkbox1" name="checkbox" type="checkbox" checked>
+											Choice A
+										</label>
+									</li>
+									<li>
+										<label for="checkbox2">
+											<input id="checkbox2" name="checkbox" type="checkbox">
+											Choice B
+										</label>
+									</li>
+									<li>
+										<label for="checkbox3">
+											<input id="checkbox3" name="checkbox" type="checkbox">
+											Choice C
+										</label>
+									</li>
+								</ul>
+							</fieldset>
+							<hr>
+							<fieldset id="forms__radio">
+								<legend>Radio buttons</legend>
+								<ul class="list list--bare">
+									<li>
+										<label for="radio1">
+											<input id="radio1" name="radio" type="radio" class="radio" checked>
+											Option 1
+										</label>
+									</li>
+									<li>
+										<label for="radio2">
+											<input id="radio2" name="radio" type="radio" class="radio">
+											Option 2
+										</label>
+									</li>
+									<li>
+										<label for="radio3">
+											<input id="radio3" name="radio" type="radio" class="radio">
+											Option 3
+										</label>
+									</li>
+								</ul>
+							</fieldset>
+							<hr>
+							<fieldset id="forms__textareas">
+								<legend>Textareas</legend>
+								<p>
+									<label for="textarea">Textarea</label>
+									<textarea id="textarea" rows="8" cols="48" placeholder="Enter your message here"></textarea>
+								</p>
+							</fieldset>
+							<hr>
+							<fieldset id="forms__html5">
+								<legend>HTML5 inputs</legend>
+								<p>
+									<label for="ic">Color input</label>
+									<input type="color" id="ic" value="#000000">
+								</p>
+								<p>
+									<label for="in">Number input</label>
+									<input type="number" id="in" min="0" max="10" value="5">
+								</p>
+								<p>
+									<label for="ir">Range input</label>
+									<input type="range" id="ir" value="10">
+								</p>
+								<p>
+									<label for="idd">Date input</label>
+									<input type="date" id="idd" value="1970-01-01">
+								</p>
+								<p>
+									<label for="idm">Month input</label>
+									<input type="month" id="idm" value="1970-01">
+								</p>
+								<p>
+									<label for="idw">Week input</label>
+									<input type="week" id="idw" value="1970-W01">
+								</p>
+								<p>
+									<label for="idt">Datetime input</label>
+									<input type="datetime-local" id="idt" value="1970-01-01T00:00:00">
+								</p>
+								<p>
+									<label for="idtl">Datetime-local input</label>
+									<input type="datetime-local" id="idtl" value="1970-01-01T00:00">
+								</p>
+							</fieldset>
+							<hr>
+							<fieldset id="forms__action">
+								<legend>Action buttons</legend>
+								<p>
+									<input type="submit" value="&lt;input type=submit&gt;">
+									<input type="button" value="&lt;input type=button&gt;">
+									<input type="reset" value="&lt;input type=reset&gt;">
+									<input type="submit" value="&lt;input disabled&gt;" disabled>
+								</p>
+								<p>
+									<button type="submit">&lt;button type=submit&gt;</button>
+									<button type="button">&lt;button type=button&gt;</button>
+									<button type="reset">&lt;button type=reset&gt;</button>
+									<button type="button" disabled>&lt;button disabled&gt;</button>
+								</p>
+								<p>
+<a href="#" class="button">a.button</a>
+<a href="#" class="button primary">a.button.primary</a>
+<a href="#" class="button secondary">a.button.secondary</a>
+<a href="#" class="button dark">a.button.dark</a>
+<a href="#" class="button error">a.button.error</a>
+<a href="#" class="button success">a.button.success</a>
+<a href="#" class="button outline">a.button.outline</a>
+<a href="#" class="button outline primary">a.button.outline.primary</a>
+<a href="#" class="button outline secondary">a.button.outline.secondary</a>
+<a href="#" class="button outline dark">a.button.outline.dark</a>
+<a href="#" class="button clear">a.button.clear</a>
+</p>
+							</fieldset>
+							<hr>
+						</form>
+					</article>
+				</section>
+				<section class="card menu-content-item">
+					<header class="card-header menu-content-header">
+						<label class="button clear menu-content-toggler" for="collapse_tabs-idm1421193920" tabindex="0">Tabs</label>
+					</header>
+					<input type="checkbox" id="collapse_tabs-idm1421193920" class="collapse" aria-hidden="true">
+					<article id="tabs-idm1421193920" class="menu-content-container">
+						<article id="sample_tabs">
+							<header>
+								<h1>
+									Tabs
+								</h1>
+							</header>
+							<section class="tabs">
+								<nav class="tabs-nav">
+									<label for="tabs__tab_1" class="tab">
+Tab 1
+</label>
+									<label for="tabs__tab_2" class="tab">
+Tab 2
+</label>
+									<label for="tabs__tab_3" class="tab">
+Tab 3
+</label>
+								</nav>
+								<input id="tabs__tab_1" name="tabs_tab_pane" class="collapse" type="radio" checked>
+								<div class="pane">
+Pane 1
+</div>
+								<input id="tabs__tab_2" name="tabs_tab_pane" class="collapse" type="radio">
+								<div class="pane">
+Pane 2
+</div>
+								<input id="tabs__tab_3" name="tabs_tab_pane" class="collapse" type="radio">
+								<div class="pane">
+Pane 3
+</div>
+							</section>
+						</article>
 					</article>
 				</section>
 			</div>
@@ -376,9 +805,10 @@ No matching search found!
 		<div class="scripts">
 			<noscript class="nojs">Javascript disabled!</noscript>
 			<script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
-			<script src="assets/vendor/svgxuse-1.2.6/svgxuse.min.js" type="text/javascript"></script>
-			<script src="assets/daizy/daizy.js" type="text/javascript"></script>
+			<script src="assets/vendor/svgxuse-1.2.6/svgxuse.min.js"></script>
+			<script src="assets/daizy/daizy.js"></script>
 			<script src="assets/daizy/dashboard.js" type="text/javascript"></script>
+			<script src="assets/daizy/daizy.tabs.js" type="text/javascript"></script>
 			<script src="assets/daizy/demo.dashboard.js" type="text/javascript"></script>
 		</div>
 	</body>

@@ -1,4 +1,8 @@
-<xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+<xsl:stylesheet 
+	version="1.1" 
+	xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+	xmlns:php="http://php.net/xsl"
+	>
 	<xsl:import href="includes/daizy_html_layout.xsl" />
 	
 	<xsl:param name="head_title" select="'Login Page'" />
@@ -57,7 +61,7 @@
 			<div class="is-full-width"></div>
 			<div class="col-3"></div>
 			
-			<input type="radio" name="accordion" id="lost-password-area" class="collapse" aria-hidden="true" autocomplete="off"/>
+			<input type="radio" name="accordion" id="lost-password-area" class="collapse" aria-hidden="true"/>
 			<form class="col-6 lost-password">
 				<p>
 					<h3>Forgotten password</h3>

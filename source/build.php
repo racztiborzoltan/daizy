@@ -32,45 +32,15 @@ call_user_func(function(){
         'typography' => [
             'caption' => 'Typography',
         ],
-//         'images' => [
-//             'caption' => 'Images',
-//         ],
-//         'tables' => [
-//             'caption' => 'Tables',
-//         ],
-//         'list_groups' => [
-//             'caption' => 'List groups',
-//         ],
-//         'buttons' => [
-//             'caption' => 'Buttons',
-//         ],
-//         'jumbotrons' => [
-//             'caption' => 'Jumbotrons',
-//         ],
-//         'cards' => [
-//             'caption' => 'Cards',
-//         ],
-//         'forms' => [
-//             'caption' => 'Forms',
-//         ],
-//         'navs' => [
-//             'caption' => 'Navs',
-//         ],
-//         'badges' => [
-//             'caption' => 'Badges',
-//         ],
-//         'alerts' => [
-//             'caption' => 'Alerts',
-//         ],
-//         'popovers' => [
-//             'caption' => 'Popovers',
-//         ],
-//         'progress_bars' => [
-//             'caption' => 'Progress bars',
-//         ],
-//         'modals' => [
-//             'caption' => 'Modals',
-//         ],
+        'embedded_content' => [
+            'caption' => 'Embedded content',
+        ],
+        'form_elements' => [
+            'caption' => 'Form elements',
+        ],
+        'tabs' => [
+            'caption' => 'Tabs',
+        ],
     ]);
 
     //
