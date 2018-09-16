@@ -1,29 +1,30 @@
 @import '../../vendor/colors-3.0.0/src/_variables.css';
 @import '../../vendor/colors-3.0.0/src/_skins.css';
 
+@import '../../vendor/modern-normalize-0.5.0/modern-normalize.css';
+
 @import '_variables';
 
-/*! chota.css v0.5.0 | MIT License | github.com/jenil/chota */
-@import "../../vendor/chota-0.5.0/src/_base.css";
-@import "../../vendor/chota-0.5.0/src/_grid.css";
-@import "../../vendor/chota-0.5.0/src/_form.css";
-/* @import "../../vendor/chota-0.5.0/src/_nav.css"; */
-@import "../../vendor/chota-0.5.0/src/_card.css";
-/* @import "../../vendor/chota-0.5.0/src/_tab.css"; */
-/* @import "../../vendor/chota-0.5.0/src/_tag.css"; */
-@import "../../vendor/chota-0.5.0/src/_util.css"; 
-
+@import '_utils.scss';
 @import '_typography.scss';
-@import '_collapse.scss';
+@import '_card.scss';
 @import '_tabs.scss';
+@import '_buttons.scss';
 
 :root {
+	--daizy-primary-color: var(--olive);
+	
 	--daizy-text-color: var(--black);
 	--daizy-border-radius: 0.3em;
-	--daizy-padding: 1em;
+	--daizy-space-small: 0.5rem;
+	--daizy-space-medium: 1rem;
+	--daizy-space-large: 2rem;
+	--daizy-space-2x: 2rem;
+	--daizy-space: var(--daizy-space-medium);
+	--daizy-padding: 1rem;
 	
 	--daizy-background-color: var(--white);
-	--daizy-link-color: var(--color-primary);
+	--daizy-link-color: var(--blue);
 	
 	--daizy-media-breakpoint-down: 767px;
 	--daizy-media-breakpoint-up: 768px;
@@ -33,7 +34,7 @@
 	/*
 	 * Chota overrides:
 	 */
-	--font-size: 1rem;
+	--font-size: 1em;
 	--daizy-font-size: var(--font-size);
 	
 	
@@ -45,7 +46,9 @@
 }
 
 html{
-	font-size: var(--daizy-font-size);
+	font-size: 16px;
+	margin: 0;
+	padding: 0;
 }
 body{
 /* 	height: 100%; */
@@ -56,10 +59,12 @@ body{
 	font-size: var(--daizy-font-size);
 }
 @media (min-width: $daizy-media-breakpoint-up) {
-	html, body {
+	html {
+	}
+	body {
 		max-width: 1100px;
 		margin: 0 auto;
-		padding: 0 var(--daizy-padding);
+		padding: 0 var(--daizy-space);
 	}
 }
 
@@ -67,6 +72,15 @@ body{
 	
 	a {
 		color: var(--daizy-link-color);
+		text-decoration: none;
+	}
+	a:hover,
+	a:focus {
+		color: var(--maroon);
+		text-decoration: underline;
+	}
+	a:focus {
+		font-style: italic;
 	}
 	
 	input, textarea, select, button {
@@ -74,7 +88,7 @@ body{
 	}
 	
 	footer {
-		padding: var(--daizy-padding) 0;
+		padding: var(--daizy-space) 0;
 	}
 	
 	body > footer {
@@ -109,16 +123,25 @@ body{
 		align-items: center;
 		justify-content: center;
 		background-color: var(--daizy-background-color);
+		color: var(--olive);
 	}
 	.page-loader .dot{
 		animation: fontsizePulse 1s ease-out;
+		animation: scalePulse 1s ease-out;
 		animation-iteration-count: infinite;
+/* 		animation-iteration-count: 1; */
 		opacity: 1; 
+		line-height: 0;
+		display: inline-block;
+		width: 1em;
+		height: 1em;
+		border-radius: 50%;
+		background-color: var(--olive);
 	}
-	@keyframes fontsizePulse {
-		0% {font-size: 1em;opacity: 0.1;}
-		50% {font-size: 20em;opacity: 1;}
-		100% {font-size: 1em;opacity: 0.1;}
+	@keyframes scalePulse {
+		0% {transform: scale(1);opacity: 0;}
+		50% {transform: scale(5);opacity: 1;}
+		100% {transform: scale(1);opacity: 0;}
 	}
 	
 	.fade-out {
@@ -135,4 +158,9 @@ body{
 		cursor: pointer;
 	}
 	
+	label[tabindex]:focus {
+		text-decoration: underline;
+	}
+	
+	*[hidden] { display: none; }
 }

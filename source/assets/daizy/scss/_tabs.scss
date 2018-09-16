@@ -1,25 +1,25 @@
-@import '_collapse.scss';
-
-.tabs {
-	
-	
-	.tabs-nav{
-		display: inline-block;
-		border-bottom: 1px solid black;
-	}
-	.tab{
-		border-bottom: 1px solid black;
-		white-space: nowrap;
-		padding: 0.5em;
-		display: inline-block;
-		border: 1px solid transparent;
-		border-bottom: none
-	}
-	input.tab{
-	/* 	display: none; */
-	}
-	.tab.active{
-		border: 1px solid black;
-		border-bottom: none;
+.daizy-wrapper {
+	.tabs {
+		
+		.tabs-nav{
+			display: inline-block;
+			border-bottom: 1px solid black;
+		}
+		.tab{
+			border-bottom: 1px solid black;
+			white-space: nowrap;
+			padding: 0.5em;
+			display: inline-block;
+			border: 1px solid transparent;
+			border-bottom: none
+		}
+		input.tab{
+		/* 	display: none; */
+		}
+		.tab.active{
+			border: 1px solid black;
+			border-bottom: none;
+		}
 	}
 }
+	

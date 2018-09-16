@@ -25,7 +25,7 @@
 		
 		<!-- a javascript fájl másolása -->
 		<xsl:value-of select="php:function('\Daizy\SiteBuildHelper::copyFile', $src)"/>
-		<script src="{$src}" type="text/javascript"></script>
+		<script src="{$src}"></script>
 	</xsl:template>
 
 	
@@ -34,6 +34,10 @@
 		
 		<xsl:call-template name="script_tag_with_copy">
 			<xsl:with-param name="src">assets/daizy/dashboard.js</xsl:with-param>
+		</xsl:call-template>
+		
+		<xsl:call-template name="script_tag_with_copy">
+			<xsl:with-param name="src">assets/daizy/daizy.collapse.js</xsl:with-param>
 		</xsl:call-template>
 		
 		<xsl:call-template name="script_tag_with_copy">
@@ -96,25 +100,23 @@
 		</header>
 	</xsl:template>
 	
-	<xsl:template name="button_maximize_section">
-		<button class="btn btn-link maximize-menu-content-section" type="button" title="Maximize this section">
-			<svg class="icon"><use xlink:href="assets/daizy/icons-sprite.svg#bytesize-external"></use></svg>
-		</button>
-		<button class="btn btn-link minimize-menu-content-section" type="button" title="Minimize this section" hidden="">
-			<svg class="icon"><use xlink:href="assets/daizy/icons-sprite.svg#bytesize-external"></use></svg>
-		</button>
-	</xsl:template>
-	
 	<xsl:template name="body_main">
 		<main>
 			<div class="menu-content-list">
 				<xsl:for-each select="/variables/dashboard_menu_content/*">
 					<xsl:call-template name="display_menu_content">
+						<xsl:with-param name="menu_content_caption" select="caption"></xsl:with-param>
+						<xsl:with-param name="menu_content_id" select="name()"></xsl:with-param>
 						<xsl:with-param name="menu_content" select="document(concat('includes/dashboard_menu_contents/', name(.) ,'.xml'))/content/*"></xsl:with-param>
 					</xsl:call-template>
 				</xsl:for-each>
+				<xsl:call-template name="display_menu_content">
+					<xsl:with-param name="menu_content_caption" select="'HTML5 Test'"></xsl:with-param>
+					<xsl:with-param name="menu_content_id" select="'html5-test'"></xsl:with-param>
+					<xsl:with-param name="menu_content" select="php:function('getHtmlTestPageBodyContent')"></xsl:with-param>
+				</xsl:call-template>
 			</div>
-			<div id="header_search_no_results" class="alert alert-info text-info text-center" hidden="">
+			<div id="header_search_no_results" class="card text-center" hidden="">
 				No matching search found!
 			</div>
 		</main>
@@ -138,22 +140,30 @@
 		<menu_content_node_name/>
 	-->
 	<xsl:template name="display_menu_content">
+		<xsl:param name="menu_content_caption" required="yes"></xsl:param>
+		<xsl:param name="menu_content_id" required="yes"></xsl:param>
 		<xsl:param name="menu_content" required="yes"></xsl:param>
 		
-		<xsl:variable name="collapse_id" select="concat(name(), '-', generate-id())"></xsl:variable>
-		<xsl:variable name="menu_content_caption" select="caption"></xsl:variable>
+		<xsl:variable name="collapse_id" select="concat('collapse_', $menu_content_id)"></xsl:variable>
 		
 		<section class="card menu-content-item">
-			<header class="card-header menu-content-header">
-				<label class="button clear menu-content-toggler" for="collapse_{$collapse_id}" tabindex="0">
-					<xsl:value-of select="$menu_content_caption"></xsl:value-of>
-				</label>
-				<!-- 
-				<xsl:call-template name="button_maximize_section"></xsl:call-template>
-				-->
+			<header class="card-header menu-content-header" data-caption="{$menu_content_caption}">
+				<h4>
+					<a class="button clear" data-collapse-target="#{$collapse_id}">
+						<xsl:value-of select="$menu_content_caption"></xsl:value-of>
+					</a>
+					<button class="button clear maximize-menu-content-section" type="button" title="Maximize this section">
+						<svg class="icon"><use xlink:href="assets/daizy/icons-sprite.svg#bytesize-external"></use></svg>
+					</button>
+					<button class="button clear minimize-menu-content-section" type="button" title="Minimize this section" hidden="">
+						<svg class="icon"><use xlink:href="assets/daizy/icons-sprite.svg#bytesize-external"></use></svg>
+					</button>
+	<!-- 				<label class="button clear menu-content-toggler" for="{$collapse_id}" tabindex="0"> -->
+	<!-- 					<xsl:value-of select="$menu_content_caption"></xsl:value-of> -->
+	<!-- 				</label> -->
+				</h4>
 			</header>
-			<input type="checkbox" id="collapse_{$collapse_id}" class="collapse" aria-hidden="true"/>
-			<article id="{$collapse_id}" class="menu-content-container">
+			<article id="{$collapse_id}" class="collapse menu-content-container" hidden="">
 				<xsl:copy-of select="$menu_content"></xsl:copy-of>
 			</article>
 		</section>

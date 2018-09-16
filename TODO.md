@@ -24,3 +24,5 @@
     - example: https://github.com/mblode/marx/
 
 - input.collapse clickable with keyboard (onfocus ENTER or SPACE)
+
+- namespaced plain javascript events

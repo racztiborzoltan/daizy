@@ -2,10 +2,10 @@
 <content>
 	<article id="sample_tabs">
 		<header>
-			<h1>Tabs</h1>
+			<h2>Tabs</h2>
 		</header>
 		
-		<section class="tabs">
+		<div class="tabs">
 			<nav class="tabs-nav">
 				<label for="tabs__tab_1" class="tab">
 					Tab 1
@@ -32,6 +32,6 @@
 			<div class="pane">
 				Pane 3
 			</div>
-		</section>
+		</div>
 	</article>
 </content>

@@ -21,7 +21,7 @@
 
 		var self = this;
 
-		config = Object.assign({
+		config = config = Object.assign({
 			//
 			// selector relative to ".tabs"
 			//

@@ -1,9 +1,0 @@
-input.collapse {
-	display: none;
-}
-input.collapse + * {
-	display: none;
-}
-input:checked.collapse + * {
-	display: block;
-}

@@ -57,7 +57,7 @@
 	
 		<xsl:text disable-output-escaping='yes'>&lt;!DOCTYPE html&gt;</xsl:text>
 		<xsl:call-template name="comment_copyright_text"/>
-		<html lang="en">
+		<html lang="en" class="daizy-wrapper">
 			<head>
 				<xsl:if test="baseHref">
 					<base href="{baseHref}"/>
@@ -68,9 +68,9 @@
 
 				<xsl:apply-templates select="head_css"></xsl:apply-templates>
 			</head>
-			<body class="container daizy-wrapper">
-				<div class="page-loader text-primary">
-					<div class="dot"><xsl:text disable-output-escaping="yes">&amp;middot;</xsl:text></div>
+			<body class="container">
+				<div class="page-loader">
+					<span class="dot"></span>
 				</div>
 				<xsl:call-template name="body_content"/>
 				

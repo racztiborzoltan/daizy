@@ -29,19 +29,35 @@ call_user_func(function(){
         'dashboard' => [
             'caption' => 'Dashboard',
         ],
-        'typography' => [
-            'caption' => 'Typography',
-        ],
-        'embedded_content' => [
-            'caption' => 'Embedded content',
-        ],
-        'form_elements' => [
-            'caption' => 'Form elements',
-        ],
         'tabs' => [
             'caption' => 'Tabs',
         ],
     ]);
+
+    function getHtmlTestPageBodyContent(): \DOMElement
+    {
+        $content = file_get_contents(__DIR__.'/assets/vendor/html5-test-page-0.8.0/index.html');
+        $dom_document = new \DOMDocument();
+
+        $temp = libxml_use_internal_errors(true);
+        $dom_document->loadHTML($content);
+        libxml_clear_errors();
+        libxml_use_internal_errors($temp);
+
+        $xpath = new \DOMXPath($dom_document);
+        $top_div = $xpath->query('/html/body/div[@id="top"]');
+
+        if ($top_div->length == 0) {
+            return '<strong>HTML5 TEST CONTENT IS NOT EXISTS</strong>';
+        }
+
+        $top_div = $top_div->item(0);
+        $top_div->setAttribute('id', 'html5-test-page-container');
+        $top_div->removeAttribute('class');
+        $top_div->removeAttribute('role');
+
+        return $top_div;
+    }
 
     //
     // page type validation:
