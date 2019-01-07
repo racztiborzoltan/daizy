@@ -6,709 +6,746 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Dashboard Page</title>
-		<link rel="stylesheet" href="assets/vendor/primitive-1.3.0/dist/css/main.css">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+		<link rel="stylesheet" href="assets/vendor/bootstrap-4.2.1-dist/css/bootstrap.min.css">
 		<link rel="stylesheet" href="assets/daizy/daizy.min.css">
 		<link rel="stylesheet" href="assets/daizy/dashboard.min.css">
 	</head>
-	<body class="container">
-		<div class="page-loader"><span class="dot"></span></div>
-		<header>
-			<nav>
-				<form class="search" onsubmit="return false;">
-					<input type="search" placeholder="Search..." aria-label="Search">
+	<body class="bg-light">
+		<div class="page-loader bg-light">
+			<div class="spinner-grow text-primary" role="status"><span class="sr-only">Loading...</span></div>
+		</div>
+		<header class="container">
+			<nav class="navbar navbar-expand-sm navbar-light bg-light">
+				<form class="form-inline flex-grow-1 my-2 my-lg-0 mr-2 search">
+					<div class="input-group w-100">
+						<input class="form-control" type="search" placeholder="Search" aria-label="Search">
+						<div class="input-group-append">
+							<span class="input-group-text bg-white" id="basic-addon2"><i class="fas fa-search"></i></span>
+						</div>
+					</div>
 				</form>
-				<label for="nav_menu_toggler" data-menu-toggler="">&equiv;
-</label>
-				<input id="nav_menu_toggler" type="checkbox" data-menu-toggler="" hidden="">
-				<ul class="nav-menu">
-					<li>
-						<a href="" title="Main Page">
-							<svg class="icon">
-								<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/daizy/icons-sprite.svg#bytesize-home"></use>
-							</svg>
-							<span class="caption">Main Page</span>
-						</a>
-					</li>
-					<li>
-						<label class="language-switcher" title="Change Language">
-							<svg class="icon">
-								<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/daizy/icons-sprite.svg#bytesize-settings"></use>
-							</svg>
-							<select title="Change language...">
-								<option value="hu">hu</option>
-								<option value="en">en</option>
-								<option value="de">de</option>
-							</select>
-						</label>
-					</li>
-					<li>
-						<a href="#" title="Logout">
-							<svg class="icon">
-								<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/daizy/icons-sprite.svg#bytesize-logout"></use>
-							</svg>
-							<span class="caption">
-Logout
-</span>
-						</a>
-					</li>
-				</ul>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+				<div class="collapse navbar-collapse flex-grow-0" id="navbarSupportedContent">
+					<ul class="navbar-nav mr-auto">
+						<li class="nav-item active">
+							<a class="nav-link" href="#" title="Main Page"><i class="fas fa-home fa-fw mr-2 mr-sm-0"></i><span class="d-inline d-sm-none caption">Main Page</span><span class="sr-only">(current)</span></a>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="Change language"><i class="fas fa-globe fa-fw mr-2 mr-sm-0"></i></a>
+							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+<a class="dropdown-item" href="#">en</a><a class="dropdown-item" href="#">de</a><a class="dropdown-item" href="#">hu</a>
+</div>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#" title="Logout"><i class="fas fa-sign-out-alt fa-fw mr-2 mr-sm-0"></i></a>
+						</li>
+					</ul>
+				</div>
 			</nav>
+			<hr class="navbar-bottom">
 		</header>
-		<main>
-			<div id="header_search_no_results" class="card text-center" hidden="">
+		<main class="container">
+			<div class="menu-content-list">
+				<section class="card mb-3 menu-content-item">
+					<header class="card-header p-2 text-center menu-content-header" data-caption="Dashboard">
+						<button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse_dashboard" aria-expanded="false" aria-controls="collapse_dashboard"><span class="caption menu-caption">Dashboard</span></button>
+					</header>
+					<article id="collapse_dashboard" class="card-body collapse menu-content-container">
+						<h3>
+							Daizy Minimalistic Admin Template
+						</h3>
+						<p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.</p>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Arcu non sodales neque sodales ut etiam sit amet nisl. Ullamcorper sit amet risus nullam eget. Nibh tortor id aliquet lectus proin. Eget nunc scelerisque viverra mauris in aliquam sem. Nisi lacus sed viverra tellus in hac habitasse platea. Pellentesque nec nam aliquam sem et tortor consequat id. Eu consequat ac felis donec et odio pellentesque diam. Urna porttitor rhoncus dolor purus non enim. Nec ultrices dui sapien eget.</p>
+						<p>Parturient montes nascetur ridiculus mus. Sem et tortor consequat id porta nibh venenatis cras. Tristique senectus et netus et. In eu mi bibendum neque egestas congue. Curabitur vitae nunc sed velit dignissim sodales. Amet tellus cras adipiscing enim eu turpis egestas pretium. Vitae aliquet nec ullamcorper sit amet risus. Auctor augue mauris augue neque gravida in fermentum et. Amet porttitor eget dolor morbi. Tincidunt augue interdum velit euismod in pellentesque massa placerat duis.</p>
+						<p>Vel orci porta non pulvinar. Nec dui nunc mattis enim ut tellus elementum sagittis. Suspendisse interdum consectetur libero id faucibus. In metus vulputate eu scelerisque felis imperdiet. Vitae semper quis lectus nulla at. Volutpat commodo sed egestas egestas fringilla phasellus faucibus scelerisque eleifend. Pellentesque massa placerat duis ultricies lacus sed turpis tincidunt. Elementum eu facilisis sed odio morbi quis commodo odio. Accumsan in nisl nisi scelerisque eu ultrices. Pellentesque habitant morbi tristique senectus et netus et malesuada. At consectetur lorem donec massa sapien faucibus et molestie. Pellentesque habitant morbi tristique senectus. Venenatis tellus in metus vulputate eu scelerisque felis imperdiet. Nisi scelerisque eu ultrices vitae auctor eu augue ut lectus. Ultricies lacus sed turpis tincidunt id aliquet. Tempor commodo ullamcorper a lacus vestibulum.</p>
+						<p>Adipiscing bibendum est ultricies integer quis auctor elit sed. Eu augue ut lectus arcu bibendum at varius vel pharetra. Non tellus orci ac auctor augue mauris augue. Amet tellus cras adipiscing enim. Ultricies integer quis auctor elit sed vulputate mi. Non enim praesent elementum facilisis leo vel fringilla est ullamcorper. Vestibulum morbi blandit cursus risus at ultrices mi tempus imperdiet. Pharetra vel turpis nunc eget lorem dolor sed. Sit amet dictum sit amet justo donec enim diam vulputate. Nisl nunc mi ipsum faucibus vitae aliquet nec ullamcorper sit. Arcu cursus euismod quis viverra nibh. Sem fringilla ut morbi tincidunt augue interdum velit. At in tellus integer feugiat scelerisque varius morbi. Dignissim sodales ut eu sem. Urna cursus eget nunc scelerisque viverra mauris in. Facilisis mauris sit amet massa vitae tortor condimentum lacinia quis. Vitae congue eu consequat ac. A erat nam at lectus urna duis. Sem viverra aliquet eget sit amet tellus. Faucibus vitae aliquet nec ullamcorper.</p>
+						<p>Leo urna molestie at elementum eu facilisis sed odio. Eget mi proin sed libero enim. Condimentum mattis pellentesque id nibh tortor id aliquet lectus proin. Turpis egestas maecenas pharetra convallis posuere morbi leo urna molestie. Dolor sit amet consectetur adipiscing elit. Vitae turpis massa sed elementum. Quis vel eros donec ac odio tempor orci dapibus. Nunc sed velit dignissim sodales ut eu sem integer. Ante in nibh mauris cursus mattis. Tellus rutrum tellus pellentesque eu tincidunt tortor aliquam nulla.</p>
+					</article>
+				</section>
+				<section class="card mb-3 menu-content-item">
+					<header class="card-header p-2 text-center menu-content-header" data-caption="Tabs">
+						<button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse_tabs" aria-expanded="false" aria-controls="collapse_tabs"><span class="caption menu-caption">Tabs</span></button>
+					</header>
+					<article id="collapse_tabs" class="card-body collapse menu-content-container">
+						<article id="sample_tabs">
+							<header>
+								<h2>
+									Tabs
+								</h2>
+							</header>
+							<div class="tabs">
+								<nav class="tabs-nav">
+									<label for="tabs__tab_1" class="tab">
+Tab 1
+</label>
+									<label for="tabs__tab_2" class="tab">
+Tab 2
+</label>
+									<label for="tabs__tab_3" class="tab">
+Tab 3
+</label>
+								</nav>
+								<input id="tabs__tab_1" name="tabs_tab_pane" class="collapse" type="radio" checked>
+								<div class="pane">
+Pane 1
+</div>
+								<input id="tabs__tab_2" name="tabs_tab_pane" class="collapse" type="radio">
+								<div class="pane">
+Pane 2
+</div>
+								<input id="tabs__tab_3" name="tabs_tab_pane" class="collapse" type="radio">
+								<div class="pane">
+Pane 3
+</div>
+							</div>
+						</article>
+					</article>
+				</section>
+				<section class="card mb-3 menu-content-item">
+					<header class="card-header p-2 text-center menu-content-header" data-caption="HTML5 Test">
+						<button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse_html5-test" aria-expanded="false" aria-controls="collapse_html5-test"><span class="caption menu-caption">HTML5 Test</span></button>
+					</header>
+					<article id="collapse_html5-test" class="card-body collapse menu-content-container">
+						<div id="html5-test-page-container">
+							<header role="banner">
+								<h1>
+									HTML5 Test Page
+								</h1>
+								<p>This is a test page filled with common HTML elements to be used to provide visual feedback whilst building CSS systems and frameworks.</p>
+							</header>
+							<nav role="navigation">
+								<ul>
+									<li>
+										<a href="#text">Text</a> 
+										<ul>
+											<li><a href="#text__headings">Headings</a></li>
+											<li><a href="#text__paragraphs">Paragraphs</a></li>
+											<li><a href="#text__blockquotes">Blockquotes</a></li>
+											<li><a href="#text__lists">Lists</a></li>
+											<li><a href="#text__hr">Horizontal rules</a></li>
+											<li><a href="#text__tables">Tabular data</a></li>
+											<li><a href="#text__code">Code</a></li>
+											<li><a href="#text__inline">Inline elements</a></li>
+											<li><a href="#text__comments">HTML Comments</a></li>
+										</ul>
+									</li>
+									<li>
+										<a href="#embedded">Embedded content</a> 
+										<ul>
+											<li><a href="#embedded__images">Images</a></li>
+											<li><a href="#embedded__audio">Audio</a></li>
+											<li><a href="#embedded__video">Video</a></li>
+											<li><a href="#embedded__canvas">Canvas</a></li>
+											<li><a href="#embedded__meter">Meter</a></li>
+											<li><a href="#embedded__progress">Progress</a></li>
+											<li><a href="#embedded__svg">Inline SVG</a></li>
+											<li><a href="#embedded__iframe">IFrames</a></li>
+										</ul>
+									</li>
+									<li>
+										<a href="#forms">Form elements</a> 
+										<ul>
+											<li><a href="#forms__input">Input fields</a></li>
+											<li><a href="#forms__select">Select menus</a></li>
+											<li><a href="#forms__checkbox">Checkboxes</a></li>
+											<li><a href="#forms__radio">Radio buttons</a></li>
+											<li><a href="#forms__textareas">Textareas</a></li>
+											<li><a href="#forms__html5">HTML5 inputs</a></li>
+											<li><a href="#forms__action">Action buttons</a></li>
+										</ul>
+									</li>
+								</ul>
+							</nav>
+							<main role="main">
+								<section id="text">
+									<header>
+										<h1>
+											Text
+										</h1>
+									</header>
+									<article id="text__headings">
+										<header>
+											<h1>
+												Headings
+											</h1>
+										</header>
+										<div>
+											<h1>
+												Heading 1
+											</h1>
+											<h2>
+												Heading 2
+											</h2>
+											<h3>
+												Heading 3
+											</h3>
+											<h4>
+												Heading 4
+											</h4>
+											<h5>
+												Heading 5
+											</h5>
+											<h6>
+												Heading 6
+											</h6>
+										</div>
+										<footer>
+											<p><a href="#top">[Top]</a></p>
+										</footer>
+									</article>
+									<article id="text__paragraphs">
+										<header>
+											<h1>
+												Paragraphs
+											</h1>
+										</header>
+										<div>
+											<p>A paragraph (from the Greek paragraphos, “to write beside” or “written beside”) is a self-contained unit of a discourse in writing dealing with a particular point or idea. A paragraph consists of one or more sentences. Though not required by the syntax of any language, paragraphs are usually an expected part of formal writing, used to organize longer prose.</p>
+										</div>
+										<footer>
+											<p><a href="#top">[Top]</a></p>
+										</footer>
+									</article>
+									<article id="text__blockquotes">
+										<header>
+											<h1>
+												Blockquotes
+											</h1>
+										</header>
+										<div>
+											<blockquote>
+												<p>A block quotation (also known as a long quotation or extract) is a quotation in a written document, that is set off from the main text as a paragraph, or block of text.</p>
+												<p>It is typically distinguished visually using indentation and a different typeface or smaller size quotation. It may or may not include a citation, usually placed at the bottom.</p>
+												<cite><a href="#!">Said no one, ever.</a></cite>
+											</blockquote>
+										</div>
+										<footer>
+											<p><a href="#top">[Top]</a></p>
+										</footer>
+									</article>
+									<article id="text__lists">
+										<header>
+											<h1>
+												Lists
+											</h1>
+										</header>
+										<div>
+											<h3>
+												Definition list
+											</h3>
+											<dl>
+												<dt>Definition List Title</dt>
+												<dd>This is a definition list division.</dd>
+											</dl>
+											<h3>
+												Ordered List
+											</h3>
+											<ol>
+												<li>List Item 1</li>
+												<li>List Item 2</li>
+												<li>List Item 3</li>
+											</ol>
+											<h3>
+												Unordered List
+											</h3>
+											<ul>
+												<li>List Item 1</li>
+												<li>List Item 2</li>
+												<li>List Item 3</li>
+											</ul>
+										</div>
+										<footer>
+											<p><a href="#top">[Top]</a></p>
+										</footer>
+									</article>
+									<article id="text__hr">
+										<header>
+											<h1>
+												Horizontal rules
+											</h1>
+										</header>
+										<div>
+											<hr>
+										</div>
+										<footer>
+											<p><a href="#top">[Top]</a></p>
+										</footer>
+									</article>
+									<article id="text__tables">
+										<header>
+											<h1>
+												Tabular data
+											</h1>
+										</header>
+										<table>
+											<caption>Table Caption</caption>
+											<thead>
+												<tr>
+													<th>Table Heading 1</th>
+													<th>Table Heading 2</th>
+													<th>Table Heading 3</th>
+													<th>Table Heading 4</th>
+													<th>Table Heading 5</th>
+												</tr>
+											</thead>
+											<tfoot>
+												<tr>
+													<th>Table Footer 1</th>
+													<th>Table Footer 2</th>
+													<th>Table Footer 3</th>
+													<th>Table Footer 4</th>
+													<th>Table Footer 5</th>
+												</tr>
+											</tfoot>
+											<tbody>
+												<tr>
+													<td>Table Cell 1</td>
+													<td>Table Cell 2</td>
+													<td>Table Cell 3</td>
+													<td>Table Cell 4</td>
+													<td>Table Cell 5</td>
+												</tr>
+												<tr>
+													<td>Table Cell 1</td>
+													<td>Table Cell 2</td>
+													<td>Table Cell 3</td>
+													<td>Table Cell 4</td>
+													<td>Table Cell 5</td>
+												</tr>
+												<tr>
+													<td>Table Cell 1</td>
+													<td>Table Cell 2</td>
+													<td>Table Cell 3</td>
+													<td>Table Cell 4</td>
+													<td>Table Cell 5</td>
+												</tr>
+												<tr>
+													<td>Table Cell 1</td>
+													<td>Table Cell 2</td>
+													<td>Table Cell 3</td>
+													<td>Table Cell 4</td>
+													<td>Table Cell 5</td>
+												</tr>
+											</tbody>
+										</table>
+										<footer>
+											<p><a href="#top">[Top]</a></p>
+										</footer>
+									</article>
+									<article id="text__code">
+										<header>
+											<h1>
+												Code
+											</h1>
+										</header>
+										<div>
+											<p><strong>Keyboard input:</strong> <kbd>Cmd</kbd></p>
+											<p><strong>Inline code:</strong> <code>&lt;div&gt;code&lt;/div&gt;</code></p>
+											<p><strong>Sample output:</strong> <samp>This is sample output from a computer program.</samp></p>
+											<h2>
+												Pre-formatted text
+											</h2>
+											<pre>P R E F O R M A T T E D T E X T ! " # $ % &amp; ' ( ) * + , - . / 0 1 2 3 4 5 6 7 8 9 : ; &lt; = &gt; ? @ A B C D E F G H I J K L M N O P Q R S T U V W X Y Z [ \ ] ^ _ ` a b c d e f g h i j k l m n o p q r s t u v w x y z { | } ~ </pre>
+										</div>
+										<footer>
+											<p><a href="#top">[Top]</a></p>
+										</footer>
+									</article>
+									<article id="text__inline">
+										<header>
+											<h1>
+												Inline elements
+											</h1>
+										</header>
+										<div>
+											<p><a href="#!">This is a text link</a>.</p>
+											<p><strong>Strong is used to indicate strong importance.</strong></p>
+											<p><em>This text has added emphasis.</em></p>
+											<p>The <b>b element</b> is stylistically different text from normal text, without any special importance.</p>
+											<p>The <i>i element</i> is text that is offset from the normal text.</p>
+											<p>
+												The 
+												<u>u element</u>
+												is text with an unarticulated, though explicitly rendered, non-textual annotation.
+											</p>
+											<p>
+												<del>This text is deleted</del>
+												and 
+												<ins>This text is inserted</ins>
+												.
+											</p>
+											<p>
+												<s>This text has a strikethrough</s>
+												.
+											</p>
+											<p>Superscript<sup>®</sup>.</p>
+											<p>Subscript for things like H<sub>2</sub>O.</p>
+											<p><small>This small text is small for for fine print, etc.</small></p>
+											<p>Abbreviation: <abbr title="HyperText Markup Language">HTML</abbr></p>
+											<p>
+												<q cite="https://developer.mozilla.org/en-US/docs/HTML/Element/q">This text is a short inline quotation.</q>
+											</p>
+											<p><cite>This is a citation.</cite></p>
+											<p>The <dfn>dfn element</dfn> indicates a definition.</p>
+											<p>
+												The 
+												<mark>mark element</mark>
+												indicates a highlight.
+											</p>
+											<p>The <var>variable element</var>, such as <var>x</var> = <var>y</var>.</p>
+											<p>
+												The time element: 
+												<time datetime="2013-04-06T12:32+00:00">2 weeks ago</time>
+											</p>
+										</div>
+										<footer>
+											<p><a href="#top">[Top]</a></p>
+										</footer>
+									</article>
+									<article id="text__comments">
+										<header>
+											<h1>
+												HTML Comments
+											</h1>
+										</header>
+										<div>
+											<p>
+												There is comment here: 
+												<!--This comment should not be displayed-->
+											</p>
+											<p>There is a comment spanning multiple tags and lines below here.</p>
+											<!--<p>
+											<a href="#!">This is a text link. But it should not be displayed in a comment</a>.
+										</p>
+										              
+										<p><strong>Strong is used to indicate strong importance. But, it should not be displayed in a comment</strong></p>
+										              
+										<p><em>This text has added emphasis. But, it should not be displayed in a comment</em></p>
+										--> 
+									</div>
+									            
+									<footer>
+										<p><a href="#top">[Top]</a></p>
+									</footer>
+								</article>
+							</section>
+							<section id="embedded">
+								<header>
+									<h1>
+										Embedded content
+									</h1>
+								</header>
+								<article id="embedded__images">
+									<header>
+										<h2>
+											Images
+										</h2>
+									</header>
+									<div>
+										<h3>
+											No <code>&lt;figure&gt;</code> element
+										</h3>
+										<p>
+											<img src="http://placekitten.com/480/480" alt="Image alt text">
+										</p>
+										<h3>
+											Wrapped in a <code>&lt;figure&gt;</code> element, no <code>&lt;figcaption&gt;</code>
+
+										</h3>
+										<figure>
+											<img src="http://placekitten.com/420/420" alt="Image alt text">
+										</figure>
+										<h3>
+											Wrapped in a <code>&lt;figure&gt;</code> element, with a <code>&lt;figcaption&gt;</code>
+
+										</h3>
+										<figure>
+											<img src="http://placekitten.com/420/420" alt="Image alt text">
+											<figcaption>Here is a caption for this image.</figcaption>
+										</figure>
+									</div>
+									<footer>
+										<p><a href="#top">[Top]</a></p>
+									</footer>
+								</article>
+								<article id="embedded__audio">
+									<header>
+										<h2>
+											Audio
+										</h2>
+									</header>
+									<div>
+										<audio controls="">audio</audio>
+									</div>
+									<footer>
+										<p><a href="#top">[Top]</a></p>
+									</footer>
+								</article>
+								<article id="embedded__video">
+									<header>
+										<h2>
+											Video
+										</h2>
+									</header>
+									<div>
+										<video controls="">video</video>
+									</div>
+									<footer>
+										<p><a href="#top">[Top]</a></p>
+									</footer>
+								</article>
+								<article id="embedded__canvas">
+									<header>
+										<h2>
+											Canvas
+										</h2>
+									</header>
+									<div>
+										<canvas>canvas</canvas>
+									</div>
+									<footer>
+										<p><a href="#top">[Top]</a></p>
+									</footer>
+								</article>
+								<article id="embedded__meter">
+									<header>
+										<h2>
+											Meter
+										</h2>
+									</header>
+									<div>
+										<meter value="2" min="0" max="10">2 out of 10</meter>
+									</div>
+									<footer>
+										<p><a href="#top">[Top]</a></p>
+									</footer>
+								</article>
+								<article id="embedded__progress">
+									<header>
+										<h2>
+											Progress
+										</h2>
+									</header>
+									<div>
+										<progress>progress</progress>
+									</div>
+									<footer>
+										<p><a href="#top">[Top]</a></p>
+									</footer>
+								</article>
+								<article id="embedded__svg">
+									<header>
+										<h2>
+											Inline SVG
+										</h2>
+									</header>
+									<div>
+										<svg width="100px" height="100px">
+											<circle cx="100" cy="100" r="100" fill="#1fa3ec"></circle>
+										</svg>
+									</div>
+									<footer>
+										<p><a href="#top">[Top]</a></p>
+									</footer>
+								</article>
+								<article id="embedded__iframe">
+									<header>
+										<h2>
+											IFrame
+										</h2>
+									</header>
+									<div>
+										<iframe src="index.html" height="300"></iframe>
+									</div>
+									<footer>
+										<p><a href="#top">[Top]</a></p>
+									</footer>
+								</article>
+							</section>
+							<section id="forms">
+								<header>
+									<h1>
+										Form elements
+									</h1>
+								</header>
+								<form>
+									<fieldset id="forms__input">
+										<legend>Input fields</legend>
+										<p>
+											<label for="input__text">Text Input</label>
+											<input id="input__text" type="text" placeholder="Text Input">
+										</p>
+										<p>
+											<label for="input__password">Password</label>
+											<input id="input__password" type="password" placeholder="Type your Password">
+										</p>
+										<p>
+											<label for="input__webaddress">Web Address</label>
+											<input id="input__webaddress" type="url" placeholder="http://yoursite.com">
+										</p>
+										<p>
+											<label for="input__emailaddress">Email Address</label>
+											<input id="input__emailaddress" type="email" placeholder="name@email.com">
+										</p>
+										<p>
+											<label for="input__phone">Phone Number</label>
+											<input id="input__phone" type="tel" placeholder="(999) 999-9999">
+										</p>
+										<p>
+											<label for="input__search">Search</label>
+											<input id="input__search" type="search" placeholder="Enter Search Term">
+										</p>
+										<p>
+											<label for="input__text2">Number Input</label>
+											<input id="input__text2" type="number" placeholder="Enter a Number">
+										</p>
+										<p>
+											<label for="input__text3" class="error">Error</label>
+											<input id="input__text3" class="is-error" type="text" placeholder="Text Input">
+										</p>
+										<p>
+											<label for="input__text4" class="valid">Valid</label>
+											<input id="input__text4" class="is-valid" type="text" placeholder="Text Input">
+										</p>
+									</fieldset>
+									<p><a href="#top">[Top]</a></p>
+									<fieldset id="forms__select">
+										<legend>Select menus</legend>
+										<p>
+											<label for="select">Select</label>
+											<select id="select">
+												<optgroup label="Option Group">
+													<option>Option One</option>
+													<option>Option Two</option>
+													<option>Option Three</option>
+												</optgroup>
+											</select>
+										</p>
+									</fieldset>
+									<p><a href="#top">[Top]</a></p>
+									<fieldset id="forms__checkbox">
+										<legend>Checkboxes</legend>
+										<ul class="list list--bare">
+											<li>
+												<label for="checkbox1">
+													<input id="checkbox1" name="checkbox" type="checkbox" checked>
+													Choice A
+												</label>
+											</li>
+											<li>
+												<label for="checkbox2">
+													<input id="checkbox2" name="checkbox" type="checkbox">
+													Choice B
+												</label>
+											</li>
+											<li>
+												<label for="checkbox3">
+													<input id="checkbox3" name="checkbox" type="checkbox">
+													Choice C
+												</label>
+											</li>
+										</ul>
+									</fieldset>
+									<p><a href="#top">[Top]</a></p>
+									<fieldset id="forms__radio">
+										<legend>Radio buttons</legend>
+										<ul class="list list--bare">
+											<li>
+												<label for="radio1">
+													<input id="radio1" name="radio" type="radio" class="radio" checked>
+													Option 1
+												</label>
+											</li>
+											<li>
+												<label for="radio2">
+													<input id="radio2" name="radio" type="radio" class="radio">
+													Option 2
+												</label>
+											</li>
+											<li>
+												<label for="radio3">
+													<input id="radio3" name="radio" type="radio" class="radio">
+													Option 3
+												</label>
+											</li>
+										</ul>
+									</fieldset>
+									<p><a href="#top">[Top]</a></p>
+									<fieldset id="forms__textareas">
+										<legend>Textareas</legend>
+										<p>
+											<label for="textarea">Textarea</label>
+											<textarea id="textarea" rows="8" cols="48" placeholder="Enter your message here"></textarea>
+										</p>
+									</fieldset>
+									<p><a href="#top">[Top]</a></p>
+									<fieldset id="forms__html5">
+										<legend>HTML5 inputs</legend>
+										<p>
+											<label for="ic">Color input</label>
+											<input type="color" id="ic" value="#000000">
+										</p>
+										<p>
+											<label for="in">Number input</label>
+											<input type="number" id="in" min="0" max="10" value="5">
+										</p>
+										<p>
+											<label for="ir">Range input</label>
+											<input type="range" id="ir" value="10">
+										</p>
+										<p>
+											<label for="idd">Date input</label>
+											<input type="date" id="idd" value="1970-01-01">
+										</p>
+										<p>
+											<label for="idm">Month input</label>
+											<input type="month" id="idm" value="1970-01">
+										</p>
+										<p>
+											<label for="idw">Week input</label>
+											<input type="week" id="idw" value="1970-W01">
+										</p>
+										<p>
+											<label for="idt">Datetime input</label>
+											<input type="datetime" id="idt" value="1970-01-01T00:00:00Z">
+										</p>
+										<p>
+											<label for="idtl">Datetime-local input</label>
+											<input type="datetime-local" id="idtl" value="1970-01-01T00:00">
+										</p>
+									</fieldset>
+									<p><a href="#top">[Top]</a></p>
+									<fieldset id="forms__action">
+										<legend>Action buttons</legend>
+										<p>
+											<input type="submit" value="&lt;input type=submit&gt;">
+											<input type="button" value="&lt;input type=button&gt;">
+											<input type="reset" value="&lt;input type=reset&gt;">
+											<input type="submit" value="&lt;input disabled&gt;" disabled>
+										</p>
+										<p>
+											<button type="submit">&lt;button type=submit&gt;</button>
+											<button type="button">&lt;button type=button&gt;</button>
+											<button type="reset">&lt;button type=reset&gt;</button>
+											<button type="button" disabled>&lt;button disabled&gt;</button>
+										</p>
+									</fieldset>
+									<p><a href="#top">[Top]</a></p>
+								</form>
+							</section>
+						</main>
+						<footer role="contentinfo">
+							<p>Made by <a href="http://twitter.com/cbracco">@cbracco</a>. Code on <a href="http://github.com/cbracco/html5-test-page">GitHub</a>.</p>
+						</footer>
+					</div>
+				</article>
+			</section>
+		</div>
+		<div id="header_search_no_results" class="alert alert-info text-center" hidden="hidden">
 No matching search found!
 </div>
-			<div>
-				<div id="html5-test-page-container">
-					<header role="banner">
-						<h1>
-							HTML5 Test Page
-						</h1>
-						<p>This is a test page filled with common HTML elements to be used to provide visual feedback whilst building CSS systems and frameworks.</p>
-					</header>
-					<nav role="navigation">
-						<ul>
-							<li>
-								<a href="#text">Text</a> 
-								<ul>
-									<li><a href="#text__headings">Headings</a></li>
-									<li><a href="#text__paragraphs">Paragraphs</a></li>
-									<li><a href="#text__blockquotes">Blockquotes</a></li>
-									<li><a href="#text__lists">Lists</a></li>
-									<li><a href="#text__hr">Horizontal rules</a></li>
-									<li><a href="#text__tables">Tabular data</a></li>
-									<li><a href="#text__code">Code</a></li>
-									<li><a href="#text__inline">Inline elements</a></li>
-									<li><a href="#text__comments">HTML Comments</a></li>
-								</ul>
-							</li>
-							<li>
-								<a href="#embedded">Embedded content</a> 
-								<ul>
-									<li><a href="#embedded__images">Images</a></li>
-									<li><a href="#embedded__audio">Audio</a></li>
-									<li><a href="#embedded__video">Video</a></li>
-									<li><a href="#embedded__canvas">Canvas</a></li>
-									<li><a href="#embedded__meter">Meter</a></li>
-									<li><a href="#embedded__progress">Progress</a></li>
-									<li><a href="#embedded__svg">Inline SVG</a></li>
-									<li><a href="#embedded__iframe">IFrames</a></li>
-								</ul>
-							</li>
-							<li>
-								<a href="#forms">Form elements</a> 
-								<ul>
-									<li><a href="#forms__input">Input fields</a></li>
-									<li><a href="#forms__select">Select menus</a></li>
-									<li><a href="#forms__checkbox">Checkboxes</a></li>
-									<li><a href="#forms__radio">Radio buttons</a></li>
-									<li><a href="#forms__textareas">Textareas</a></li>
-									<li><a href="#forms__html5">HTML5 inputs</a></li>
-									<li><a href="#forms__action">Action buttons</a></li>
-								</ul>
-							</li>
-						</ul>
-					</nav>
-					<main role="main">
-						<section id="text">
-							<header>
-								<h1>
-									Text
-								</h1>
-							</header>
-							<article id="text__headings">
-								<header>
-									<h1>
-										Headings
-									</h1>
-								</header>
-								<div>
-									<h1>
-										Heading 1
-									</h1>
-									<h2>
-										Heading 2
-									</h2>
-									<h3>
-										Heading 3
-									</h3>
-									<h4>
-										Heading 4
-									</h4>
-									<h5>
-										Heading 5
-									</h5>
-									<h6>
-										Heading 6
-									</h6>
-								</div>
-								<footer>
-									<p><a href="#top">[Top]</a></p>
-								</footer>
-							</article>
-							<article id="text__paragraphs">
-								<header>
-									<h1>
-										Paragraphs
-									</h1>
-								</header>
-								<div>
-									<p>A paragraph (from the Greek paragraphos, “to write beside” or “written beside”) is a self-contained unit of a discourse in writing dealing with a particular point or idea. A paragraph consists of one or more sentences. Though not required by the syntax of any language, paragraphs are usually an expected part of formal writing, used to organize longer prose.</p>
-								</div>
-								<footer>
-									<p><a href="#top">[Top]</a></p>
-								</footer>
-							</article>
-							<article id="text__blockquotes">
-								<header>
-									<h1>
-										Blockquotes
-									</h1>
-								</header>
-								<div>
-									<blockquote>
-										<p>A block quotation (also known as a long quotation or extract) is a quotation in a written document, that is set off from the main text as a paragraph, or block of text.</p>
-										<p>It is typically distinguished visually using indentation and a different typeface or smaller size quotation. It may or may not include a citation, usually placed at the bottom.</p>
-										<cite><a href="#!">Said no one, ever.</a></cite>
-									</blockquote>
-								</div>
-								<footer>
-									<p><a href="#top">[Top]</a></p>
-								</footer>
-							</article>
-							<article id="text__lists">
-								<header>
-									<h1>
-										Lists
-									</h1>
-								</header>
-								<div>
-									<h3>
-										Definition list
-									</h3>
-									<dl>
-										<dt>Definition List Title</dt>
-										<dd>This is a definition list division.</dd>
-									</dl>
-									<h3>
-										Ordered List
-									</h3>
-									<ol>
-										<li>List Item 1</li>
-										<li>List Item 2</li>
-										<li>List Item 3</li>
-									</ol>
-									<h3>
-										Unordered List
-									</h3>
-									<ul>
-										<li>List Item 1</li>
-										<li>List Item 2</li>
-										<li>List Item 3</li>
-									</ul>
-								</div>
-								<footer>
-									<p><a href="#top">[Top]</a></p>
-								</footer>
-							</article>
-							<article id="text__hr">
-								<header>
-									<h1>
-										Horizontal rules
-									</h1>
-								</header>
-								<div>
-									<hr>
-								</div>
-								<footer>
-									<p><a href="#top">[Top]</a></p>
-								</footer>
-							</article>
-							<article id="text__tables">
-								<header>
-									<h1>
-										Tabular data
-									</h1>
-								</header>
-								<table>
-									<caption>Table Caption</caption>
-									<thead>
-										<tr>
-											<th>Table Heading 1</th>
-											<th>Table Heading 2</th>
-											<th>Table Heading 3</th>
-											<th>Table Heading 4</th>
-											<th>Table Heading 5</th>
-										</tr>
-									</thead>
-									<tfoot>
-										<tr>
-											<th>Table Footer 1</th>
-											<th>Table Footer 2</th>
-											<th>Table Footer 3</th>
-											<th>Table Footer 4</th>
-											<th>Table Footer 5</th>
-										</tr>
-									</tfoot>
-									<tbody>
-										<tr>
-											<td>Table Cell 1</td>
-											<td>Table Cell 2</td>
-											<td>Table Cell 3</td>
-											<td>Table Cell 4</td>
-											<td>Table Cell 5</td>
-										</tr>
-										<tr>
-											<td>Table Cell 1</td>
-											<td>Table Cell 2</td>
-											<td>Table Cell 3</td>
-											<td>Table Cell 4</td>
-											<td>Table Cell 5</td>
-										</tr>
-										<tr>
-											<td>Table Cell 1</td>
-											<td>Table Cell 2</td>
-											<td>Table Cell 3</td>
-											<td>Table Cell 4</td>
-											<td>Table Cell 5</td>
-										</tr>
-										<tr>
-											<td>Table Cell 1</td>
-											<td>Table Cell 2</td>
-											<td>Table Cell 3</td>
-											<td>Table Cell 4</td>
-											<td>Table Cell 5</td>
-										</tr>
-									</tbody>
-								</table>
-								<footer>
-									<p><a href="#top">[Top]</a></p>
-								</footer>
-							</article>
-							<article id="text__code">
-								<header>
-									<h1>
-										Code
-									</h1>
-								</header>
-								<div>
-									<p><strong>Keyboard input:</strong> <kbd>Cmd</kbd></p>
-									<p><strong>Inline code:</strong> <code>&lt;div&gt;code&lt;/div&gt;</code></p>
-									<p><strong>Sample output:</strong> <samp>This is sample output from a computer program.</samp></p>
-									<h2>
-										Pre-formatted text
-									</h2>
-									<pre>P R E F O R M A T T E D T E X T ! " # $ % &amp; ' ( ) * + , - . / 0 1 2 3 4 5 6 7 8 9 : ; &lt; = &gt; ? @ A B C D E F G H I J K L M N O P Q R S T U V W X Y Z [ \ ] ^ _ ` a b c d e f g h i j k l m n o p q r s t u v w x y z { | } ~ </pre>
-								</div>
-								<footer>
-									<p><a href="#top">[Top]</a></p>
-								</footer>
-							</article>
-							<article id="text__inline">
-								<header>
-									<h1>
-										Inline elements
-									</h1>
-								</header>
-								<div>
-									<p><a href="#!">This is a text link</a>.</p>
-									<p><strong>Strong is used to indicate strong importance.</strong></p>
-									<p><em>This text has added emphasis.</em></p>
-									<p>The <b>b element</b> is stylistically different text from normal text, without any special importance.</p>
-									<p>The <i>i element</i> is text that is offset from the normal text.</p>
-									<p>
-										The 
-										<u>u element</u>
-										is text with an unarticulated, though explicitly rendered, non-textual annotation.
-									</p>
-									<p>
-										<del>This text is deleted</del>
-										and 
-										<ins>This text is inserted</ins>
-										.
-									</p>
-									<p>
-										<s>This text has a strikethrough</s>
-										.
-									</p>
-									<p>Superscript<sup>®</sup>.</p>
-									<p>Subscript for things like H<sub>2</sub>O.</p>
-									<p><small>This small text is small for for fine print, etc.</small></p>
-									<p>Abbreviation: <abbr title="HyperText Markup Language">HTML</abbr></p>
-									<p>
-										<q cite="https://developer.mozilla.org/en-US/docs/HTML/Element/q">This text is a short inline quotation.</q>
-									</p>
-									<p><cite>This is a citation.</cite></p>
-									<p>The <dfn>dfn element</dfn> indicates a definition.</p>
-									<p>
-										The 
-										<mark>mark element</mark>
-										indicates a highlight.
-									</p>
-									<p>The <var>variable element</var>, such as <var>x</var> = <var>y</var>.</p>
-									<p>
-										The time element: 
-										<time datetime="2013-04-06T12:32+00:00">2 weeks ago</time>
-									</p>
-								</div>
-								<footer>
-									<p><a href="#top">[Top]</a></p>
-								</footer>
-							</article>
-							<article id="text__comments">
-								<header>
-									<h1>
-										HTML Comments
-									</h1>
-								</header>
-								<div>
-									<p>
-										There is comment here: 
-										<!--This comment should not be displayed-->
-									</p>
-									<p>There is a comment spanning multiple tags and lines below here.</p>
-									<!--<p>
-									<a href="#!">This is a text link. But it should not be displayed in a comment</a>.
-								</p>
-								              
-								<p><strong>Strong is used to indicate strong importance. But, it should not be displayed in a comment</strong></p>
-								              
-								<p><em>This text has added emphasis. But, it should not be displayed in a comment</em></p>
-								--> 
-							</div>
-							            
-							<footer>
-								<p><a href="#top">[Top]</a></p>
-							</footer>
-						</article>
-					</section>
-					<section id="embedded">
-						<header>
-							<h1>
-								Embedded content
-							</h1>
-						</header>
-						<article id="embedded__images">
-							<header>
-								<h2>
-									Images
-								</h2>
-							</header>
-							<div>
-								<h3>
-									No <code>&lt;figure&gt;</code> element
-								</h3>
-								<p>
-									<img src="http://placekitten.com/480/480" alt="Image alt text">
-								</p>
-								<h3>
-									Wrapped in a <code>&lt;figure&gt;</code> element, no <code>&lt;figcaption&gt;</code>
-
-								</h3>
-								<figure>
-									<img src="http://placekitten.com/420/420" alt="Image alt text">
-								</figure>
-								<h3>
-									Wrapped in a <code>&lt;figure&gt;</code> element, with a <code>&lt;figcaption&gt;</code>
-
-								</h3>
-								<figure>
-									<img src="http://placekitten.com/420/420" alt="Image alt text">
-									<figcaption>Here is a caption for this image.</figcaption>
-								</figure>
-							</div>
-							<footer>
-								<p><a href="#top">[Top]</a></p>
-							</footer>
-						</article>
-						<article id="embedded__audio">
-							<header>
-								<h2>
-									Audio
-								</h2>
-							</header>
-							<div>
-								<audio controls="">audio</audio>
-							</div>
-							<footer>
-								<p><a href="#top">[Top]</a></p>
-							</footer>
-						</article>
-						<article id="embedded__video">
-							<header>
-								<h2>
-									Video
-								</h2>
-							</header>
-							<div>
-								<video controls="">video</video>
-							</div>
-							<footer>
-								<p><a href="#top">[Top]</a></p>
-							</footer>
-						</article>
-						<article id="embedded__canvas">
-							<header>
-								<h2>
-									Canvas
-								</h2>
-							</header>
-							<div>
-								<canvas>canvas</canvas>
-							</div>
-							<footer>
-								<p><a href="#top">[Top]</a></p>
-							</footer>
-						</article>
-						<article id="embedded__meter">
-							<header>
-								<h2>
-									Meter
-								</h2>
-							</header>
-							<div>
-								<meter value="2" min="0" max="10">2 out of 10</meter>
-							</div>
-							<footer>
-								<p><a href="#top">[Top]</a></p>
-							</footer>
-						</article>
-						<article id="embedded__progress">
-							<header>
-								<h2>
-									Progress
-								</h2>
-							</header>
-							<div>
-								<progress>progress</progress>
-							</div>
-							<footer>
-								<p><a href="#top">[Top]</a></p>
-							</footer>
-						</article>
-						<article id="embedded__svg">
-							<header>
-								<h2>
-									Inline SVG
-								</h2>
-							</header>
-							<div>
-								<svg width="100px" height="100px">
-									<circle cx="100" cy="100" r="100" fill="#1fa3ec"></circle>
-								</svg>
-							</div>
-							<footer>
-								<p><a href="#top">[Top]</a></p>
-							</footer>
-						</article>
-						<article id="embedded__iframe">
-							<header>
-								<h2>
-									IFrame
-								</h2>
-							</header>
-							<div>
-								<iframe src="index.html" height="300"></iframe>
-							</div>
-							<footer>
-								<p><a href="#top">[Top]</a></p>
-							</footer>
-						</article>
-					</section>
-					<section id="forms">
-						<header>
-							<h1>
-								Form elements
-							</h1>
-						</header>
-						<form>
-							<fieldset id="forms__input">
-								<legend>Input fields</legend>
-								<p>
-									<label for="input__text">Text Input</label>
-									<input id="input__text" type="text" placeholder="Text Input">
-								</p>
-								<p>
-									<label for="input__password">Password</label>
-									<input id="input__password" type="password" placeholder="Type your Password">
-								</p>
-								<p>
-									<label for="input__webaddress">Web Address</label>
-									<input id="input__webaddress" type="url" placeholder="http://yoursite.com">
-								</p>
-								<p>
-									<label for="input__emailaddress">Email Address</label>
-									<input id="input__emailaddress" type="email" placeholder="name@email.com">
-								</p>
-								<p>
-									<label for="input__phone">Phone Number</label>
-									<input id="input__phone" type="tel" placeholder="(999) 999-9999">
-								</p>
-								<p>
-									<label for="input__search">Search</label>
-									<input id="input__search" type="search" placeholder="Enter Search Term">
-								</p>
-								<p>
-									<label for="input__text2">Number Input</label>
-									<input id="input__text2" type="number" placeholder="Enter a Number">
-								</p>
-								<p>
-									<label for="input__text3" class="error">Error</label>
-									<input id="input__text3" class="is-error" type="text" placeholder="Text Input">
-								</p>
-								<p>
-									<label for="input__text4" class="valid">Valid</label>
-									<input id="input__text4" class="is-valid" type="text" placeholder="Text Input">
-								</p>
-							</fieldset>
-							<p><a href="#top">[Top]</a></p>
-							<fieldset id="forms__select">
-								<legend>Select menus</legend>
-								<p>
-									<label for="select">Select</label>
-									<select id="select">
-										<optgroup label="Option Group">
-											<option>Option One</option>
-											<option>Option Two</option>
-											<option>Option Three</option>
-										</optgroup>
-									</select>
-								</p>
-							</fieldset>
-							<p><a href="#top">[Top]</a></p>
-							<fieldset id="forms__checkbox">
-								<legend>Checkboxes</legend>
-								<ul class="list list--bare">
-									<li>
-										<label for="checkbox1">
-											<input id="checkbox1" name="checkbox" type="checkbox" checked>
-											Choice A
-										</label>
-									</li>
-									<li>
-										<label for="checkbox2">
-											<input id="checkbox2" name="checkbox" type="checkbox">
-											Choice B
-										</label>
-									</li>
-									<li>
-										<label for="checkbox3">
-											<input id="checkbox3" name="checkbox" type="checkbox">
-											Choice C
-										</label>
-									</li>
-								</ul>
-							</fieldset>
-							<p><a href="#top">[Top]</a></p>
-							<fieldset id="forms__radio">
-								<legend>Radio buttons</legend>
-								<ul class="list list--bare">
-									<li>
-										<label for="radio1">
-											<input id="radio1" name="radio" type="radio" class="radio" checked>
-											Option 1
-										</label>
-									</li>
-									<li>
-										<label for="radio2">
-											<input id="radio2" name="radio" type="radio" class="radio">
-											Option 2
-										</label>
-									</li>
-									<li>
-										<label for="radio3">
-											<input id="radio3" name="radio" type="radio" class="radio">
-											Option 3
-										</label>
-									</li>
-								</ul>
-							</fieldset>
-							<p><a href="#top">[Top]</a></p>
-							<fieldset id="forms__textareas">
-								<legend>Textareas</legend>
-								<p>
-									<label for="textarea">Textarea</label>
-									<textarea id="textarea" rows="8" cols="48" placeholder="Enter your message here"></textarea>
-								</p>
-							</fieldset>
-							<p><a href="#top">[Top]</a></p>
-							<fieldset id="forms__html5">
-								<legend>HTML5 inputs</legend>
-								<p>
-									<label for="ic">Color input</label>
-									<input type="color" id="ic" value="#000000">
-								</p>
-								<p>
-									<label for="in">Number input</label>
-									<input type="number" id="in" min="0" max="10" value="5">
-								</p>
-								<p>
-									<label for="ir">Range input</label>
-									<input type="range" id="ir" value="10">
-								</p>
-								<p>
-									<label for="idd">Date input</label>
-									<input type="date" id="idd" value="1970-01-01">
-								</p>
-								<p>
-									<label for="idm">Month input</label>
-									<input type="month" id="idm" value="1970-01">
-								</p>
-								<p>
-									<label for="idw">Week input</label>
-									<input type="week" id="idw" value="1970-W01">
-								</p>
-								<p>
-									<label for="idt">Datetime input</label>
-									<input type="datetime" id="idt" value="1970-01-01T00:00:00Z">
-								</p>
-								<p>
-									<label for="idtl">Datetime-local input</label>
-									<input type="datetime-local" id="idtl" value="1970-01-01T00:00">
-								</p>
-							</fieldset>
-							<p><a href="#top">[Top]</a></p>
-							<fieldset id="forms__action">
-								<legend>Action buttons</legend>
-								<p>
-									<input type="submit" value="&lt;input type=submit&gt;">
-									<input type="button" value="&lt;input type=button&gt;">
-									<input type="reset" value="&lt;input type=reset&gt;">
-									<input type="submit" value="&lt;input disabled&gt;" disabled>
-								</p>
-								<p>
-									<button type="submit">&lt;button type=submit&gt;</button>
-									<button type="button">&lt;button type=button&gt;</button>
-									<button type="reset">&lt;button type=reset&gt;</button>
-									<button type="button" disabled>&lt;button disabled&gt;</button>
-								</p>
-							</fieldset>
-							<p><a href="#top">[Top]</a></p>
-						</form>
-					</section>
-				</main>
-				<footer role="contentinfo">
-					<p>Made by <a href="http://twitter.com/cbracco">@cbracco</a>. Code on <a href="http://github.com/cbracco/html5-test-page">GitHub</a>.</p>
-				</footer>
-			</div>
-			<hr>
-			<form>
-				<select multiple>
-					<option>Option 1</option>
-					<option>Option 2</option>
-					<optgroup label="OptGroup 1">
-						<option>Option 1.1</option>
-						<option>Option 1.2</option>
-					</optgroup>
-					<option>Option 3</option>
-					<optgroup label="OptGroup 2">
-						<option>Option 2.1</option>
-						<option>Option 2.2</option>
-						<option>Option 2.3</option>
-					</optgroup>
-				</select>
-			</form>
-		</div>
+		<div></div>
 	</main>
 	<footer>
 		<!-- DaiZy Html (Admin Dashboard) Template v0.1.0 -->
@@ -716,12 +753,11 @@ No matching search found!
 	<div class="scripts">
 		<noscript class="nojs">Javascript disabled!</noscript>
 		<script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
-		<script src="assets/vendor/svgxuse-1.2.6/svgxuse.min.js"></script>
-		<script src="assets/daizy/daizy.js"></script>
-		<script src="assets/daizy/dashboard.js"></script>
-		<script src="assets/daizy/daizy.collapse.js"></script>
-		<script src="assets/daizy/daizy.tabs.js"></script>
-		<script src="assets/daizy/demo.dashboard.js"></script>
+		<script src="assets/vendor/jquery-3.3.1/jquery-3.3.1.min.js"></script>
+		<script src="assets/vendor/bootstrap-4.2.1-dist/js/bootstrap.bundle.min.js"></script>
+		<script src="assets/daizy/js/daizy.js"></script>
+		<script src="assets/daizy/js/dashboard.js"></script>
+		<script src="assets/daizy/js/demo.dashboard.js"></script>
 	</div>
 </body>
 </html>

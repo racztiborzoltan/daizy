@@ -29,9 +29,14 @@
 
 	
 	<xsl:template match="head_css">
+	
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous" />
+		
+		<!-- bootstrap css fájlok átmásolása a cél helyre -->
 		<xsl:call-template name="css_tag_with_copy">
-			<xsl:with-param name="href">assets/vendor/primitive-1.3.0/dist/css/main.css</xsl:with-param>
+			<xsl:with-param name="href">assets/vendor/bootstrap-4.2.1-dist/css/bootstrap.min.css</xsl:with-param>
 		</xsl:call-template>
+		<xsl:value-of select="php:function('\Daizy\SiteBuildHelper::copyFile', 'assets/vendor/bootstrap-4.2.1-dist/css/bootstrap.min.css.map')"/>
 		
 		<!-- "assets/daizy/daizy.min.css" fájl átmásolása a cél helyre -->
 		<xsl:call-template name="css_tag_with_copy">
@@ -47,14 +52,20 @@
 		<noscript class="nojs">Javascript disabled!</noscript>
 		<script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
 
-		<!-- svgxuse javascript fájl átmásolása a cél helyre -->
+		<!-- jquery javascript fájl átmásolása a cél helyre -->
 		<xsl:call-template name="script_tag_with_copy">
-			<xsl:with-param name="src">assets/vendor/svgxuse-1.2.6/svgxuse.min.js</xsl:with-param>
+			<xsl:with-param name="src">assets/vendor/jquery-3.3.1/jquery-3.3.1.min.js</xsl:with-param>
 		</xsl:call-template>
+
+		<!-- bootstrap js fájlok átmásolása a cél helyre -->
+		<xsl:call-template name="script_tag_with_copy">
+			<xsl:with-param name="src">assets/vendor/bootstrap-4.2.1-dist/js/bootstrap.bundle.min.js</xsl:with-param>
+		</xsl:call-template>
+		<xsl:value-of select="php:function('\Daizy\SiteBuildHelper::copyFile', 'assets/vendor/bootstrap-4.2.1-dist/js/bootstrap.bundle.min.js.map')"/>
 
 		<!-- daizy.js fájl átmásolása a cél helyre -->
 		<xsl:call-template name="script_tag_with_copy">
-			<xsl:with-param name="src">assets/daizy/daizy.js</xsl:with-param>
+			<xsl:with-param name="src">assets/daizy/js/daizy.js</xsl:with-param>
 		</xsl:call-template>
 	</xsl:template>
 	
@@ -74,10 +85,7 @@
 	XSLT átalakítást elindító sablon definíció
 	-->
 	<xsl:template match="/variables">
-	
-		<!-- copy svg icon sprite file -->
-		<xsl:value-of select="php:function('\Daizy\SiteBuildHelper::copyFile', 'assets/daizy/icons-sprite.svg')"/>
-	
+		
 		<xsl:text disable-output-escaping='yes'>&lt;!DOCTYPE html&gt;</xsl:text>
 		<xsl:call-template name="comment_copyright_text"/>
 		<html lang="en" class="daizy-wrapper">
@@ -91,9 +99,11 @@
 
 				<xsl:apply-templates select="head_css"></xsl:apply-templates>
 			</head>
-			<body class="container">
-				<div class="page-loader">
-					<span class="dot"></span>
+			<body class="bg-light">
+				<div class="page-loader bg-light">
+					<div class="spinner-grow text-primary" role="status">
+						<span class="sr-only">Loading...</span>
+					</div>
 				</div>
 				<xsl:call-template name="body_content"/>
 				

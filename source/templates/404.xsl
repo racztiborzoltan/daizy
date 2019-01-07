@@ -11,14 +11,14 @@
 		<xsl:apply-imports/>
 		
 		<!-- 404.css fájl másolása -->
-		<xsl:variable name="page_404_css_path">assets/daizy/404.css</xsl:variable>
+		<xsl:variable name="page_404_css_path">assets/daizy/404.min.css</xsl:variable>
 		<xsl:value-of select="php:function('\Daizy\SiteBuildHelper::copyFile', $page_404_css_path)"/>
 		<link rel="stylesheet" href="{$page_404_css_path}"/>
 	</xsl:template>
 
 	<xsl:template name="body_content">
-		<main class="not-found-page text-error">
-			<h1>404 - Page Not Found</h1>
+		<main class="p-5 not-found-page text-error">
+			<h1 class="display-4">404 - Page Not Found</h1>
 		</main>
 	</xsl:template>
 

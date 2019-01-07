@@ -23,19 +23,11 @@
 		<xsl:apply-imports/>
 		
 		<xsl:call-template name="script_tag_with_copy">
-			<xsl:with-param name="src">assets/daizy/dashboard.js</xsl:with-param>
+			<xsl:with-param name="src">assets/daizy/js/dashboard.js</xsl:with-param>
 		</xsl:call-template>
 		
 		<xsl:call-template name="script_tag_with_copy">
-			<xsl:with-param name="src">assets/daizy/daizy.collapse.js</xsl:with-param>
-		</xsl:call-template>
-		
-		<xsl:call-template name="script_tag_with_copy">
-			<xsl:with-param name="src">assets/daizy/daizy.tabs.js</xsl:with-param>
-		</xsl:call-template>
-		
-		<xsl:call-template name="script_tag_with_copy">
-			<xsl:with-param name="src">assets/daizy/demo.dashboard.js</xsl:with-param>
+			<xsl:with-param name="src">assets/daizy/js/demo.dashboard.js</xsl:with-param>
 		</xsl:call-template>
 		
 	</xsl:template>
@@ -48,51 +40,58 @@
 	</xsl:template>
 	
 	<xsl:template name="body_header">
-		<header>
-
-			<nav>
-				<form class="search" onsubmit="return false;">
-					<input type="search" placeholder="Search..." aria-label="Search"/>
+		<header class="container">
+			<nav class="navbar navbar-expand-sm navbar-light bg-light">
+				<form class="form-inline flex-grow-1 my-2 my-lg-0 mr-2 search">
+					<div class="input-group w-100">
+						<input class="form-control" type="search" placeholder="Search" aria-label="Search" />
+						<div class="input-group-append">
+							<span class="input-group-text bg-white" id="basic-addon2">
+								<i class="fas fa-search"></i>
+							</span>
+						</div>
+					</div>
 				</form>
 				
-				<label for="nav_menu_toggler" data-menu-toggler="">
-					<xsl:text disable-output-escaping="yes">&amp;</xsl:text>equiv;
-				</label>
-				
-				<input id="nav_menu_toggler" type="checkbox" data-menu-toggler="" hidden=""/>
-				<ul class="nav-menu">
-					<li>
-						<a href="" title="Main Page">
-							<svg class="icon"><use xlink:href="assets/daizy/icons-sprite.svg#bytesize-home"></use></svg>
-							<span class="caption">Main Page</span>
-						</a>
-					</li>
-					<li>
-						<label class="language-switcher" title="Change Language">
-							<svg class="icon"><use xlink:href="assets/daizy/icons-sprite.svg#bytesize-settings"></use></svg>
-							<select title="Change language...">
-								<option value="hu">hu</option>
-								<option value="en">en</option>
-								<option value="de">de</option>
-							</select>
-						</label>
-					</li>
-					<li>
-						<a href="#" title="Logout">
-							<svg class="icon"><use xlink:href="assets/daizy/icons-sprite.svg#bytesize-logout"></use></svg>
-							<span class="caption">
-								Logout
-							</span>
-						</a>
-					</li>
-				</ul>
+				<!-- <a class="navbar-brand" href="#">Navbar</a> -->
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+			
+				<div class="collapse navbar-collapse flex-grow-0" id="navbarSupportedContent">
+					<ul class="navbar-nav mr-auto">
+						<li class="nav-item active">
+							<a class="nav-link" href="#" title="Main Page">
+								<i class="fas fa-home fa-fw mr-2 mr-sm-0"></i>
+								<span class="d-inline d-sm-none caption">Main Page</span>
+								<span class="sr-only">(current)</span>
+							</a>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="Change language">
+								<i class="fas fa-globe fa-fw mr-2 mr-sm-0"></i>
+							</a>
+							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+								<a class="dropdown-item" href="#">en</a>
+								<a class="dropdown-item" href="#">de</a>
+								<a class="dropdown-item" href="#">hu</a>
+							</div>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#" title="Logout">
+								<i class="fas fa-sign-out-alt fa-fw mr-2 mr-sm-0"></i>
+							</a>
+						</li>
+					</ul>
+				</div>
 			</nav>
+			<hr class="navbar-bottom"/>
 		</header>
 	</xsl:template>
 	
 	<xsl:template name="body_main">
-		<main>
-			<!-- 
+		<main class="container">
+				
 			<div class="menu-content-list">
 				<xsl:for-each select="/variables/dashboard_menu_content/*">
 					<xsl:call-template name="display_menu_content">
@@ -107,32 +106,12 @@
 					<xsl:with-param name="menu_content" select="php:function('getHtmlTestPageBodyContent')"></xsl:with-param>
 				</xsl:call-template>
 			</div>
-			 -->
-			<div id="header_search_no_results" class="card text-center" hidden="">
+			<div id="header_search_no_results" class="alert alert-info text-center" hidden="hidden">
 				No matching search found!
 			</div>
 			
 			<div>
-				<xsl:copy-of select="php:function('getHtmlTestPageBodyContent')"></xsl:copy-of>
-				
-				<hr />
-				
-				<form>
-					<select multiple="multiple">
-						<option>Option 1</option>
-						<option>Option 2</option>
-						<optgroup label="OptGroup 1">
-							<option>Option 1.1</option>
-							<option>Option 1.2</option>
-						</optgroup>
-						<option>Option 3</option>
-						<optgroup label="OptGroup 2">
-							<option>Option 2.1</option>
-							<option>Option 2.2</option>
-							<option>Option 2.3</option>
-						</optgroup>
-					</select>
-				</form>
+<!-- 				<xsl:copy-of select="php:function('getHtmlTestPageBodyContent')"></xsl:copy-of> -->
 			</div>
 		</main>
 	</xsl:template>
@@ -161,24 +140,23 @@
 		
 		<xsl:variable name="collapse_id" select="concat('collapse_', $menu_content_id)"></xsl:variable>
 		
-		<section class="card menu-content-item">
-			<header class="card-header menu-content-header" data-caption="{$menu_content_caption}">
-				<h4>
-					<a class="button clear" data-collapse-target="#{$collapse_id}">
+		<section class="card mb-3 menu-content-item">
+			<header class="card-header p-2 text-center menu-content-header" data-caption="{$menu_content_caption}">
+				<button class="btn btn-link" type="button" data-toggle="collapse" data-target="#{$collapse_id}" aria-expanded="false" aria-controls="{$collapse_id}">
+					<span class="caption menu-caption">
 						<xsl:value-of select="$menu_content_caption"></xsl:value-of>
-					</a>
-					<button class="button clear maximize-menu-content-section" type="button" title="Maximize this section">
-						<svg class="icon"><use xlink:href="assets/daizy/icons-sprite.svg#bytesize-external"></use></svg>
-					</button>
-					<button class="button clear minimize-menu-content-section" type="button" title="Minimize this section" hidden="">
-						<svg class="icon"><use xlink:href="assets/daizy/icons-sprite.svg#bytesize-external"></use></svg>
-					</button>
-	<!-- 				<label class="button clear menu-content-toggler" for="{$collapse_id}" tabindex="0"> -->
-	<!-- 					<xsl:value-of select="$menu_content_caption"></xsl:value-of> -->
-	<!-- 				</label> -->
-				</h4>
+					</span>
+				</button>
+				<!--  
+				<button class="btn btn-link maximize-menu-content-section" type="button" title="Maximize this section">
+					<i class="far fa-window-maximize"></i>
+				</button>
+				<button class="btn btn-link minimize-menu-content-section" type="button" title="Minimize this section" hidden="">
+					<i class="far fa-window-minimize"></i>
+				</button>
+				-->
 			</header>
-			<article id="{$collapse_id}" class="collapse menu-content-container" hidden="">
+			<article id="{$collapse_id}" class="card-body collapse menu-content-container">
 				<xsl:copy-of select="$menu_content"></xsl:copy-of>
 			</article>
 		</section>

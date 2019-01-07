@@ -1,99 +1,18 @@
-@import '../../vendor/colors-3.0.0/src/_variables.css';
-@import '../../vendor/colors-3.0.0/src/_skins.css';
-
-/* @import '../../vendor/modern-normalize-0.5.0/modern-normalize.css'; */
-
 @import '_variables';
 
-/* @import '_utils.scss'; */
-/* @import '_typography.scss'; */
-/* @import '_form.scss'; */
-/* @import '_card.scss'; */
-/* @import '_tabs.scss'; */
-/* @import '_buttons.scss'; */
-
-/* @import '../../vendor/primitive-1.3.0/src/scss/main.scss'; */
-
-:root {
-	--daizy-primary-color: var(--olive);
-	
-	--daizy-text-color: var(--black);
-	--daizy-border-radius: 0.3em;
-	--daizy-space-small: 0.5rem;
-	--daizy-space-medium: 1rem;
-	--daizy-space-large: 2rem;
-	--daizy-space-2x: 2rem;
-	--daizy-space: var(--daizy-space-medium);
-	--daizy-padding: 1rem;
-	--daizy-border-radius: 0.25em;
-	
-	--daizy-background-color: var(--white);
-	--daizy-link-color: var(--blue);
-	
-	--daizy-media-breakpoint-down: 767px;
-	--daizy-media-breakpoint-up: 768px;
-	
-	--system-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-	
-	/*
-	 * Chota overrides:
-	 */
-	--font-size: 1em;
-	--daizy-font-size: var(--font-size);
-	
-	
-	/* https://css-tricks.com/snippets/css/system-font-stack */
-	font-family: var(--system-font-family);
-	font-size: 16px;
-	color: var(--daizy-text-color);
-	background-color: var(--daizy-background-color);
-}
-
-html{
-	font-size: 16px;
+html, body {
+	font-size: $daizy-base-font-size;
 	margin: 0;
 	padding: 0;
 }
 body{
 /* 	height: 100%; */
-	padding: 0 0.5em;
+	padding: 0;
 	max-width: 100%;
-	margin: 0;
 	min-width: 16em;
-	font-size: var(--daizy-font-size);
-}
-@media (min-width: $daizy-media-breakpoint-up) {
-	html {
-	}
-	body {
-		max-width: 1100px;
-		margin: 0 auto;
-		padding: 0 var(--daizy-space);
-	}
 }
 
 .daizy-wrapper {
-	
-	a {
-		color: var(--daizy-link-color);
-		text-decoration: none;
-	}
-	a:hover,
-	a:focus {
-		color: var(--maroon);
-		text-decoration: underline;
-	}
-	a:focus {
-		font-style: italic;
-	}
-	
-	footer {
-		padding: var(--daizy-space) 0;
-	}
-	
-	body > footer {
-		margin: 0;
-	}
 	
 	noscript.nojs {
 		display: block;
@@ -103,12 +22,12 @@ body{
 		right: 0;
 		bottom: 0;
 		z-index: 99999;
-		background-color: var(--daizy-background-color);
 		display: flex;
 		align-content: center;
 		align-items: center;
 		justify-content: center;
 		font-size: 3em;
+		z-index: 100;
 	}
 	
 	.page-loader {
@@ -122,44 +41,7 @@ body{
 		align-content: center;
 		align-items: center;
 		justify-content: center;
-		background-color: var(--daizy-background-color);
-		color: var(--olive);
-	}
-	.page-loader .dot{
-		animation: fontsizePulse 1s ease-out;
-		animation: scalePulse 1s ease-out;
-		animation-iteration-count: infinite;
-/* 		animation-iteration-count: 1; */
-		opacity: 1; 
-		line-height: 0;
-		display: inline-block;
-		width: 1em;
-		height: 1em;
-		border-radius: 50%;
-		background-color: var(--olive);
-	}
-	@keyframes scalePulse {
-		0% {transform: scale(1);opacity: 0;}
-		50% {transform: scale(5);opacity: 1;}
-		100% {transform: scale(1);opacity: 0;}
-	}
-	
-	.fade-out {
-		visibility: hidden;
-		opacity: 0;
-		transition: visibility 0s 1s, opacity 1s linear;
-	}
-	
-	.icon {
-		display: inline-block;
-	}
-	
-	.button {
-		cursor: pointer;
-	}
-	
-	label[tabindex]:focus {
-		text-decoration: underline;
+		z-index: 99;
 	}
 	
 	*[hidden] { display: none; }

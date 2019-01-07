@@ -21,66 +21,64 @@
 		<xsl:apply-imports/>
 		
 		<xsl:call-template name="script_tag_with_copy">
-			<xsl:with-param name="src">assets/daizy/daizy.collapse.js</xsl:with-param>
-		</xsl:call-template>
-		
-		<xsl:call-template name="script_tag_with_copy">
-			<xsl:with-param name="src">assets/daizy/login.js</xsl:with-param>
+			<xsl:with-param name="src">assets/daizy/js/login.js</xsl:with-param>
 		</xsl:call-template>
 	</xsl:template>
 	
 
 	<xsl:template name="body_content">
-		<main class="authentication-area row">
-			<div class="col-3"></div>
-			
-			<input type="radio" name="accordion" id="login-area" class="collapse" aria-hidden="true" checked="checked" autocomplete="off"/>
-			<form class="col-6 login">
-				<p>
-			<h3>Login</h3>
-				</p>
-				<p>
-					<input type="text" placeholder="E-mail" required="required" autofocus="autofocus"/>
-				</p>
-				<p>
-					<input type="password" placeholder="Password" required="required"/>
-				</p>
-				<p>
-					<button type="submit" class="button primary">Login</button>
-				</p>
-				<p>
-					<label class="button clear" for="lost-password-area" tabindex="0">
-						Forgotten password
-					</label>
-				</p>
-				<p class="language-switcher">
-					<select title="Select language">
-						<option value="hu">hu</option>
-						<option value="en">en</option>
-						<option value="de">de</option>
-					</select>
-				</p>
-			</form>
-			<div class="is-full-width"></div>
-			<div class="col-3"></div>
-			
-			<input type="radio" name="accordion" id="lost-password-area" class="collapse" aria-hidden="true"/>
-			<form class="col-6 lost-password">
-				<p>
-					<h3>Forgotten password</h3>
-				</p>
-				<p>
-					<input type="text" placeholder="E-mail" required="required"/>
-				</p>
-				<p>
-					<button type="submit" class="button primary">Submit</button>
-				</p>
-				<p>
-					<label class="button clear" for="login-area" tabindex="0">
-						Back to login
-					</label>
-				</p>
-			</form>
+		<main class="bg-light authentication-area container">
+			<div class="row">
+				<div class="col-sm-6 offset-sm-3 col-md-4 offset-md-4 mt-5">
+					<form class="collapse show text-center login-area">
+						<div class="form-group">
+							<h3>Login</h3>
+						</div>
+						<div class="form-group">
+							<label for="loginInputEmail">Email address</label>
+							<input type="email" class="form-control input-email" id="loginInputEmail" autofocus="autofocus"/>
+						</div>
+						<div class="form-group">
+							<label for="exampleInputPassword1">Password</label>
+							<input type="password" class="form-control" id="exampleInputPassword1" />
+						</div>
+						<div class="form-group">
+							<span class="custom-control custom-checkbox d-inline">
+								<input type="checkbox" class="custom-control-input" id="customCheck1" />
+								<label class="custom-control-label" for="customCheck1">Remember me</label>
+							</span>
+						</div>
+						<div class="form-group">
+							<button type="submit" class="btn btn-primary">Login</button>
+						</div>
+						<div class="form-group">
+							<button type="button" class="btn btn-link" data-toggle="collapse" data-target=".lost-password-area" aria-expanded="false">Forgotten password</button>
+						</div>
+						<div class="form-group">
+							<select class="form-control d-inline w-auto">
+								<option value="hu">hu</option>
+								<option value="en">en</option>
+								<option value="de">de</option>
+							</select>
+						</div>
+					</form>
+					<form class="collapse text-center lost-password-area">
+						<div class="form-group">
+							<h3>Forgotten password</h3>
+						</div>
+						<div class="form-group">
+							<label for="lostpasswordInputEmail">Email address</label>
+							<input type="email" class="form-control input-email" id="lostpasswordInputEmail" />
+						</div>
+						<div class="form-group">
+							<button type="submit" class="btn btn-primary">Send</button>
+						</div>
+						<div class="form-group">
+							<button type="button" class="btn btn-link" data-toggle="collapse" data-target=".login-area" aria-expanded="false">Back to login</button>
+						</div>
+					</form>
+				</div>
+			</div>
 		</main>
 	</xsl:template>
 	

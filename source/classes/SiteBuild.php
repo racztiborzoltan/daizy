@@ -168,7 +168,7 @@ class SiteBuild
 
         // Ha nem létezik a fájl a forrás helyen:
         if (!is_file($source_full_path)) {
-            throw new \InvalidArgumentException('source file not found or not file');
+            exit('source file not found or not file: ' . $source_full_path);
         }
 
         if (
@@ -198,7 +198,7 @@ class SiteBuild
 
         // Ha nem létezik a fájl a forrás helyen:
         if (!is_dir($source_full_path)) {
-            throw new \InvalidArgumentException('source directory not found or not directory');
+            exit('source directory not found or not directory: ' . $source_full_path);
         }
 
         $this->_copyAllToDestination($relative_source_path);
@@ -296,7 +296,7 @@ class SiteBuild
         } else if (is_dir($source_full_path)) {
             $this->copyDirectory($relative_source_path);
         } else {
-            throw new \InvalidArgumentException('source file or directory not found');
+            exit('source file or directory not found: ' . $relative_source_path);
         }
     }
 
