@@ -13,19 +13,9 @@
 	<xsl:template match="head_css">
 		<xsl:apply-imports/>
 		
-		<!-- login.css fájl másolása -->
-		<xsl:variable name="dashboard_css_path">assets/daizy/dashboard.min.css</xsl:variable>
-		<xsl:value-of select="php:function('\Daizy\SiteBuildHelper::copyFile', $dashboard_css_path)"/>
-		<link rel="stylesheet" href="{$dashboard_css_path}"/>
-	</xsl:template>
-
-
-	<xsl:template name="script_tag_with_copy">
-		<xsl:param name="src"></xsl:param>
-		
-		<!-- a javascript fájl másolása -->
-		<xsl:value-of select="php:function('\Daizy\SiteBuildHelper::copyFile', $src)"/>
-		<script src="{$src}"></script>
+		<xsl:call-template name="css_tag_with_copy">
+			<xsl:with-param name="href">assets/daizy/dashboard.min.css</xsl:with-param>
+		</xsl:call-template>
 	</xsl:template>
 
 	
@@ -102,6 +92,7 @@
 	
 	<xsl:template name="body_main">
 		<main>
+			<!-- 
 			<div class="menu-content-list">
 				<xsl:for-each select="/variables/dashboard_menu_content/*">
 					<xsl:call-template name="display_menu_content">
@@ -116,8 +107,32 @@
 					<xsl:with-param name="menu_content" select="php:function('getHtmlTestPageBodyContent')"></xsl:with-param>
 				</xsl:call-template>
 			</div>
+			 -->
 			<div id="header_search_no_results" class="card text-center" hidden="">
 				No matching search found!
+			</div>
+			
+			<div>
+				<xsl:copy-of select="php:function('getHtmlTestPageBodyContent')"></xsl:copy-of>
+				
+				<hr />
+				
+				<form>
+					<select multiple="multiple">
+						<option>Option 1</option>
+						<option>Option 2</option>
+						<optgroup label="OptGroup 1">
+							<option>Option 1.1</option>
+							<option>Option 1.2</option>
+						</optgroup>
+						<option>Option 3</option>
+						<optgroup label="OptGroup 2">
+							<option>Option 2.1</option>
+							<option>Option 2.2</option>
+							<option>Option 2.3</option>
+						</optgroup>
+					</select>
+				</form>
 			</div>
 		</main>
 	</xsl:template>

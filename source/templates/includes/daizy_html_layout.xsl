@@ -8,12 +8,35 @@
 	<xsl:output method="html" encoding="UTF-8" indent="yes" omit-xml-declaration="yes"/>
 	
 	<xsl:param name="head_title" select="'DaiZy Minimalistic Admin Template'" />
+
+
+	<xsl:template name="script_tag_with_copy">
+		<xsl:param name="src"></xsl:param>
+		
+		<!-- a javascript fájl másolása -->
+		<xsl:value-of select="php:function('\Daizy\SiteBuildHelper::copyFile', $src)"/>
+		<script src="{$src}"></script>
+	</xsl:template>
+
+
+	<xsl:template name="css_tag_with_copy">
+		<xsl:param name="href"></xsl:param>
+		
+		<!-- a javascript fájl másolása -->
+		<xsl:value-of select="php:function('\Daizy\SiteBuildHelper::copyFile', $href)"/>
+		<link rel="stylesheet" href="{$href}"/>
+	</xsl:template>
+
 	
 	<xsl:template match="head_css">
+		<xsl:call-template name="css_tag_with_copy">
+			<xsl:with-param name="href">assets/vendor/primitive-1.3.0/dist/css/main.css</xsl:with-param>
+		</xsl:call-template>
+		
 		<!-- "assets/daizy/daizy.min.css" fájl átmásolása a cél helyre -->
-		<xsl:variable name="daizy_css_path">assets/daizy/daizy.min.css</xsl:variable>
-		<xsl:value-of select="php:function('\Daizy\SiteBuildHelper::copyFile', $daizy_css_path)"/>
-		<link rel="stylesheet" href="{$daizy_css_path}"/>
+		<xsl:call-template name="css_tag_with_copy">
+			<xsl:with-param name="href">assets/daizy/daizy.min.css</xsl:with-param>
+		</xsl:call-template>
 	</xsl:template>
 	
 	
@@ -25,14 +48,14 @@
 		<script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
 
 		<!-- svgxuse javascript fájl átmásolása a cél helyre -->
-		<xsl:variable name="svgxuse_js_path">assets/vendor/svgxuse-1.2.6/svgxuse.min.js</xsl:variable>
-		<xsl:value-of select="php:function('\Daizy\SiteBuildHelper::copyFile', $svgxuse_js_path)"/>
-		<script src="{$svgxuse_js_path}"></script>
+		<xsl:call-template name="script_tag_with_copy">
+			<xsl:with-param name="src">assets/vendor/svgxuse-1.2.6/svgxuse.min.js</xsl:with-param>
+		</xsl:call-template>
 
 		<!-- daizy.js fájl átmásolása a cél helyre -->
-		<xsl:variable name="daizy_js_path">assets/daizy/daizy.js</xsl:variable>
-		<xsl:value-of select="php:function('\Daizy\SiteBuildHelper::copyFile', $daizy_js_path)"/>
-		<script src="{$daizy_js_path}"></script>
+		<xsl:call-template name="script_tag_with_copy">
+			<xsl:with-param name="src">assets/daizy/daizy.js</xsl:with-param>
+		</xsl:call-template>
 	</xsl:template>
 	
 	<!-- 

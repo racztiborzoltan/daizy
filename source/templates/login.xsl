@@ -2,6 +2,7 @@
 	version="1.1" 
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
 	xmlns:php="http://php.net/xsl"
+	exclude-result-prefixes="php"
 	>
 	<xsl:import href="includes/daizy_html_layout.xsl" />
 	
@@ -10,20 +11,22 @@
 	<xsl:template match="head_css">
 		<xsl:apply-imports/>
 		
-		<!-- login.min.css fájl másolása -->
-		<xsl:variable name="login_css_path">assets/daizy/login.min.css</xsl:variable>
-		<xsl:value-of select="php:function('\Daizy\SiteBuildHelper::copyFile', $login_css_path)"/>
-		<link rel="stylesheet" href="{$login_css_path}"/>
+		<xsl:call-template name="css_tag_with_copy">
+			<xsl:with-param name="href">assets/daizy/login.min.css</xsl:with-param>
+		</xsl:call-template>
 	</xsl:template>
 
 	
 	<xsl:template match="body_javascript">
 		<xsl:apply-imports/>
 		
-		<!-- login.js fájl másolása -->
-		<xsl:variable name="login_js_path">assets/daizy/login.js</xsl:variable>
-		<xsl:value-of select="php:function('\Daizy\SiteBuildHelper::copyFile', $login_js_path)"/>
-		<script src="{$login_js_path}" type="text/javascript"></script>
+		<xsl:call-template name="script_tag_with_copy">
+			<xsl:with-param name="src">assets/daizy/daizy.collapse.js</xsl:with-param>
+		</xsl:call-template>
+		
+		<xsl:call-template name="script_tag_with_copy">
+			<xsl:with-param name="src">assets/daizy/login.js</xsl:with-param>
+		</xsl:call-template>
 	</xsl:template>
 	
 
