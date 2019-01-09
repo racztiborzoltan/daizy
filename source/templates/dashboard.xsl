@@ -42,25 +42,27 @@
 	<xsl:template name="body_header">
 		<header class="container">
 			<nav class="navbar navbar-expand-sm navbar-light bg-light">
-				<form class="form-inline flex-grow-1 my-2 my-lg-0 mr-2 search">
-					<div class="input-group w-100">
-						<input class="form-control" type="search" placeholder="Search" aria-label="Search" />
-						<div class="input-group-append">
-							<span class="input-group-text bg-white" id="basic-addon2">
-								<i class="fas fa-search"></i>
-							</span>
+				<div class="d-flex flex-nowrap flex-grow-1">
+					<form class="form-inline flex-grow-1 py-2 py-lg-0 pr-2 search">
+						<div class="input-group w-100">
+							<input class="form-control" type="search" placeholder="Search" aria-label="Search" />
+							<div class="input-group-append">
+								<span class="input-group-text bg-white" id="basic-addon2">
+									<i class="fas fa-search"></i>
+								</span>
+							</div>
 						</div>
-					</div>
-				</form>
-				
-				<!-- <a class="navbar-brand" href="#">Navbar</a> -->
-				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
+					</form>
+					
+					<!-- <a class="navbar-brand" href="#">Navbar</a> -->
+					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon"></span>
+					</button>
+				</div>
 			
 				<div class="collapse navbar-collapse flex-grow-0" id="navbarSupportedContent">
 					<ul class="navbar-nav mr-auto">
-						<li class="nav-item active">
+						<li class="nav-item">
 							<a class="nav-link" href="#" title="Main Page">
 								<i class="fas fa-home fa-fw mr-2 mr-sm-0"></i>
 								<span class="d-inline d-sm-none caption">Main Page</span>
@@ -70,6 +72,7 @@
 						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="Change language">
 								<i class="fas fa-globe fa-fw mr-2 mr-sm-0"></i>
+								<span class="d-inline d-sm-none caption">Language</span>
 							</a>
 							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 								<a class="dropdown-item" href="#">en</a>
@@ -80,6 +83,7 @@
 						<li class="nav-item">
 							<a class="nav-link" href="#" title="Logout">
 								<i class="fas fa-sign-out-alt fa-fw mr-2 mr-sm-0"></i>
+								<span class="d-inline d-sm-none caption">Logout</span>
 							</a>
 						</li>
 					</ul>
@@ -147,14 +151,12 @@
 						<xsl:value-of select="$menu_content_caption"></xsl:value-of>
 					</span>
 				</button>
-				<!--  
-				<button class="btn btn-link maximize-menu-content-section" type="button" title="Maximize this section">
-					<i class="far fa-window-maximize"></i>
+				<button class="btn btn-link pin-menu-content-section" type="button" title="Pin this section">
+					<i class="fas fa-thumbtack"></i>
 				</button>
-				<button class="btn btn-link minimize-menu-content-section" type="button" title="Minimize this section" hidden="">
-					<i class="far fa-window-minimize"></i>
+				<button class="btn btn-link unpin-menu-content-section" type="button" title="Unpin this section" hidden="">
+					<i class="fas fa-ban"></i>
 				</button>
-				-->
 			</header>
 			<article id="{$collapse_id}" class="card-body collapse menu-content-container">
 				<xsl:copy-of select="$menu_content"></xsl:copy-of>
