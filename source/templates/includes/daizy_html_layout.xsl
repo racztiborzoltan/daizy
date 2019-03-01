@@ -34,9 +34,9 @@
 		
 		<!-- bootstrap css fájlok átmásolása a cél helyre -->
 		<xsl:call-template name="css_tag_with_copy">
-			<xsl:with-param name="href">assets/vendor/bootstrap-4.2.1-dist/css/bootstrap.min.css</xsl:with-param>
+			<xsl:with-param name="href">assets/vendor/bootstrap-4.3.1-dist/css/bootstrap.min.css</xsl:with-param>
 		</xsl:call-template>
-		<xsl:value-of select="php:function('\Daizy\SiteBuildHelper::copyFile', 'assets/vendor/bootstrap-4.2.1-dist/css/bootstrap.min.css.map')"/>
+		<xsl:value-of select="php:function('\Daizy\SiteBuildHelper::copyFile', 'assets/vendor/bootstrap-4.3.1-dist/css/bootstrap.min.css.map')"/>
 		
 		<!-- "assets/daizy/daizy.min.css" fájl átmásolása a cél helyre -->
 		<xsl:call-template name="css_tag_with_copy">
@@ -59,9 +59,9 @@
 
 		<!-- bootstrap js fájlok átmásolása a cél helyre -->
 		<xsl:call-template name="script_tag_with_copy">
-			<xsl:with-param name="src">assets/vendor/bootstrap-4.2.1-dist/js/bootstrap.bundle.min.js</xsl:with-param>
+			<xsl:with-param name="src">assets/vendor/bootstrap-4.3.1-dist/js/bootstrap.bundle.min.js</xsl:with-param>
 		</xsl:call-template>
-		<xsl:value-of select="php:function('\Daizy\SiteBuildHelper::copyFile', 'assets/vendor/bootstrap-4.2.1-dist/js/bootstrap.bundle.min.js.map')"/>
+		<xsl:value-of select="php:function('\Daizy\SiteBuildHelper::copyFile', 'assets/vendor/bootstrap-4.3.1-dist/js/bootstrap.bundle.min.js.map')"/>
 
 		<!-- daizy.js fájl átmásolása a cél helyre -->
 		<xsl:call-template name="script_tag_with_copy">
