@@ -51,7 +51,7 @@
 	
 	<xsl:template match="body_javascript">
 		<noscript class="nojs">Javascript disabled!</noscript>
-		<script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
+		<script src="//polyfill.io/v3/polyfill.min.js"></script>
 
 		<!-- jquery javascript fájl átmásolása a cél helyre -->
 		<xsl:call-template name="script_tag_with_copy">
